@@ -1,0 +1,2303 @@
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+#include <auris.h>
+#include <svc.h>
+
+#include "display.h"
+#include "input.h"
+#include "printer.h"
+#include "comms.h"
+#include "clock.h"
+
+int conHandle = -1;
+
+uchar risLogo[] =
+{
+	0x80, 0x28, 0x00, 0xAF, 0xFF, 0xFF, 0xFF, 0xF8, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x05, 0x57,
+	0xFF, 0xFF, 0xFF, 0xFE, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0A, 0xAF, 0xFF, 0xFF, 0xFF, 0xFF,
+	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x05, 0x57, 0xFF, 0xFF, 0xFF, 0xFF, 0x00, 0x00, 0x00, 0x00,
+	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0A, 0xAF, 0xFF, 0xFF, 0xFF, 0xFF, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+	0x00, 0x00, 0x15, 0x57, 0xFF, 0xFF, 0xFF, 0xFF, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0A, 0x00,
+	0x00, 0x00, 0x0F, 0xFF, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x15, 0x00, 0x00, 0x00, 0x03, 0xFF,
+	0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0A, 0x00, 0x00, 0x00, 0x01, 0xFF, 0x80, 0x00, 0x00, 0x00,
+	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x15, 0x00, 0x00, 0x00, 0x01, 0xFF, 0x83, 0xF8, 0xFE, 0x80, 0x21, 0x03, 0xF8, 0xFC,
+	0x3F, 0x80, 0x0A, 0x00, 0x00, 0x00, 0x00, 0xFF, 0x82, 0x08, 0x80, 0xC4, 0x63, 0x82, 0x08, 0x86, 0x30, 0x80, 0x15, 0x57,
+	0xFF, 0xFF, 0x00, 0xFF, 0x82, 0x08, 0x80, 0x4E, 0x46, 0xC2, 0x08, 0x83, 0x20, 0x00, 0x0A, 0xAF, 0xFF, 0xFF, 0x80, 0xFF,
+	0x83, 0xF8, 0xF8, 0x5B, 0x44, 0x43, 0xF8, 0x83, 0x3F, 0x80, 0x15, 0x57, 0xFF, 0xFF, 0x80, 0xFF, 0x82, 0x60, 0x80, 0x71,
+	0xCF, 0xE2, 0x60, 0x83, 0x00, 0x80, 0x0A, 0xAF, 0xFF, 0xFF, 0x80, 0xFF, 0x82, 0x30, 0x80, 0x31, 0x88, 0x22, 0x30, 0x86,
+	0x21, 0x80, 0x15, 0x57, 0xFF, 0xFF, 0x80, 0xFF, 0x82, 0x18, 0xFE, 0x20, 0x98, 0x32, 0x18, 0xFC, 0x3F, 0x80, 0x0A, 0xAF,
+	0xFF, 0xFF, 0x80, 0xFF, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x15, 0x57, 0xFF, 0xFF, 0x80, 0xFF,
+	0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0A, 0xAF, 0xFF, 0xFF, 0x00, 0xFF, 0x80, 0x00, 0x00, 0x00,
+	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x15, 0x57, 0xF8, 0x00, 0x00, 0xFF, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+	0x00, 0x00, 0x0A, 0xAF, 0xF8, 0x00, 0x01, 0xFF, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x15, 0x57,
+	0xF8, 0x00, 0x01, 0xFF, 0x80, 0x00, 0x00, 0xFE, 0x20, 0x20, 0x8F, 0xE0, 0x00, 0x00, 0x0A, 0xAF, 0xF8, 0x00, 0x03, 0xFF,
+	0x80, 0x00, 0x00, 0xC2, 0x20, 0x20, 0x88, 0x60, 0x00, 0x00, 0x15, 0x57, 0xF8, 0x00, 0x0F, 0xFF, 0x80, 0x00, 0x00, 0x80,
+	0x20, 0x20, 0x88, 0x20, 0x00, 0x00, 0x0A, 0xAF, 0xF8, 0x07, 0xFF, 0xFF, 0x80, 0x00, 0x00, 0x80, 0x20, 0x20, 0x8F, 0xE0,
+	0x00, 0x00, 0x15, 0x57, 0xFC, 0x03, 0xFF, 0xFF, 0x80, 0x00, 0x00, 0x80, 0x20, 0x20, 0x88, 0x20, 0x00, 0x00, 0x0A, 0xAF,
+	0xFE, 0x01, 0xFF, 0xFF, 0x80, 0x00, 0x00, 0xC2, 0x30, 0x31, 0x88, 0x60, 0x00, 0x00, 0x15, 0x57, 0xFF, 0x00, 0xFF, 0xFF,
+	0x80, 0x00, 0x00, 0xFE, 0x3F, 0x3F, 0x8F, 0xE0, 0x00, 0x00, 0x0A, 0xAF, 0xFF, 0x80, 0x7F, 0xFF, 0x80, 0x00, 0x00, 0x00,
+	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x15, 0x57, 0xFF, 0xC0, 0x3F, 0xFF, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+	0x00, 0x00, 0x0A, 0xAF, 0xFF, 0xE0, 0x1F, 0xFF, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x15, 0x57,
+	0xFF, 0xF0, 0x0F, 0xFF, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0A, 0xAF, 0xFF, 0xF8, 0x07, 0xFF,
+	0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x15, 0x57, 0xFF, 0xFC, 0x03, 0xFF, 0x80, 0x00, 0x00, 0x00,
+	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x0A, 0xAF, 0xFF, 0xFE, 0x00, 0xFF, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+	0x00, 0x00, 0x15, 0x57, 0xFF, 0xFF, 0x00, 0xFF, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xEB, 0x0A, 0xAF,
+	0xFF, 0xFF, 0xFF, 0xFF, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xAA, 0x05, 0x57, 0xFF, 0xFF, 0xFF, 0xFF,
+	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xEB, 0x0A, 0xAF, 0xFF, 0xFF, 0xFF, 0xFF, 0x00, 0x00, 0x00, 0x00,
+	0x00, 0x00, 0x00, 0x00, 0x00, 0xC9, 0x05, 0x57, 0xFF, 0xFF, 0xFF, 0xFE, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+	0x00, 0xAB
+};
+
+
+T_COMMS comms;
+static char ownIpAddress[16];
+static char peerIpAddress[16];
+static ulong tcpPort;
+static uchar downstream[10000];		// Must eventually use a the file system to store this information - Check and see how best to deal with storage eventually
+static char uploadOffline[500];
+char serialNumber[12];
+
+char currentObject[17];
+char * currentObjectData;
+unsigned int currentObjectLength;
+char currentObjectVersion[7];
+char currentObjectType[11];
+char newObject[17];
+char * currentObjectEvent;
+char currentObjectEventValue[11];
+
+bool override = true;
+
+#define	MAX_DATA	40
+struct
+{
+	char name[50];
+	char value[100];
+} data[MAX_DATA];
+
+struct
+{
+	uchar key;
+	T_EVTBITMAP evtBitmap;
+	char event[11];
+	char action[200];
+	char * object;
+} map[20];
+
+uchar track1Len = 80;
+uchar track2Len = 40;
+char track1[90];
+char track2[50];
+
+//
+//-----------------------------------------------------------------------------
+// FUNCTION   : getObjectValue
+//
+// DESCRIPTION:	Look inside the object passed in 'data' for an object with the name
+//				'name' and return its data stored within an allocated memory block
+//				for easy parsing.
+//
+//				When looking for second level objects, the name must specify
+//				the the two objects as in this example: "/A/B", which looks for
+//				object B within object A within the main object passed in as 'data'.
+//				Continuing from here, "/A/B/C" will search for object C within B
+//				within A within the main object represented by the data passed.
+//
+// PARAMETERS:	data	<=	The main object
+//				name	<=	The 'string' part of the object.
+//
+// RETURNS:		Pointer to an allocated memory structure representing the 'value'
+//				of the object in question
+//
+//-----------------------------------------------------------------------------
+//
+static char * getObjectValue(char * data, int size, char * name)
+{
+	char search[4000];
+	int i, j, k;
+	int length = 0;
+	int count[10];	// Assuming a maximum of 10 nested levels...I think this is more than enough
+	int level = 0;
+	char * value;
+	char * ptr;
+	int valueStart;
+	int sqwigly;
+	int square;
+
+	// Search for the start of the value
+	for (i = 0, j = 0, sqwigly = -1, square = 0; i < size; i++)
+	{
+		// We must always be looking for the beginning of the character
+		// just preceding the string of the object (ie comma or sqwigly bracket)
+		if (name[j] != '/')
+			return NULL;
+
+		// If we are looking for a sqwigly bracket, it must be the next character in the object buffer or we have an OBJECT NOT FOUND.
+		if (sqwigly == -1 && data[i] != '{')
+			return NULL;
+
+		// Any objects found within an array needs to be ignore completely at this stage...
+		// If we change our minds later to find objects as part of an array, then this needs
+		// modification...
+		if (data[i] == '[')
+			square++;
+		else if (data[i] == ']')
+			square--;
+		else if (square == 0)
+		{
+			// If we find a { without finding the string of the object, ignore everything
+			// until the closing sqwigly bracket even if the same string name appears within this
+			if (data[i] == '{')
+				sqwigly++;
+
+			// If we find a closing sqwigly bracket, then nullify the effect of the corresponding open sqwigly bracket
+			else if (data[i] == '}')
+			{
+				// IF this is the last of the object, return an OBJECT NOT FOUND.
+				if (--sqwigly < 0)
+					return NULL;
+			}
+
+			// If we are locating the start of the object, then.
+			if (sqwigly == 0 && (data[i] == '{' || data[i] == ','))
+			{
+				// Make sure we have detected a matching name...
+				for (k = 1; name[j+k] && (name[j+k] == data[i+k]); k++);
+
+				// ... and also detect the ':" immediately after the name
+				if (data[i+k] == ':')
+				{
+					// If we find it stop
+					if (name[j+k] == '\0')
+					{
+						i += (k + 1);
+						break;
+					}
+
+					// If we find it but we now have to look further for nested objects, do it
+					else if (name[j+k] == '/')
+					{
+						i += k;
+						j += k;
+						sqwigly = -1;
+					}
+				}
+			}
+		}
+	}
+
+	// If the object is not found, return NULL
+	if (i == size)
+		return NULL;
+
+	// Find amount of memory needed to store the value in a quickly accessible location
+	for (memset(count, 0, sizeof(count)), valueStart = i, sqwigly = 0, j = 0; i < size; i++)
+	{
+		// Treat inner objects as part of the element data and ignore arrays and commas within it (if sqwigly is set)...
+		// If we find the beginning of an array, store an indication and increment the level
+		if (sqwigly == 0 && (valueStart == i || data[i-1] == '[' || data[i-1] == ',') && data[i] == '[')
+		{
+			search[j++] = '[';
+			square++;
+			level++;
+		}
+
+		// If we find comma or closing bracket then capture the length of the current element
+		else if (sqwigly == 0 && (data[i] == ',' || (square && data[i] == ']')))
+		{
+			// Store the length of the element
+			search[j++] = (length+5) >> 8 | 0x80;	// Setting the top bit ensures we do not conflict with commas and brackets
+			search[j++] = ((length+5) & 0xFF);		// Adding FIVE to the length allows elements to be stored later as strings ending with a NULL,
+													// and also allows for the type of the element (4 bytes for allignment) to be stored in the beginning simplifying deallocation
+			length = 0;
+
+			// If a closing bracket///
+			if (data[i] == ']')
+			{
+				search[j++] = ']';
+				square--;
+				length = (count[level]+2) * sizeof(char *) - 1;	//Include the last element and an end of list null pointer.
+				count[level--] = 0;
+				if (level == 0)
+				{
+					// Store the length of the element
+					search[j++] = (length+5) >> 8 | 0x80;	// Setting the top bit ensures we do not conflict with commas and brackets
+					search[j++] = ((length+5) & 0xFF);		// Adding TWO to the length allows elements to be stored later as strings ending with a NULL,
+															// and also allows for the type of the element  (4 bytes for allignment) to be stored in the beginning simplifying deallocation
+					length = 0;
+				}
+			}
+
+			// else, make sure we capture the location of the comma
+			else if (data[i] == ',')
+			{
+				if (level == 0)
+				{
+					i--;
+					break;
+				}
+				count[level]++;
+				search[j++] = ',';
+			}
+
+			// If the level is ZERO, then this is the end of the entire object value
+			if (level == 0) break;
+		}
+
+		// If this is the end of the object, do not count it
+		// Otherwise, keep counting the length of the current element
+		else if (data[i] != '}' || sqwigly)
+		{
+			// Count down embedded objects as we find the closing sqwigly brackets
+			if (data[i] == '}') sqwigly--;
+			// If an internal object is detected, make sure we also count the closing sqwigly bracket
+			else if (data[i] == '{') sqwigly++;
+
+			length++;
+		}
+	}
+
+	// If the element is not an array, then just allocate a single buffer for the element
+	if (length)
+	{
+		i -= 2;									// Lose the NULL character at the end of the string and the } or , after the element value
+		search[j++] = (length+5) >> 8 | 0x80;	// Setting the top bit ensures we do not conflict with commas and brackets
+		search[j++] = ((length+5) & 0xFF);		// Adding FIVE to the length allows elements to be stored later as strings ending with a NULL,
+	}
+
+	// Allocate memory for each array and element in the value list
+	for (memset(count, 0, sizeof(count)), level = 0, --j; j >= 0; j--)
+	{
+		if (search[j-1] & 0x80)
+		{
+			count[level] = (search[j-1] & 0x7F) * 256 + search[j--];
+			if (level == 0)
+				ptr = value = calloc(count[level], sizeof(char));	// This also ensures it is all initialised. Important if we need a NULL pointer at the end.
+			else
+			{
+				for (k = 0, ptr = (char *) &value; k < level; k++)
+				{
+					ptr = *((char **) ptr);
+					ptr[0] = 1;	// This indicates that this is an array
+					ptr = &ptr[count[k]-8];
+				}
+				*((char **) ptr) = calloc(count[level], sizeof(char));
+				ptr = *((char **) ptr);
+			}
+		}
+		else if (search[j] == ']' && data[i] == ']')
+		{
+			level++;
+			i--;
+		}
+		else if (search[j] == '[' || search[j] == ',')
+		{
+			if (data[i] != ',' || data[i+1] != '[' || data[i] != search[j])
+			{
+				for (sqwigly = 0;sqwigly || data[i] != search[j]; i--, count[level]--)
+				{
+					if (data[i] == '}') sqwigly++;
+					else if (data[i] == '{') sqwigly--;
+					ptr[count[level]-2] = data[i];
+				}
+				if (search[j] == '[')
+					--level;
+				if (level > 0) count[level-1] -= sizeof(char *);
+			}
+			i--;
+		}
+	}
+
+	// If the element is not an array, then just store the value
+	for (; i >= valueStart; i--, count[level]--)
+		ptr[count[level]-2] = data[i];
+	
+	// Return the value data pointer
+	return value;
+}
+
+//
+//-----------------------------------------------------------------------------
+// FUNCTION   : deallocateObjectValue
+//
+// DESCRIPTION:	Deallocate the object value completely including its nested arrays
+//
+//				Examine the buffer pointer to by value and by nested pointers of value...
+//				If the buffer ends with a null pointer (ie FOUR zeros), then this is
+//				an array of pointers, so traverse one level down first. If not, just
+//				deallocate and go back
+//
+//				THIS IS A RECURSIVE FUNCTION
+//
+// PARAMETERS:	value	<=	The array or element to free
+//
+// RETURNS:		None
+//
+//-----------------------------------------------------------------------------
+//
+static void deallocateObjectValue(char * value)
+{
+	// Make sure value is already allocated and not NULL
+	if (value == NULL)
+		return;
+
+	// If this is a simple element, free it
+	if (value[0] == 0)
+		free(value);
+
+	// If this is an array, pick up the array pointer lists one by one and free them
+	else if (value[0] == 1)
+	{
+		int i;
+
+		// Deallocate each element within the array
+		for (i = 4; *((char **) &value[i]) != NULL; i += sizeof(char *))
+			deallocateObjectValue(*((char **) &value[i]));
+
+		// Deallocate the array itself
+		free(value);
+	}
+}
+
+unsigned int getNextObject(unsigned int * index)
+{
+	char data;
+	unsigned int length = 0;
+	int marker = 0;
+
+	for (;(*index+length) < comms.wLength;)
+	{
+		// Identify the byte we are examining
+		data = downstream[*index+length];
+
+		// Detect the start of the object
+		if (marker == 0 && data != '{')
+			(*index)++;
+
+		// If we detect the start of an object, increment the object marker
+		if (data == '{')
+			marker++;
+
+		// If the marker is detected, start accounting for the json object
+		if (marker)
+			length++;
+
+		// If we detect the end of an object, decrement the marker
+		if (data == '}')
+		{
+			marker--;
+			if (marker < 0)
+			{
+				// Incorrectly formatted JSON object. Found end of object without finding beginning of object
+				return 0;
+			}
+			if (marker == 0)
+				break;
+		}
+
+	}
+
+	if (length)
+		return length;
+
+	return 0;
+}
+
+static void processResponse()
+{
+	unsigned int index;
+	unsigned int length;
+
+	// Store each object in a file. That's it
+	for (index = 0; (length = getNextObject(&index)) != 0; index += length)
+	{
+		int handle;
+		char * name;
+
+		name = getObjectValue((char *) &downstream[index], length, "/NAME");
+
+		// Create the object within the terminal
+		if (name && name[0] == 0)
+		{
+			handle = open(&name[4], O_CREAT | O_TRUNC | O_RDWR | O_APPEND);
+			write(handle, (char *) &downstream[index], length);
+			close(handle);
+		}
+
+		// Deallocate the object value used
+		deallocateObjectValue(name);
+	}
+}
+
+static void processFile(char * fileName, unsigned int length)
+{
+	int handle;
+
+	if (length)
+	{
+		handle = open(fileName, O_CREAT | O_TRUNC | O_RDWR | O_APPEND);
+		if (handle != -1)
+		{
+			write(handle, (char *) downstream, length);
+			close(handle);
+		}
+	}
+}
+
+static bool HostConnect()
+{
+	// Test connections to the host
+	memset(&comms, 0, sizeof(comms));
+	comms.bConnectionTimeout = 15;
+	comms.eConnectionType = E_CONNECTION_TYPE_IP;
+	comms.eHeader = E_HEADER_LENGTH;
+	comms.dwInterCharTimeout = 3000;
+	comms.bResponseTimeout = 15;
+	comms.ownIpAddress = ownIpAddress;
+	comms.ipAddress = peerIpAddress;
+	comms.wPortNumber = (uint) tcpPort;
+	if (Comms(E_COMMS_FUNC_CONNECT, &comms) == ERR_COMMS_NONE)
+		return true;
+
+	return false;
+}
+
+bool remote(char * upload, char * fileName)
+{
+	// Connect to the host
+	if (!HostConnect())
+		return false;
+
+	// Continue only if sending some data
+	if (upload != NULL && strlen(upload))
+	{
+		// Send the data to the host
+		comms.pbData = (uchar *) upload;
+		comms.wLength = strlen(upload);
+		if (Comms(E_COMMS_FUNC_SEND, &comms) != ERR_COMMS_NONE)
+		{
+			Comms(E_COMMS_FUNC_DISCONNECT, &comms);
+			return false;
+		}
+
+		// Get the response
+		comms.pbData = downstream;
+		comms.wLength = sizeof(downstream);
+		if (Comms(E_COMMS_FUNC_RECEIVE, &comms) != ERR_COMMS_NONE)
+		{
+			Comms(E_COMMS_FUNC_DISCONNECT, &comms);
+			return false;
+		}
+		downstream[comms.wLength] = '\0';
+
+		// Process the downstream data
+		if (fileName == NULL)
+			processResponse();
+		else
+			processFile(fileName, comms.wLength);
+	}
+
+	Comms(E_COMMS_FUNC_DISCONNECT, &comms);
+	return true;
+}
+
+static char * getObject(char * objectName, unsigned int * length)
+{
+	int handle;
+	char * data;
+
+	// Open the file
+	if ((handle = open(objectName, O_RDWR)) == -1)
+		return NULL;
+
+	// Read the entire display object
+	*length = dir_get_file_sz(objectName);
+	data = malloc((*length)+1);
+	read(handle, data, *length);
+	data[*length] = '\0';
+
+	// House keep and finish
+	close(handle);
+	return data;
+}
+
+static void getDate(char * output)
+{
+	uchar day, month, year;
+	ClockGet(NULL, &day, &month, &year, NULL, NULL, NULL);
+	sprintf(output, "%02d/%02d/20%02d", day, month, year);
+}
+
+static void getTime(char * output)
+{
+	uchar hour, minute, second;
+	ClockGet(NULL, NULL, NULL, NULL, &hour, &minute, &second);
+	sprintf(output, "%02d:%02d:%02d", hour, minute, second);
+}
+
+static char * getFunctionText(char * functionElement)
+{
+	static char text[41];
+	char functionName[65];
+	int i;
+
+	for (i = 0, text[0] = '\0'; functionElement[i];)
+	{
+		// Process pre-defined functions
+		if (functionElement[i] == '(' && functionElement[i+1] == ')')
+		{
+			char output[65];
+			int j = 0;
+			i += 2;
+			while (	(functionElement[i] >= 'a' && functionElement[i] <= 'z') ||
+					(functionElement[i] >= 'A' && functionElement[i] <= 'Z'))
+				functionName[j++] = functionElement[i++];
+			functionName[j] = '\0';
+
+			if (strcmp(functionName, "date") == 0)
+				getDate(output);
+			else if (strcmp(functionName, "now") == 0)
+				getTime(output);
+
+			strcat(text, output);
+		}
+
+		// Add any extra spaces
+		else if (functionElement[i] == ' ')
+		{
+			strcat(text, " ");
+			i++;
+		}
+	}
+
+	return text;
+}
+
+static char * getPartialData(char * array, char * string)
+{
+	int i, j;
+	int start = 0;
+	int end = 9999;
+	static char tempString[100];
+	char subscript[10];
+
+	if (array[0] == '[')
+	{
+		// Find and convert the first subscript of the array
+		for(i = 0, j = 1; array[j] && array[j] != '-'; i++, j++)
+			subscript[i] = array[j];
+		subscript[i] = '\0';
+		start = atoi(subscript);
+
+		// Find and convert the second subscript of the array
+		if (array[j])
+		{
+			for(i = 0, j++; array[j] && array[j] != ']'; i++, j++)
+				subscript[i] = array[j];
+			subscript[i] = '\0';
+			end = atoi(subscript);
+		}
+	}
+
+	for (i = 0, j = start; string[j] && j <= end; i++, j++)
+		tempString[i] = string[j];
+	tempString[i] = '\0';
+
+	return tempString;
+}
+
+static int getData(char * name, char ** value, bool allocate, bool tryObjectIfNotData, bool houseKeep)
+{
+	int i, j;
+	int firstEmpty = -1;
+	char object[50];
+	static char tempObjectName[50];
+	static char * tempObject = NULL;
+	static uint tempObjectLength;
+	static char * tempObjectValue = NULL;
+
+	// If we are finishing this round (ie housekeeping)...
+	if (houseKeep)
+	{
+		if (tempObjectValue)
+		{
+			deallocateObjectValue(tempObjectValue);
+			tempObjectValue = NULL;
+		}
+
+		// Deallocate any object data already allocated...
+		if (tempObject)
+		{
+			free(tempObject);
+			tempObjectName[0] = '\0';
+			tempObjectLength = 0;
+			tempObject = NULL;
+		}
+
+		return -2;
+	}
+
+	// Look in the data repository for the specified data
+	for (i = 0; i < MAX_DATA; i++)
+	{
+		if (firstEmpty == -1 && data[i].name[0] == '\0')
+			firstEmpty = i;
+
+		for (j = 0; name[j] && name[j] != '['; j++)
+			object[j] = name[j];
+		object[j] = '\0';
+		if (strcmp(object, ".")) strcpy(tempObjectName, object);
+
+		if (strcmp(data[i].name, tempObjectName) == 0)
+		{
+			if (value) *value = getPartialData(&name[j], data[i].value);
+			break;
+		}
+	}
+
+	// If not found in the data repository, try to get it from one of the objects
+	if (i == MAX_DATA && value && tryObjectIfNotData)
+	{
+		bool found = false;
+
+		// Retrieve the object name on its own
+		for(j = 0; name[j+1] && name[j+1] != '/' && name[j+1] != '['; j++)
+			object[j] = name[j+1];
+		object[j] = '\0';
+
+		// Try and locate it if we are not already pointing at it...
+		if (strcmp(object, ".") == 0 || strcmp(object, "..") == 0 || strcmp(tempObjectName, object) == 0)
+			found = true;
+		else
+		{
+			if (tempObject != NULL)
+				free(tempObject);
+			if ((tempObject = getObject(object, &tempObjectLength)) != NULL)
+			{
+				strcpy(tempObjectName, object);
+				found = true;
+			}
+		}
+
+		// If found, get the object value, checking it is a simple element and not another object or array
+		if (found)
+		{
+			int i;
+			char tag[50];
+
+			// Retrieve the tag name on its own
+			for(i = 0, j++; name[j] && name[j] != '['; i++, j++)
+				tag[i] = name[j];
+			tag[i] = '\0';
+
+			// Obtain the object value
+			if (tag[0])
+			{
+				if (tempObjectValue)
+					deallocateObjectValue(tempObjectValue);
+				tempObjectValue = getObjectValue(tempObject, tempObjectLength, tag);
+			}
+
+			if (tempObjectValue)
+			{
+				if (tempObjectValue[0] == 0)
+				{
+					char * string = &tempObjectValue[4];
+					*value = getPartialData(&name[j], string);
+					return -1;
+				}
+			}
+		}
+	}
+
+	if (i == MAX_DATA)
+	{
+		if (firstEmpty != -1 && allocate)
+		{
+			i = firstEmpty;
+			strcpy(data[i].name, name);
+			if (value)
+				strcpy(data[i].value, *value);
+			else data[i].value[0] = '\0';
+		}
+		else if (value)
+			*value = "";
+	}
+
+/*		{
+			char keycode;
+			char tempBuf[100];
+			sprintf(tempBuf, "gd2:%d %s %s %ld <==", i, name, tValue?*tValue:"NULL", value?*value:0);
+			write_at(tempBuf, strlen(tempBuf), 1, 2);
+			while(read(STDIN, &keycode, 1) != 1);
+		}
+*/
+	return i;
+}
+
+static ulong incStan()
+{
+	static ulong stan = 0;
+	if (++stan > 999999L) stan = 1;
+	return stan;
+}
+
+static char * pinBlock(char * track2, char * pan, char * amount)
+{
+	char * track2Value;
+	char * panValue;
+	char * amountValue;
+
+	// Get the data
+	getData(track2, &track2Value, false, false, false);
+	getData(pan, &panValue, false, false, false);
+	getData(amount, &amountValue, false, false, false);
+
+	// For now a dummy return value
+	return "FB125CDE6349A31F";
+}
+
+static void doPrint(char * data)
+{
+	int i;
+	bool skip = false;
+	bool centre = false;
+	char line[200];
+	char output[200];
+	int maxLine = 24;
+	bool largeFont = false;
+
+	// Initialisation
+	memset(line, 0, sizeof(line));
+
+	for (i = 0; data[i]; i++)
+	{
+		if (data[i] == '\\')
+			skip = !skip;
+		else if (skip && data[i] == 'C')
+		{
+			centre = true;
+			skip = false;
+			continue;
+		}
+		else if (skip && data[i] == 'n')
+		{
+			line[strlen(line)] = '\n';
+			if (centre)
+				sprintf(output, "%s%*s", largeFont? "\033k021":"\033k999", (maxLine+strlen(line))/2, line);
+			else
+				sprintf(output, "%s%s", largeFont? "\033k021":"\033k999", line);
+			memset(line, 0, sizeof(line));
+			PrtPrintBuffer((uint) strlen(output), (uchar *) output, E_PRINT_APPEND);
+			centre = skip = false;
+			continue;
+		}
+		else if (skip && data[i] == 'f')
+		{
+			largeFont = false;
+			maxLine = 24;
+		}
+		else if (skip && data[i] == 'F')
+		{
+			largeFont = true;
+			maxLine = 16;
+		}
+		else if (data[i] == '?' && (data[i+1] == '/' || data[i+1] == '.'))
+		{
+			int j;
+			char name[50];
+			char * value;
+
+			for (i++, j = 0; data[i] != '?'; i++, j++)
+				name[j] = data[i];
+			name[j] = '\0';
+
+			if (getData(name, &value, false, true, false) != MAX_DATA)
+				strcat(line, value);
+
+			continue;
+		}
+		else if (strncmp(&data[i], "()date", 6) == 0)
+		{
+			getDate(&line[strlen(line)]), i += 5;
+			continue;
+		}
+		else if (strncmp(&data[i], "()now", 5) == 0)
+		{
+			getTime(&line[strlen(line)]), i += 4;
+			continue;
+		}
+		else
+			skip = false;
+
+		// Add the printing character to the current line
+		if (skip == false)
+			line[strlen(line)] = data[i];
+	}
+
+	// House keep
+	getData(NULL, NULL, false, false, true);
+	PrtPrintFormFeed();
+
+}
+
+static bool processSingleAction(char * action, uchar key, bool string)
+{
+	int i, j;
+	char name[60];
+	char fullName[60];
+
+	for (i = 0; action[i] && action[i] != ':'; i++)
+		name[i] = action[i];
+	name[i] = '\0';
+	if (action[i] == ':') i++;
+
+	if (name[0] == '\0')
+	{
+		// This is an action function with arguments....
+		if (action[i] == '[')
+		{
+			char function[60];
+			char argument1[60];
+
+			// Get the function name
+			for (j = 0; action[i+1+j] && action[i+1+j] != ','; j++)
+				function[j] = action[i+1+j];
+			function[j] = '\0';
+
+			// Get the argument
+			if (action[i+1+j] == ',')
+			{
+				int k;
+
+				for (j++, k = 0; action[i+1+j+k] && action[i+1+j+k] != ']'; k++)
+					argument1[k] = action[i+1+j+k];
+				argument1[k] = '\0';
+			}
+
+			if (strcmp(function, "()HOST") == 0)
+			{
+				int handle = open(argument1, O_RDWR);
+				if (handle != -1)
+				{
+					char upload[500];
+					uint length = dir_get_file_sz(argument1);
+					memset(upload, 0, sizeof(upload));
+					sprintf(upload, "{TYPE:IDENTITY,SERIALNUMBER:%s,MANUFACTURER:Verifone,MODEL:Vx510},", serialNumber);
+					read(handle, &upload[strlen(upload)], length);
+					close(handle);
+					remote(upload, NULL);
+				}
+			}
+			else if (strcmp(function, "()PRINT") == 0)
+			{
+				char * printData;
+				char printTemplate[50];
+				sprintf(printTemplate, "/%s", argument1);
+				printData = getObjectValue(currentObjectData, currentObjectLength, printTemplate);
+				if (printData && printData[0] == 0)
+						doPrint(&printData[4]);
+			}
+		}
+	}
+	else
+	{
+		if (name[0] == '/')
+			strcpy(fullName, name);
+		else
+			sprintf(fullName, "/%s/%s", currentObject, name);
+
+		if ((j = getData(fullName, NULL, false, false, false)) != MAX_DATA)
+		{
+			if (strcmp(&action[i], "()INPUT") == 0)
+			{
+				if (string)
+					strcpy(data[j].value, InpGetString());
+				else
+					sprintf(data[j].value, "%d", InpGetNumber());
+			}
+			else if (strcmp(&action[i], "()TRACK1") == 0)
+			{
+				if (track1[0] == '\0' && track1Len == 80)
+					InpGetMCRTracks(track1, &track1Len, track2, &track2Len, NULL, NULL);
+				if (track1Len)
+					strcpy(data[j].value, track1);
+			}
+			else if (strcmp(&action[i], "()TRACK2") == 0)
+			{
+				if (track2[0] == '\0' && track2Len == 80)
+					InpGetMCRTracks(track1, &track1Len, track2, &track2Len, NULL, NULL);
+				if (track2Len)
+					strcpy(data[j].value, track2);
+			}
+			else if (strcmp(&action[i], "()KEY") == 0)
+			{
+				data[j].value[0] = key;
+				data[j].value[1] = '\0';
+				return false;
+			}
+			else if (strcmp(&action[i], "()STAN") == 0)
+			{
+				sprintf(data[j].value, "%ld", incStan());
+			}
+			else if (action[i] == '[')
+			{
+				int m;
+				int argnum;
+				char function[60];
+				char argument[3][60];
+
+				// Get the function name
+				for (m = 0; action[i+1+m] && action[i+1+m] != ','; m++)
+					function[m] = action[i+1+m];
+				function[m] = '\0';
+
+				// Get the arguments - up to 3
+				for (argnum = 0, memset(argument, 0, sizeof(argument)); action[i+1+m] == ',' && argnum < 3; argnum++)
+				{
+					int k;
+
+					for (m++, k = 0; action[i+1+m+k] && action[i+1+m+k] != ',' && action[i+1+m+k] != ']'; k++)
+						argument[argnum][k] = action[i+1+m+k];
+					argument[argnum][k] = '\0';
+					m += k;
+				}
+
+				if (strcmp(function, "()PINBLOCK") == 0)
+					strcpy(data[j].value, pinBlock(argument[0], argument[1], argument[2]));
+			}
+			else
+				strcpy(data[j].value, &action[i]);
+		}
+	}
+
+	return true;
+}
+
+static bool processAction(char * action, uchar key, bool string)
+{
+	int i = 1;
+	int j;
+	bool override = true;
+	char singleAction[120];
+	int array;
+
+	// The action must be an object
+	if (*action != '{')
+		return override;
+
+	do
+	{
+		for (array = 0, j = 0; action[i] && (array || (action[i] != '}' && action[i] != ',')); i++, j++)
+		{
+			if (action[i] == '[') array++;
+			else if (action[i] == ']') array--;
+			singleAction[j] = action[i];
+		}
+		singleAction[j] = '\0';
+
+		if (processSingleAction(singleAction, key, string) == false)
+			override = false;
+	} while(action[i++] == ',' && singleAction[0] != '\0'); 
+
+	return override;
+}
+
+static char * resolveObject(char * object, bool string)
+{
+	char * value;
+
+	// Return the simple object
+	if (object[0] == 0)
+		return &object[4];
+
+	// Look for the first valid condition and return the corresponding object
+	if (object && object[0] == 1)
+	{
+		char ** array1 = (char **) &object[4];
+		for (; *array1; array1++)
+		{
+			int i;
+			int index;
+			char * objectToExamine;
+			char * valueToExamine;
+			char fullName[60];
+			char ** array2 = (char **) &((*array1)[4]);
+
+			for (index = 0; *array2; array2++, index++)
+			{
+				char * element = &(*array2)[4];
+
+				// Check that we have an element
+				if ((*array2)[0] != 0)
+					break;
+
+				switch(index)
+				{
+					case 0:
+						objectToExamine = element;
+						break;
+					case 1:
+						valueToExamine = element;
+						break;
+					case 2:
+						if (objectToExamine[0] == '\0')
+							return element;
+						else if (objectToExamine[0] == '/')
+							strcpy(fullName, objectToExamine);
+						else if (strcmp(objectToExamine, "()INPUT") == 0)
+						{
+							if (string)
+								strcpy(fullName, InpGetString());
+							else
+								sprintf(fullName, "%d", InpGetNumber());
+
+							if (strncmp(fullName, valueToExamine, strlen(valueToExamine)) == 0)
+								return element;
+							else
+								break;
+						}
+						else
+							sprintf(fullName, "/%s/%s", currentObject, objectToExamine);
+
+		{
+			char keycode;
+			char tempBuf[100];
+			sprintf(tempBuf, "gd:\"%s\" <==", fullName);
+			write_at(tempBuf, strlen(tempBuf), 1, 2);
+			while(read(STDIN, &keycode, 1) != 1);
+		}
+						if ((i = getData(fullName, &value, false, false, false)) == MAX_DATA)
+							break;
+						else if (strncmp(value, valueToExamine, strlen(valueToExamine)) == 0)
+							return element;
+		{
+			char keycode;
+			char tempBuf[100];
+			sprintf(tempBuf, "cmp:\"%s\" with \"%s\" <==", value, valueToExamine);
+			write_at(tempBuf, strlen(tempBuf), 1, 2);
+			while(read(STDIN, &keycode, 1) != 1);
+		}
+//						if (i == -1)
+//							getData(NULL, NULL, false, false, true);
+						break;
+					default:
+						break;
+				}
+			}
+		}
+	}
+
+	return NULL;
+}
+
+static bool processEvent(T_EVTBITMAP setEvtBitmap, T_KEYBITMAP keyBitmap, T_INP_ENTRY inpEntry, ulong timeout, bool ignoreTimeout, bool largeFont)
+{
+	T_EVTBITMAP evtBitmap;
+	uchar key;
+	int mapIndex;
+	bool eventOccurred = false;
+
+	// Wait for an event to occur
+	evtBitmap = setEvtBitmap;
+	key = InpGetKeyEvent(keyBitmap, &evtBitmap, inpEntry, timeout * 10, largeFont);
+	if (ignoreTimeout && key == KEY_NONE && evtBitmap == EVT_TIMEOUT)
+		return false;
+
+	// Check if an event has occurred
+	for (mapIndex = 0; map[mapIndex].key; mapIndex++)
+	{
+		if ((key != KEY_NONE && key == map[mapIndex].key) ||
+			(key >= KEY_1 && key <= KEY_9 && KEY_NUM == map[mapIndex].key) ||
+			(key == KEY_NONE && evtBitmap == map[mapIndex].evtBitmap))
+		{
+			char * object;
+
+			// Process the action
+			override = processAction(map[mapIndex].action, key, inpEntry.type == E_INP_STRING_ENTRY);
+
+			// Determine the next object
+			if ((object = resolveObject(map[mapIndex].object, inpEntry.type == E_INP_STRING_ENTRY)) != NULL)
+			{
+				strcpy(newObject, object);
+				currentObjectEvent = (key == KEY_NONE?"EVENT":"KEY");
+				strcpy(currentObjectEventValue, map[mapIndex].event);
+
+				eventOccurred = true;
+			}
+			break;
+		}
+	}
+
+	return eventOccurred;
+}
+
+static int getGraphics(char * name)
+{
+	int handle;
+	char request[300];
+
+	// Read the local file or download it from the host if not found
+	if ((handle = open(name, O_RDWR)) == -1)
+	{
+		sprintf(request,	"{TYPE:IDENTITY,SERIALNUMBER:%s,MANUFACTURER:Verifone,MODEL:Vx510},"
+							"{TYPE:GETFILE,NAME:%s}", serialNumber, name);
+
+		remote(request, name);
+
+		handle = open(name, O_RDWR);
+	}
+
+	return handle;
+}
+
+static void processDisplay2()
+{
+	T_KEYBITMAP keyBitmap = KEY_NO_BITS;
+	T_EVTBITMAP keepEvtBitmap = EVT_TIMEOUT;
+	T_INP_ENTRY inpEntry, loopEntry;
+	bool inpLargeFont = false;
+
+	char * animation;
+	char * events;
+	char * clear;
+	char * newObject;
+	bool firstRound;
+	bool eventOccurred;
+
+	char * tableName;
+	char * table = NULL;
+	char * tableValue;
+	unsigned int tableLength;
+
+	int mapIndex = 0;
+	ulong displayTimeout = 0;
+	int displayTimeoutMultiplier = 0;
+
+	// Initialisation
+	inpEntry.type = E_INP_NO_ENTRY;
+	loopEntry.type = E_INP_NO_ENTRY;
+	DispClearScreen();
+
+	// Update the current object information
+	{
+		char * version;
+		char * type;
+
+		type = getObjectValue(currentObjectData, currentObjectLength, "/TYPE");
+		if (type && type[0] == 0)
+			strcpy(currentObjectType, &type[4]);
+		deallocateObjectValue(type);
+
+		version = getObjectValue(currentObjectData, currentObjectLength, "/VERSION");
+		if (version && version[0] == 0)
+			strcpy(currentObjectVersion, &version[4]);
+		deallocateObjectValue(version);
+	}
+
+	// Look for data to clear on startup
+	clear = getObjectValue(currentObjectData, currentObjectLength, "/CLEAR");
+	if (clear && clear[0] == 1)
+	{
+		char ** array1 = (char **) &clear[4];
+
+		for (; *array1; array1++)
+		{
+			int i;
+			char * element = &(*array1)[4];
+
+			// Check that we have an element
+			if ((*array1)[0] != 0)
+				break;
+
+			if ((i = getData(element, NULL, false, false, false)) != MAX_DATA)
+				data[i].name[0] = '\0';
+		}
+	}
+
+	// Deallocate the 'clear' object...Not needed any more
+	deallocateObjectValue(clear);
+
+	// Look for a new object to create
+	newObject = getObjectValue(currentObjectData, currentObjectLength, "/NEW_OBJECT");
+	if (newObject && newObject[0] == 1)
+	{
+		bool type = false;
+		bool name = false;
+		char * typeData = NULL;
+		int handle = -1;
+		char ** array1 = (char **) &newObject[4];
+
+				{
+					char keycode;
+					char tempBuf[100];
+					sprintf(tempBuf, "NEW OBJECT STARTED  ");
+					write_at(tempBuf, strlen(tempBuf), 1, 2);
+					while(read(STDIN, &keycode, 1) != 1);
+				}
+
+		for (; *array1; array1++)
+		{
+			if ((*array1)[0] == 1)		// An array
+			{
+				int index;
+				char ** array2 = (char **) &((*array1)[4]);
+
+				for (index = 0; *array2; array2++, index++)
+				{
+					char * element = &(*array2)[4];
+
+					if ((*array2)[0] != 0)
+						break;
+
+					switch(index)
+					{
+						case 0:
+							if (strcmp(element, "TYPE") == 0)
+								type = true;
+							else if (strcmp(element, "NAME") == 0)
+								name = true;
+
+							if (handle != -1)
+							{
+								write(handle, ",", 1);
+								write(handle, element, strlen(element));
+								write(handle, ":", 1);
+							}
+							break;
+						case 1:
+							if (type)
+							{
+								typeData = element;
+								type = false;
+							}
+							else if (name)
+							{
+								handle = open(element, O_CREAT | O_TRUNC | O_RDWR | O_APPEND);
+								if (handle != -1)
+								{
+									write(handle, "{", 1);
+									if (typeData)
+									{
+										write(handle, "TYPE", 4);
+										write(handle, ":", 1);
+										write(handle, typeData, strlen(typeData));
+										write(handle, ",", 1);
+									}
+									write(handle, "NAME", 4);
+									write(handle, ":", 1);
+								}
+								name = false;
+							}
+							if (handle != -1)
+							{
+								if (element[0] != '/')
+									write(handle, element, strlen(element));
+								else
+								{
+									char * value;
+
+									if (getData(element, &value, false, true, false) != MAX_DATA)
+										write(handle, value, strlen(value));
+								}
+							}
+							break;
+						default:
+							break;
+					}
+				}
+			}
+		}
+
+		if (handle != -1)
+		{
+			write(handle, "}", 1);
+			close(handle);
+		}
+
+		// Clean up any temporary objects created
+		getData(NULL, NULL, false, false, true);
+	}
+	deallocateObjectValue(newObject);
+
+
+	// Look for events to process
+	events = getObjectValue(currentObjectData, currentObjectLength, "/PATH");
+	if (events && events[0] == 1)
+	{
+		char ** array1 = (char **) &events[4];
+		for(; *array1; array1++)
+		{
+			if ((*array1)[0] == 1)		// An array
+			{
+				int index;
+				int operation = 0;
+				char ** array2 = (char **) &((*array1)[4]);
+
+				for(index = 0; *array2; array2++, index++)
+				{
+					char * element = &(*array2)[4];
+
+					// Check that we have an element for first and third elements and second elements for key-based events only
+					if ((index == 0 || (index == 1 && operation == 0) || index == 2) && (*array2)[0] != 0)
+						break;
+
+					switch(index)
+					{
+						case 0:
+							if (element[0] == '\0' || strcmp(element, "EVENT") == 0)
+								operation = 1;
+							break;
+						case 1:
+							if (operation == 1)
+							{
+								map[mapIndex].key = KEY_NONE;
+								if ((*array2)[0] == 0)
+								{
+									if (element[0] == '\0')
+									{
+										strcpy(map[mapIndex].event, "TIME");
+										keepEvtBitmap |= EVT_TIMEOUT, map[mapIndex].evtBitmap = EVT_TIMEOUT;
+										displayTimeoutMultiplier = 1;
+										displayTimeout = 0;
+									}
+									else
+									{
+										strcpy(map[mapIndex].event, element);
+										if (strcmp(element, "MCR") == 0)
+											keepEvtBitmap |= EVT_MCR, map[mapIndex].evtBitmap = EVT_MCR;
+										else if (strcmp(element, "SER_DATA") == 0)
+											keepEvtBitmap |= EVT_SERIAL_DATA, map[mapIndex].evtBitmap = EVT_SERIAL_DATA;
+									}
+								}
+								else
+								{
+									int index;
+									char ** array3 = (char **) &((*array2)[4]);
+
+									for (index = 0; *array3; array3++, index++)
+									{
+										char * element = &(*array3)[4];
+
+										if ((*array3)[0] != 0)
+											break;
+
+										if (index == 0)
+										{
+											strcpy(map[mapIndex].event, element);
+											if (strcmp(element, "TIME") == 0)
+												keepEvtBitmap |= EVT_TIMEOUT, map[mapIndex].evtBitmap = EVT_TIMEOUT;
+										}
+										else if (index == 1)
+										{
+											displayTimeoutMultiplier = atol(element) / 250;
+											displayTimeout = 250;
+										}
+									}
+								}
+							}
+							else
+							{
+								strcpy(map[mapIndex].event, element);
+								map[mapIndex].evtBitmap = EVT_NONE;
+								if (strcmp(element, "KEY_SK1") == 0)
+									keyBitmap |= KEY_SK1_BIT, map[mapIndex].key = KEY_SK1;
+								else if (strcmp(element, "KEY_SK2") == 0)
+									keyBitmap |= KEY_SK2_BIT, map[mapIndex].key = KEY_SK2;
+								else if (strcmp(element, "KEY_SK3") == 0)
+									keyBitmap |= KEY_SK3_BIT, map[mapIndex].key = KEY_SK3;
+								else if (strcmp(element, "KEY_SK4") == 0)
+									keyBitmap |= KEY_SK4_BIT, map[mapIndex].key = KEY_SK4;
+								else if (strcmp(element, "CANCEL") == 0)
+									keyBitmap |= KEY_CNCL_BIT, map[mapIndex].key = KEY_CNCL;
+								else if (strcmp(element, "KEY_OK") == 0)
+									keyBitmap |= KEY_OK_BIT, map[mapIndex].key = KEY_OK;
+								else if (strcmp(element, "KEY_NUM") == 0)
+									keyBitmap |= KEY_NUM_BITS, map[mapIndex].key = KEY_NUM;
+							}
+							break;
+						case 2:
+							map[mapIndex].action[0] = '\0';
+							if (element[0] != '\0')
+								strcpy(map[mapIndex].action, element);
+							break;
+						case 3:
+							map[mapIndex++].object = *array2;
+/*		{
+			char keycode;
+			char tempBuf[40];
+			sprintf(tempBuf, "map: %s %s %d %5.5s %5.5s <<<", operation?"EVT":"KEY", map[mapIndex-1].event, displayTimeoutMultiplier, map[mapIndex-1].action, (char *) ((*array2)[0] == 0? &(map[mapIndex-1].object)[4]:"array"));
+			write_at(tempBuf, strlen(tempBuf), 1, 2);
+			while(read(STDIN, &keycode, 1) != 1);
+		}
+*/							break;
+						default:
+							break;
+					}
+				}
+			}
+		}
+	}
+
+	// Mark the end of the event maping table
+	map[mapIndex].key = 0;
+
+		// Get the animation object within the display object
+	if ((animation = getObjectValue(currentObjectData, currentObjectLength, "/ANIMATION")) == NULL)
+	{
+		SVC_WAIT(100);
+		deallocateObjectValue(events);
+		return;
+	}
+
+	// Keep looping waiing for events to occur
+	for(firstRound = true, eventOccurred = false; eventOccurred == false; firstRound = false)
+	{
+		// We expect an array of arrays of strings, so examine this
+		if (animation[0] == 1)	// An array
+		{
+			char ** array1 = (char **) &animation[4];
+			for(; eventOccurred == false && *array1; array1++)
+			{
+				if ((*array1)[0] == 1)		// An array
+				{
+					int index;
+					int	operation = 0;
+					int largeFont = false;
+					char * functionElement;
+					int tableIndex = 1, row = 0, col = 0;
+					bool permanent = true;
+					ulong timeDelay = 0;
+					int inputMaxLength = 0;
+					char ** array2 = (char **) &((*array1)[4]);
+					uchar * frequency;
+					uchar displayLoopEnd = 0;
+					bool displayYes = false;
+					bool pinEntry = false;
+
+					for(index = 0; *array2; array2++, index++)
+					{
+						char * element = &(*array2)[4];
+
+						// Check that we have an element
+						if ((*array2)[0] != 0)
+							break;
+
+/*		{
+			char keycode;
+			char tempBuf[40];
+			sprintf(tempBuf, "element=%d)%s ", index, element);
+			write_at(tempBuf, strlen(tempBuf), 1, 2);
+			while(read(STDIN, &keycode, 1) != 1);
+		}
+*/						switch(index)
+						{
+							// Pick up the type of the animation GRAPH or TEXT
+							case 0:
+								if (strcmp(element, "GRAPH") == 0)
+									operation = 1;
+								else if (strcmp(element, "LARGE") == 0)
+									largeFont = true;
+								else if (strcmp(element, "AMOUNT") == 0)
+								{
+									inpEntry.type = E_INP_AMOUNT_ENTRY;
+									inputMaxLength = 21;
+								}
+								else if (strcmp(element, "STRING") == 0)
+								{
+									inpEntry.type = E_INP_STRING_ENTRY;
+									inputMaxLength = 21;
+								}
+								else if (strcmp(element, "LAMOUNT") == 0)
+								{
+									inpLargeFont = largeFont = true;
+									inpEntry.type = E_INP_AMOUNT_ENTRY;
+									inputMaxLength = 16;
+								}
+								else if (strcmp(element, "LSTRING") == 0)
+								{
+									inpLargeFont = largeFont = true;
+									inpEntry.type = E_INP_STRING_ENTRY;
+									inputMaxLength = 16;
+								}
+								else if (strcmp(element, "PIN") == 0)
+								{
+									inpLargeFont = largeFont = true;
+									inpEntry.type = E_INP_STRING_ENTRY;
+									InpSetString("", true, true);
+									inpEntry.length = 12;
+									inpEntry.row = 2;
+									inpEntry.col = 4;
+									pinEntry = true;
+								}
+								break;
+
+							// Pick up the table name within the GRAPH or TEXT TABLES
+							// If not found, then "default"
+							case 1:
+								// If this is an input entry, get the default/current value
+								if (inputMaxLength)
+								{
+									int i;
+									char name[50];
+									char * value = "";
+
+									if (element[0] == '/')
+										strcpy(name, element);
+									else
+										sprintf(name, "/%s/%s", currentObject, element);
+
+									i = getData(name, &value, true, true, false);
+
+									if (inpEntry.type == E_INP_STRING_ENTRY)
+										InpSetString(value, false, override);
+									else
+										InpSetNumber(atol(value), override);
+
+									if (i == -1)
+										getData(NULL, NULL, false, false, true);
+
+									break;
+								}
+
+								// If this is a function name, then do not reference any tables
+								if (element[0] == '(' && element[1] == ')')
+								{
+									functionElement = element;
+									break;
+								}
+								else functionElement = NULL;
+							
+								// If the table name is not defined, then assign it a default name
+								if (element[0] == '\0')
+								{
+									if (operation == 0)
+										element = "DEFAULT_T";
+									else
+										element = "DEFAULT_G";
+								}
+
+								// If the table is already allocated but different, deallocate the previous allocation including the value
+								if (table && strcmp(tableName, element))
+								{
+									deallocateObjectValue(tableValue);
+									free(table);
+									table = NULL;
+								}
+
+								// Allocate the table in memory as well as its value
+								if (table == NULL)
+								{
+									tableName = element;
+									table = getObject(tableName, &tableLength);
+									if (table)
+										tableValue = getObjectValue(table, tableLength, operation?"/IMAGE":"/PROMPT");
+									else tableValue = NULL;
+								}
+
+								break;
+							// Pick up the index within the table to use
+							case 2:
+								tableIndex = atoi(element);
+								break;
+							// Pick up the row. If 255, then centre
+							case 3:
+								row = atoi(element) - 1;
+								if (inputMaxLength)
+									inpEntry.row = row;
+								break;
+							// Pick up the column. If 255, then centre
+							case 4:
+								col = atoi(element) - 1;
+								if (inputMaxLength)
+								{
+									inpEntry.decimal = 99;
+									inpEntry.col = col;
+									inpEntry.length = inputMaxLength - col;
+								}
+								break;
+							// Pickup the initial display loop value
+							case 5:
+								if (element[0] != '\0')
+								{
+									frequency = (uchar *) &(*array2)[1];
+									if (firstRound == true) *frequency = atol(element);
+								}
+								else frequency = NULL;
+								break;
+							case 6:
+							// Pickup the end display loop value
+								if (element[0] != '\0')
+									displayLoopEnd = atol(element);
+
+								if (frequency == NULL)
+									displayYes = true;
+								else if (*frequency >= displayLoopEnd)
+								{
+									displayYes = true;
+									*frequency = 0;
+								}
+								else (*frequency)++;
+								break;
+							// Pickup the time delay before displaying the next item. If it starts with '0', then permanent.
+							// If not, remove at the end of the time delay
+							case 7:
+								if (element[0] != '\0')
+								{
+									if (element[0] != '0')
+										permanent = false;
+									timeDelay = atol(element);
+								}
+
+								// No need to redisplay the permanent items/values after the first round
+								if (permanent && firstRound == false)
+									break;
+
+								// Only display if the display loop variable reaches the end
+								if (displayYes == false)
+									break;
+	
+								// Input definitions do not have any associated displays
+								if (inputMaxLength)
+									break;
+
+								// Special processing for PIN entry
+								if (pinEntry)
+								{
+									DispText("Enter PIN", 1, 255, false, true, false);
+									DispText("BACK", 7, 0, false, false, false);
+								}
+
+								// Process the display of the element
+								else if (functionElement)
+								{
+									char * text = getFunctionText(functionElement);
+									DispText(text, row, col, false, largeFont, false);
+								}
+								else if (tableValue)
+								{
+									bool found = false;
+									char ** tableArray1 = (char **) &tableValue[4];
+									for(; found == false && *tableArray1; tableArray1++)
+									{
+										if ((*tableArray1)[0] == 1)		// An array
+										{
+											int index;
+											char ** tableArray2 = (char **) &((*tableArray1)[4]);
+
+											for(index = 0; *tableArray2; tableArray2++, index++)
+											{
+												char * element = &(*tableArray2)[4];
+
+												// Check that we have an element
+												if ((*tableArray2)[0] != 0)
+													break;
+
+												if (index == 0)
+												{
+													if (atoi(element) != tableIndex)
+														break;
+												}
+												else
+												{
+													found = true;
+
+													// Display the text
+													if (operation == 0)
+														DispText(element, row, col, false /* Clear Line */, largeFont, false /* Inverse */);
+													else
+													{
+														int handle = getGraphics(element);
+														if (handle >= 0)
+														{
+															uint length = dir_get_file_sz(element);
+															if (length)
+															{
+																uchar * data = malloc(length);
+																read(handle, (char *) data, length);
+																DispGraphics(data, row, col);
+																free(data);
+															}
+															close(handle);
+														}
+//														else DispText(element, 3, 255, true, largeFont, false);
+													}
+													break;
+												}
+											}
+										}
+									}
+								}
+								break;
+						}
+					}
+
+					// If we have to delay before the next element, wait for events now including this timeout
+					// but this timeout should not break the loop
+					eventOccurred = processEvent(keepEvtBitmap, keyBitmap, loopEntry, timeDelay, true, largeFont);
+				}
+			}
+			
+			// Display timeout procesing
+			if (eventOccurred == false && displayTimeoutMultiplier)
+			{
+				if (inpEntry.type != E_INP_NO_ENTRY)
+				{
+					displayTimeout *= displayTimeoutMultiplier;
+					displayTimeoutMultiplier = 1;
+				}
+
+				eventOccurred = processEvent(keepEvtBitmap, keyBitmap, inpEntry, displayTimeout, displayTimeoutMultiplier > 1? true:false, inpLargeFont);
+				displayTimeoutMultiplier--;
+			}
+		}
+	}
+
+	// Deallocate any text or graphics objects used during this animation
+	if (table)
+	{
+		deallocateObjectValue(tableValue);
+		free(table);
+	}
+
+	// Deallocate the animation object used during this display
+	deallocateObjectValue(animation);
+
+	// Deallocate the event object
+	deallocateObjectValue(events);
+}
+
+static void processDisplay(char * objectName)
+{
+	// Get the object
+	if ((currentObjectData = getObject(objectName, &currentObjectLength)) == NULL)
+		return;
+
+	// Find and process the animation object
+	processDisplay2();
+
+	// House keep and finish
+	free(currentObjectData);
+}
+
+uchar GetInput(char * text, uchar length, void * buffer, E_INP_ENTRY_TYPE entryType)
+{
+	uchar key;
+	T_EVTBITMAP evtBitmap = EVT_TIMEOUT;
+	T_INP_ENTRY inpEntry;
+
+	// Display the prompt
+	DispClearScreen();
+	DispText(text, 0, 0, false, true, false);
+
+	// Set the input type to STRING and right justify
+	inpEntry.type = entryType;
+	inpEntry.row = 2;
+	inpEntry.col = 16 - length;
+	inpEntry.length = length;
+	inpEntry.decimal = 99;
+
+	// Set the default value
+	if (entryType == E_INP_NUMBER_ENTRY || entryType == E_INP_AMOUNT_ENTRY)
+		InpSetNumber(*(ulong *) buffer, true);
+	else
+		InpSetString((char *) buffer, false, true);
+
+	// Get the new value
+	if ((key = InpGetKeyEvent(KEY_OK_BIT | KEY_CNCL_BIT, &evtBitmap, inpEntry, 300000, true)) == KEY_OK)
+	{
+		if (entryType == E_INP_NUMBER_ENTRY || entryType == E_INP_AMOUNT_ENTRY)
+			* (ulong *) buffer = InpGetNumber();
+		else
+			strcpy((char *) buffer, InpGetString());
+	}
+
+	return key;
+}
+
+uchar GetString(char * text, uchar length, char * buffer)
+{
+	return GetInput(text, length, buffer, E_INP_STRING_ALPHANUMERIC_ENTRY); 
+}
+
+uchar GetNumber(char * text, uchar length, ulong * buffer)
+{
+	return GetInput(text, length, buffer, E_INP_NUMBER_ENTRY);
+}
+
+uchar GetAmount(char * text, uchar length, ulong * buffer)
+{
+	return GetInput(text, length, buffer, E_INP_AMOUNT_ENTRY);
+}
+
+bool CommsParameters()
+{
+	uchar key;
+
+	DispClearScreen();
+	DispText("Connection Type:", 0, 0, false, true, false);
+	DispText("1) IP", 1, 0, false, true, false);
+	DispText("2) Dial-up", 2, 0, false, true, false);
+
+	key = InpGetKeyTimeout(KEY_1_BIT | KEY_2_BIT | KEY_CNCL_BIT, 300000);
+
+	if (key == KEY_1 || key == KEY_2)
+	{
+		key = KEY_OK;
+		while ((key == KEY_CNCL || key == KEY_OK) && ((key = GetString("Own IP Address:", 15, ownIpAddress)) == KEY_OK))
+			while ((key == KEY_CNCL || key == KEY_OK) && ((key = GetString("Host IP Address:", 15, peerIpAddress)) == KEY_OK))
+				while ((key == KEY_CNCL || key == KEY_OK) && ((key = GetNumber("Host TCP Port:", 5, &tcpPort)) == KEY_OK))
+					return true;
+	}
+
+	return false;
+}
+
+void bootLoader()
+{
+	uchar day, month, year, hour, minute, second;
+	char buf[50];
+
+	do
+	{
+		DispClearScreen();
+		DispText("Initialisation", 1, 255, false, true, false);
+		DispText("Required", 2, 255, false, true, false);
+		DispText("Press OK to start", 7, 255, false, false, false);
+
+		// Display DATE / TIME until OK is pressed. // See if we can change this to JSON format processing.....later....
+		do
+		{
+			// Display the date and time
+			ClockGet(NULL, &day, &month, &year, &hour, &minute, &second);
+			sprintf(buf, "%02d/%02d/20%02d   %02d:%02d:%02d", day, month, year, hour, minute, second);
+			DispText(buf, 0, 0, false, false, false);
+
+		} while (InpGetKeyTimeout(KEY_OK_BIT, 10000) != KEY_OK);
+	// Prompt for Communication parameters
+	} while(CommsParameters() == false);
+}
+
+int idleScreen()
+{
+	uchar day, month, year, hour, minute, second;
+	char buf[50];
+
+	DispClearScreen();
+	DispGraphics(risLogo, 16, 0);
+	DispText("    SALE     REF CASH", 7, 0, false, false, false);
+
+	do
+	{
+		// Display the date and time
+		ClockGet(NULL, &day, &month, &year, &hour, &minute, &second);
+		sprintf(buf, "%02d/%02d/20%02d   %02d:%02d:%02d", day, month, year, hour, minute, second);
+		DispText(buf, 0, 0, false, false, false);
+
+		if (uploadOffline[0] && second/10*10 == second)
+		{
+			DispClearScreen();
+			DispText("UPLOADING STORED", 1, 255, false, true, false);
+			DispText("TRANSACTION", 2, 255, false, true, false);
+			if (remote(uploadOffline, NULL))
+				uploadOffline[0] = '\0';
+			return 1;
+		}
+	} while (InpGetKeyTimeout(KEY_SK2_BIT | KEY_SK3_BIT | KEY_SK4_BIT, 10000) != KEY_SK2);
+
+	return 0;
+}
+
+void ReportGetFormattedAmount(char * ptAmount, long dwAmount, char * ptLabel, char * ptCurrencySymbol, bool fNoFiller, uchar noDecimalPlaces)
+{
+	char temp[30];
+	bool zeroFill = false;
+	bool fNegativeAmount = false;
+	long multiplier;
+
+	// Place the label first
+	strcpy(ptAmount, ptLabel);
+
+	// If the amount is negative, place the first negative bracket first
+	if (dwAmount < 0)
+	{
+		strcat(ptAmount, "(");
+		dwAmount = -dwAmount;
+		fNegativeAmount = true;
+	}
+
+	// Place the currency symbol
+
+	if (ptCurrencySymbol[0] == '$')
+		strcat(ptAmount, ptCurrencySymbol);
+	else
+	{
+		//if we don't print AUD, don't print the $ sign, print currency code, and then put space in between
+		strcat(ptAmount, ptCurrencySymbol);
+		strcat(ptAmount, " ");
+	}
+
+
+	if(noDecimalPlaces == 0)
+	{
+		char tempComma[20];
+		int amtLen = 0;
+		int i, j, noCommas, x;
+
+		memset(temp, 0, sizeof(temp));
+		memset(tempComma, 0, sizeof(tempComma));
+		sprintf(temp, "%ld", dwAmount);
+
+		amtLen = strlen(temp);
+
+		if(amtLen > 6)
+			noCommas = 2;
+		else if (amtLen > 3)
+			noCommas = 1;
+		else
+			noCommas = 0;
+
+		if(noCommas == 0)
+		{
+			strcat(ptAmount, temp);
+		}
+		else
+		{
+			for(i=(amtLen-1), j = 0, x = (amtLen-1); i >=0;)
+			{
+				x = i+noCommas;
+
+				if(j < 3)
+				{
+					tempComma[x] = temp[i];
+					j = j + 1;
+					i--;
+				}
+				else
+				{
+					tempComma[x] = ',';
+					j = 0;
+					noCommas = noCommas - 1;
+				}
+			}
+
+			strcat(ptAmount, tempComma);
+		}
+
+	}
+	else
+	{
+		// Add the amounts up to the cents separated by commas...
+		for (multiplier = 100000000L; multiplier; multiplier /= 1000)
+		{
+			if (dwAmount >= multiplier)
+			{
+				if (zeroFill == true)
+					sprintf(temp, ",%03ld", dwAmount/multiplier);
+				else
+					sprintf(temp, "%ld", dwAmount/multiplier);
+				strcat(ptAmount, temp);
+				dwAmount %= multiplier;
+				zeroFill = true;
+			}
+			else if (zeroFill == true)
+				strcat(ptAmount, ",000");
+		}
+
+		// Add a ZERO if no full dollar amounts available...
+		if (zeroFill == false)
+			strcat(ptAmount, "0");
+
+		// Now add the cents
+		sprintf(temp, ".%2.2ld", dwAmount);
+		strcat(ptAmount, temp);
+	}
+	//strcat(ptAmount, temp);
+
+	// Add either the negative amount closing bracket or a filler
+	if (fNoFiller == false)
+		strcat(ptAmount, fNegativeAmount? ")":" ");
+}
+
+void sale()
+{
+	uchar key;
+	uchar track1Len, track2Len;
+	char track1[100];
+	char track2[100];
+	char upload[500];
+	T_EVTBITMAP evtBitmap = EVT_TIMEOUT | EVT_MCR;
+	T_INP_ENTRY inpEntry;
+	ulong amount = 0;
+
+	DispClearScreen();
+	DispText("SWIPE CARD", 1, 255, false, true, false);
+
+	if ((key = InpGetKeyEvent(KEY_CNCL_BIT, &evtBitmap, inpEntry, 300000, true)) == KEY_CNCL)
+		return;
+	else if (key == KEY_NONE && evtBitmap == EVT_MCR)
+	{
+		uchar day, month, year, hour, minute, second;
+		bool connected;
+		track1Len = 80;
+		track2Len = 40;
+		memset(track1, 0, sizeof(track1));
+		memset(track2, 0, sizeof(track2));
+		InpGetMCRTracks(track1, &track1Len, track2, &track2Len, NULL, NULL);
+
+		key = GetAmount("Enter Amount:", 10, &amount);
+
+		ClockGet(NULL, &day, &month, &year, &hour, &minute, &second);
+		sprintf(upload, "{TYPE:IDENTITY,SERIALNUMBER:%s,MANUFACTURER:Verifone,MODEL:Vx510},"
+						"{TYPE:DATA,NAME:TRANSACTION,VERSION:1.0,AMOUNT:%ld,TRACK2:%s,TIME:%04d%02d%02d%02d%02d%02d}",
+						serialNumber, amount, track2, year+2000, month, day, hour, minute, second);
+		connected = remote(upload, NULL);
+
+		if (connected)
+			uploadOffline[0] = '\0';
+		else
+			strcpy(uploadOffline, upload);
+
+		{
+			char buffer[300];
+			char line[300];
+			char amountStr[40];
+			sprintf(buffer, "\021\033k999%23s\n", "------------------------");
+			PrtPrintBuffer((uint) strlen(buffer), (uchar *) buffer, E_PRINT_START);
+			sprintf(buffer,	"\033k999%s\n", "       BANK EFTPOS");
+			PrtPrintBuffer((uint) strlen(buffer), (uchar *) buffer, E_PRINT_APPEND);
+			sprintf(buffer,	"\033k999\n%*s\n", (uint) (strlen("RIS CONVENIENCE STORE")+24)/2, "RIS CONVENIENCE STORE");
+			PrtPrintBuffer((uint) strlen(buffer), (uchar *) buffer, E_PRINT_APPEND);
+			sprintf(buffer,	"%*s\n", (uint) (strlen("LEVEL 2 / 35 Spring St")+24)/2, "LEVEL 2 / 35 Spring St");
+			PrtPrintBuffer((uint) strlen(buffer), (uchar *) buffer, E_PRINT_APPEND);
+			sprintf(buffer,	"%*s\n", (uint) (strlen("BONDI JUNCTION NSW 2022")+24)/2, "BONDI JUNCTION NSW 2022");
+			PrtPrintBuffer((uint) strlen(buffer), (uchar *) buffer, E_PRINT_APPEND);
+			sprintf(line, "\n   %d/%d/%d %02d:%02d:%02d\n",	day, month, year+2000, hour, minute, second);
+			PrtPrintBuffer((uint) strlen(line), (uchar *) line, E_PRINT_APPEND);
+			sprintf(buffer, "\n\033k999MERCHANT ID%12s", "30012345");
+			PrtPrintBuffer((uint) strlen(buffer), (uchar *) buffer, E_PRINT_APPEND);
+			sprintf(buffer, "\n\033k999TERMINAL ID%12s\n", "80125429");
+			PrtPrintBuffer((uint) strlen(buffer), (uchar *) buffer, E_PRINT_APPEND);
+			sprintf(buffer, "\033k999INV/ROC NO%13s\n", "123456");
+			PrtPrintBuffer((uint) strlen(buffer), (uchar *) buffer, E_PRINT_APPEND);
+			sprintf(buffer, "\033k999ACCOUNT TYPE%11s\n\n", "CREDIT");
+			PrtPrintBuffer((uint) strlen(buffer), (uchar *) buffer, E_PRINT_APPEND);
+			sprintf(buffer, "\033k999%s\n", track2[1] == '4'?"VISA":(track2[1] == '5'?"MASTERCARD":"AMEX"));
+			PrtPrintBuffer((uint) strlen(buffer), (uchar *) buffer, E_PRINT_APPEND);
+			sprintf(&buffer[50], "%6.6s...%3.3s(s)", &track2[1], &track2[14]);
+			sprintf(&buffer[90], "%2.2s/%2.2s", &track2[20], &track2[18]);
+			sprintf(buffer, "\033k999%s%*s\n\n", &buffer[50], (uint) (23-strlen(&buffer[50])), &buffer[90]);
+			PrtPrintBuffer((uint) strlen(buffer), (uchar *) buffer, E_PRINT_APPEND);
+			ReportGetFormattedAmount(amountStr, amount, "", "$", true, 2);
+			sprintf(buffer, "\021\033k999%8s %14s\n", "PURCHASE", amountStr);
+			PrtPrintBuffer((uint) strlen(buffer), (uchar *) buffer, E_PRINT_APPEND);
+			sprintf(buffer, "\n\n\n\nX%s\n%16s\n", "______________________", "SIGNATURE");
+			PrtPrintBuffer((uint) strlen(buffer), (uchar *) buffer, E_PRINT_APPEND);
+			sprintf(buffer, "\n\033k999AUTH ID%16s\n", "010203040506");
+			PrtPrintBuffer((uint) strlen(buffer), (uchar *) buffer, E_PRINT_APPEND);
+			sprintf(buffer, "\n\033k021%s%*s\n", "APPROVED", (uint) (15-strlen("APPROVED")), connected == true?"08":"T08");
+			PrtPrintBuffer((uint) strlen(buffer), (uchar *) buffer, E_PRINT_APPEND);
+			sprintf(buffer, "\021\033k999%24s", "------------------------");
+			PrtPrintBuffer((uint) strlen(buffer), (uchar *) buffer, E_PRINT_APPEND);
+			PrtPrintFormFeed();
+		}
+	}
+}
+
+main()
+{
+	int handle;
+	char upload[500];
+
+	// Initialisation
+	uploadOffline[0] = '\0';
+	memset(serialNumber, 0, sizeof(serialNumber));
+	SVC_INFO_SERLNO(serialNumber);
+
+	if ((handle = open("AURISINIT", O_RDWR)) == -1)
+	{
+		handle = open("AURISINIT", O_CREAT | O_TRUNC | O_RDWR | O_APPEND);
+
+		// Do other initialisation....
+		sprintf(upload,	"{TYPE:IDENTITY,SERIALNUMBER:%s,MANUFACTURER:Verifone,MODEL:Vx510},"
+						"{TYPE:INITIALISE}", serialNumber);
+	}
+	else upload[0] = '\0';
+
+	close(handle);
+
+
+	// Initialise
+	strcpy(ownIpAddress, "192.168.200.2");
+	strcpy(peerIpAddress, "192.168.200.1");
+	strcpy(ownIpAddress, "10.100.1.7");
+	strcpy(peerIpAddress, "10.100.1.6");
+//	strcpy(peerIpAddress, "10.200.1.96");
+	tcpPort = 1234;
+
+	// Establish IP communication to reduce latency afterwards. Also inform server of initialisation if required
+	DispClearScreen();
+	DispText("AURIS V1.0", 2, 255, false, true, false);
+	while (remote(upload, NULL) == false);
+
+	// Keep looping as long as the "IDLE" object has not been downloaded
+	while ((handle = open("IDLE", O_RDWR)) == -1)
+	{
+		bootLoader();
+
+		sprintf(upload,	"{TYPE:IDENTITY,SERIALNUMBER:%s,MANUFACTURER:Verifone,MODEL:Vx510},"
+						"{TYPE:DISPLAY,NAME:BOOT,VERSION:1.0,EVENT:KEY,VALUE:KEY_OK,OBJECT:IDLE},"
+						"{TYPE:DATA,NAME:COMMS PARAMETERS,VERSION:1.0,SERIALNUMBER:%s,VALUES:[%s,%s,%ld]}", serialNumber, serialNumber, ownIpAddress, peerIpAddress, tcpPort);
+/*		{
+			char keycode;
+			char tempBuf[40];
+			sprintf(tempBuf, "after upload");
+			write_at(tempBuf, strlen(tempBuf), 1, 2);
+			while(read(STDIN, &keycode, 1) != 1);
+		}
+*/
+		remote(upload, NULL);
+	}
+
+	close(handle);
+	strcpy(currentObject, "IDLE");
+
+	while(1)
+	{
+		// Process the current object (initially IDLE)
+		processDisplay(currentObject);
+
+		if ((handle = open(newObject, O_RDWR)) == -1)
+		{
+			DispClearScreen();
+			DispText("REFRESHING PAGES", 1, 255, false, true, false);
+			DispText("IN PROGRESS", 2, 255, false, true, false);
+
+			sprintf(upload, "{TYPE:IDENTITY,SERIALNUMBER:%s,MANUFACTURER:Verifone,MODEL:Vx510},"
+							"{TYPE:%s,NAME:%s,VERSION:%s,EVENT:%s,VALUE:%s,OBJECT:%s}",
+							serialNumber,
+							currentObjectType, currentObject, currentObjectVersion, currentObjectEvent, currentObjectEventValue, newObject);
+			remote(upload, NULL);
+
+			if ((handle = open(newObject, O_RDWR)) == -1)
+			{
+				char buf[40];
+				sprintf(buf, "PAGE %s", newObject);
+				DispText(buf, 1, 255, false, true, false);
+				DispText("NOT FOUND!", 2, 255, false, true, false);
+				continue;
+			}
+		}
+
+		close(handle);
+		strcpy(currentObject, newObject);
+	}
+
+	while(1)
+	{
+		int retVal = idleScreen();
+
+		if ((handle = open("SWIPE", O_RDWR)) == -1)
+		{
+			DispClearScreen();
+			DispText("REFRESHING PAGES", 1, 255, false, true, false);
+			DispText("IN PROGRESS", 2, 255, false, true, false);
+			sprintf(upload, "{TYPE:IDENTITY,SERIALNUMBER:%s,MANUFACTURER:Verifone,MODEL:Vx510},"
+							"{TYPE:DISPLAY,NAME:IDLE,VERSION:1.0,EVENT:KEY,VALUE:KEY_SK2,OBJECT:SWIPE}", serialNumber);
+			remote(upload, NULL);
+
+			if ((handle = open("SWIPE", O_RDWR)) == -1)
+				continue;
+		}
+
+		close(handle);
+
+		if (retVal == 0)
+			sale();
+	}
+
+//	while(1)
+//	{
+		// Send message to host:
+			// Request
+			// IDLE screen
+			// Upload Serial Number
+			// Downloads terminal configuration (TID/MID)
+
+		// Display Date/Time, RIS Logo and MENU buttons: SALE / REFUND / REPORT
+
+		// Press SALE
+
+		// System displays "Update Required..."
+			// Request
+			// Swipe Card Screen.
+			// Enter card number screen.
+			// Invalid card number screen.
+			// Enter expiry screen.
+			// Invalid expiry screen.
+			// Card Prefixes allowed object.
+			// Enter Amount Screen.
+			// Progress screen
+			// Receipt Template
+
+		// Perform Sale again
+			// No upgrades required.
+			// Continue to receipt...
+
+		// Change Enter card screen at host
+			// No upgrades required.
+			// Upgrade occurs at end of transaction
+
+		// Perform another Sale
+			// New screens display.
+
+		// PRESS Refund (Below are all available)
+			// Swipe Card Screen
+			// Enter Card Number Screen
+			// Invalid Card Number screen
+			// Enter expiry screen.
+			// Invalid Expiry screen.
+			// Card Prefixes allowed object
+
+		// System displays "Upgrade required..."
+			// Request
+			// User ID screen
+			// Password screen.
+		
+		// Terminal prompts for User ID and password first
+
+		// Continue prompting for rest of transaction
+
+		// Prints receipt which is common (REFUND prints instead).
+
+		// Perform offline transaction
+			// Show that it still works based on offline rules.
+
+		// Press Report
+
+		// System displays "Update Required"
+
+		// Test connections to the host
+/*		SVC_WAIT(3000);
+		HostConnect();
+
+		strcpy(data, "Hello from AURIS");
+		comms.pbData = (uchar *) data;
+		comms.wLength = strlen(data);
+		Comms(E_COMMS_FUNC_SEND, &comms);
+
+		memset(data, 0, comms.wLength+5);
+		Comms(E_COMMS_FUNC_RECEIVE, &comms);
+
+		DispText(data, 2, 0, false, true, true);
+
+		Comms(E_COMMS_FUNC_DISCONNECT, &comms);
+*/
+		// Test display
+//		DispText("Done", 3, 0, false, true, false);
+
+//		SVC_WAIT(1000);
+//	}
+}

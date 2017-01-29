@@ -1,0 +1,99 @@
+/*
+**-----------------------------------------------------------------------------
+** PROJECT:			iRIS
+**
+** FILE NAME:       utility.c
+**
+** DATE CREATED:    30 January 2008
+**
+** AUTHOR:          Tareq Hafez
+**
+** DESCRIPTION:     This module has various utility functions used by other modules
+**-----------------------------------------------------------------------------
+*/
+
+//
+//-----------------------------------------------------------------------------
+// Include Files
+//-----------------------------------------------------------------------------
+//
+
+//
+// Standard include files.
+//
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+//
+// Project include files.
+//
+#include <auris.h>
+#include <svc.h>
+
+/*
+** Local include files
+*/
+#include "utility.h"
+
+/*
+**-----------------------------------------------------------------------------
+** Constants
+**-----------------------------------------------------------------------------
+*/
+
+/*
+**-----------------------------------------------------------------------------
+** Module variable definitions and initialisations.
+**-----------------------------------------------------------------------------
+*/
+
+/*
+**-------------------------------------------------------------------------------------------
+** FUNCTION   : UtilStringToNumber
+**
+** DESCRIPTION:	Examines the string if it contains all digits and has 9 or less digits.
+**				Leading ZEROS and spaces are ignored.
+**				If yes, it converts it to a number and returns the value.
+**				If not, it returns -1
+**
+** PARAMETERS:	string	<=	string to be examined and converted
+**
+** RETURNS:		The string converted to a number or -1 (see description)
+**-------------------------------------------------------------------------------------------
+*/
+long UtilStringToNumber(char * string)
+{
+	bool negative = false;
+	uint i;
+	long result;
+	char * ptr = string;
+
+	if (!string || ptr[0] == '\0')
+		return -1;
+
+	if (ptr[0] == '-') {
+		negative = true; ptr++;
+	}
+	else if (ptr[0] == '+')
+		ptr++;
+
+	while (*ptr == '0' && strlen(ptr+1) || *ptr == ' ') ptr++;
+
+	if (strlen(ptr) >= 10)
+		return -1;
+
+	for (i = 0; ptr[i]; i++)
+	{
+		if (ptr[i] < '0' || ptr[i] > '9')
+			return -1;
+	}
+
+	result = atol(ptr);
+
+	if (negative)
+		return -result;
+	else
+		return result;
+}
+

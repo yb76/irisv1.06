@@ -1,0 +1,1436 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.7	//
+ACTIVATE_ACTION	VMAC.h	103;"	d
+APPLICATION_INIT_EVENT	devman.h	90;"	d
+APP_RES_SET_UNAVAILABLE	VMAC.h	100;"	d
+AS2805BcdLength	as2805.c	/^void AS2805BcdLength(bool state)$/;"	f
+AS2805BufferPack	as2805.c	/^void AS2805BufferPack(char * data, uchar format, uint size, uchar * buffer, uint * index)$/;"	f
+AS2805BufferUnpack	as2805.c	/^void AS2805BufferUnpack(char * data, uchar format, uint size, uchar * buffer, uint * index)$/;"	f
+AS2805Close	as2805.c	/^void AS2805Close()$/;"	f
+AS2805Init	as2805.c	/^uchar * AS2805Init(uint size)$/;"	f
+AS2805OFBAdjust	as2805.c	/^void AS2805OFBAdjust(uchar * source, uchar * dest, uint length)$/;"	f
+AS2805OFBVariation	as2805.c	/^void AS2805OFBVariation(int my_maxField, int my_addField)$/;"	f
+AS2805Pack	as2805.c	/^uint AS2805Pack(uchar field, char * data)$/;"	f
+AS2805Position	as2805.c	/^uchar * AS2805Position(uint * length)$/;"	f
+AS2805SetBit	as2805.c	/^void AS2805SetBit(uchar field)$/;"	f
+AS2805Unpack	as2805.c	/^void AS2805Unpack(uchar field, char * data, uchar * buffer, uint length)$/;"	f
+AS2805_Error	iris2805.c	/^int AS2805_Error = -1;$/;"	v
+AVAILABLE	devman.h	163;"	d
+B8	Prtean13.c	53;"	d	file:
+B8__	Prtean13.c	56;"	d	file:
+BAR_CODE	VMAC.h	37;"	d
+BAR_CODE_AVAILABLE_EVENT	devman.h	55;"	d
+BAR_CODE_MASK	VMAC.h	67;"	d
+BAR_CODE_RELEASED_EVENT	devman.h	99;"	d
+BAR_CODE_REQUEST_EVENT	devman.h	75;"	d
+BAR_CODE_TRANSFER_ACTION	devman.h	125;"	d
+BASE	adler32.c	11;"	d	file:
+BEEPER	VMAC.h	35;"	d
+BEEPER_AVAILABLE_EVENT	devman.h	53;"	d
+BEEPER_MASK	VMAC.h	65;"	d
+BEEPER_RELEASED_EVENT	devman.h	97;"	d
+BEEPER_REQUEST_EVENT	devman.h	73;"	d
+BEEPER_TRANSFER_ACTION	devman.h	123;"	d
+BITS	inflate.c	436;"	d	file:
+BROADCAST_EVENT_RANGE_END	devman.h	44;"	d
+BROADCAST_EVENT_RANGE_START	devman.h	43;"	d
+BUILDFIXED	inflate.c	90;"	d	file:
+BYFOUR	crc32.c	37;"	d	file:
+BYFOUR	crc32.c	47;"	d	file:
+BYTEBITS	inflate.c	447;"	d	file:
+BuildEan128BarCode	Prtean128.c	/^int BuildEan128BarCode(uchar * data, uchar * out, uint size, int height)$/;"	f
+BuildEan13BarCode	Prtean13.c	/^int BuildEan13BarCode ( uchar * bpChar, uchar * abPrintBlock, uint wSizePrintBlock)$/;"	f
+CENTRE_GUARD	Prtean13.c	135;"	d	file:
+CENTRE_GUARD_WIDTH	Prtean13.c	43;"	d	file:
+CLOCK	VMAC.h	36;"	d
+CLOCK_AVAILABLE_EVENT	devman.h	54;"	d
+CLOCK_MASK	VMAC.h	66;"	d
+CLOCK_RELEASED_EVENT	devman.h	98;"	d
+CLOCK_REQUEST_EVENT	devman.h	74;"	d
+CLOCK_TRANSFER_ACTION	devman.h	124;"	d
+CODE_A	Prtean128.c	158;"	d	file:
+CODE_B	Prtean128.c	159;"	d	file:
+CODE_C	Prtean128.c	160;"	d	file:
+COMM_1	VMAC.h	38;"	d
+COMM_1_AVAILABLE_EVENT	devman.h	56;"	d
+COMM_1_MASK	VMAC.h	68;"	d
+COMM_1_RELEASED_EVENT	devman.h	100;"	d
+COMM_1_REQUEST_EVENT	devman.h	76;"	d
+COMM_1_TRANSFER_ACTION	devman.h	126;"	d
+COMM_2	VMAC.h	39;"	d
+COMM_2_AVAILABLE_EVENT	devman.h	57;"	d
+COMM_2_MASK	VMAC.h	69;"	d
+COMM_2_RELEASED_EVENT	devman.h	101;"	d
+COMM_2_REQUEST_EVENT	devman.h	77;"	d
+COMM_2_TRANSFER_ACTION	devman.h	127;"	d
+COMM_3	VMAC.h	40;"	d
+COMM_3_AVAILABLE_EVENT	devman.h	58;"	d
+COMM_3_MASK	VMAC.h	70;"	d
+COMM_3_RELEASED_EVENT	devman.h	102;"	d
+COMM_3_REQUEST_EVENT	devman.h	78;"	d
+COMM_3_TRANSFER_ACTION	devman.h	128;"	d
+COMM_4	VMAC.h	41;"	d
+COMM_4_AVAILABLE_EVENT	devman.h	59;"	d
+COMM_4_MASK	VMAC.h	71;"	d
+COMM_4_RELEASED_EVENT	devman.h	103;"	d
+COMM_4_REQUEST_EVENT	devman.h	79;"	d
+COMM_4_TRANSFER_ACTION	devman.h	129;"	d
+COMM_5	VMAC.h	42;"	d
+COMM_5_AVAILABLE_EVENT	devman.h	60;"	d
+COMM_5_MASK	VMAC.h	72;"	d
+COMM_5_RELEASED_EVENT	devman.h	104;"	d
+COMM_5_REQUEST_EVENT	devman.h	80;"	d
+COMM_5_TRANSFER_ACTION	devman.h	130;"	d
+COMM_6	VMAC.h	47;"	d
+COMM_6_AVAILABLE_EVENT	devman.h	65;"	d
+COMM_6_MASK	VMAC.h	84;"	d
+COMM_6_RELEASED_EVENT	devman.h	109;"	d
+COMM_6_REQUEST_EVENT	devman.h	85;"	d
+COMM_6_TRANSFER_ACTION	devman.h	133;"	d
+CONSOLE	VMAC.h	33;"	d
+CONSOLE_AVAILABLE_EVENT	devman.h	51;"	d
+CONSOLE_MASK	VMAC.h	63;"	d
+CONSOLE_RELEASED_EVENT	devman.h	95;"	d
+CONSOLE_REQUEST_EVENT	devman.h	71;"	d
+CONSOLE_TRANSFER_ACTION	devman.h	121;"	d
+CRC	irismath.c	1385;"	d	file:
+CRC2	inflate.c	371;"	d	file:
+CRC4	inflate.c	378;"	d	file:
+CRC_INIT	irismath.c	1384;"	d	file:
+CRYPTO	VMAC.h	49;"	d
+CRYPTO_AVAILABLE_EVENT	devman.h	67;"	d
+CRYPTO_MASK	VMAC.h	86;"	d
+CRYPTO_RELEASED_EVENT	devman.h	111;"	d
+CRYPTO_REQUEST_EVENT	devman.h	87;"	d
+CRYPTO_TRANSFER_ACTION	devman.h	135;"	d
+C_APPNAME_MAX	security.c	115;"	d	file:
+C_CFG_FILE_LEN	iriscfg.c	51;"	d	file:
+C_CONVERT_NO	Copy of iris.c	51;"	d	file:
+C_CONVERT_NO	iris.c	51;"	d	file:
+C_CONVERT_TO_ASCII	Copy of iris.c	52;"	d	file:
+C_CONVERT_TO_ASCII	iris.c	52;"	d	file:
+C_CONVERT_TO_HEX	Copy of iris.c	53;"	d	file:
+C_CONVERT_TO_HEX	iris.c	53;"	d	file:
+C_DAY	iristime.c	48;"	d	file:
+C_FMT_MAX	iristime.c	53;"	d	file:
+C_HOUR	iristime.c	49;"	d	file:
+C_MAX_STACK	Copy of iris.c	48;"	d	file:
+C_MAX_STACK	iris.c	48;"	d	file:
+C_MAX_TEMP_DATA	Copy of iris.c	49;"	d	file:
+C_MAX_TEMP_DATA	iris.c	49;"	d	file:
+C_MIN	iristime.c	50;"	d	file:
+C_MON	iristime.c	47;"	d	file:
+C_NO_OF_KEYS	security.c	113;"	d	file:
+C_NO_OF_RSA	security.c	114;"	d	file:
+C_PPID	iriscfg.c	48;"	d	file:
+C_PPID_LEN	iriscfg.c	46;"	d	file:
+C_SCRIPT_ID	security.c	56;"	d	file:
+C_SEC	iristime.c	51;"	d	file:
+C_YEAR	iristime.c	46;"	d	file:
+CentreGuard	Prtean13.c	/^const uchar CentreGuard[2] = {B8(00011100),B8(01110000)};\/\/{0x38, 0x0E};$/;"	v
+Comms	Copy (2) of comms.c	/^uint Comms(E_COMMS_FUNC eFunc, T_COMMS * psComms, ...)$/;"	f
+Comms	Copy of comms.c	/^uint Comms(E_COMMS_FUNC eFunc, T_COMMS * psComms, ...)$/;"	f
+Comms	comms.c	/^uint Comms(E_COMMS_FUNC eFunc, T_COMMS * psComms, ...)$/;"	f
+CommsAsyncToSync	Copy (2) of comms.c	/^static void CommsAsyncToSync(uint handle)$/;"	f	file:
+CommsAsyncToSync	Copy of comms.c	/^static void CommsAsyncToSync(uint handle)$/;"	f	file:
+CommsAsyncToSync	comms.c	/^static void CommsAsyncToSync(uint handle)$/;"	f	file:
+CommsConnect	Copy (2) of comms.c	/^uint CommsConnect(T_COMMS * psComms)$/;"	f
+CommsConnect	Copy of comms.c	/^uint CommsConnect(T_COMMS * psComms)$/;"	f
+CommsConnect	comms.c	/^uint CommsConnect(T_COMMS * psComms)$/;"	f
+CommsDisconnect	Copy (2) of comms.c	/^uint CommsDisconnect(T_COMMS * psComms)$/;"	f
+CommsDisconnect	Copy of comms.c	/^uint CommsDisconnect(T_COMMS * psComms)$/;"	f
+CommsDisconnect	comms.c	/^uint CommsDisconnect(T_COMMS * psComms)$/;"	f
+CommsErrorDesc	Copy (2) of comms.c	/^char * CommsErrorDesc(uint wError)$/;"	f
+CommsErrorDesc	Copy of comms.c	/^char * CommsErrorDesc(uint wError)$/;"	f
+CommsErrorDesc	comms.c	/^char * CommsErrorDesc(uint wError)$/;"	f
+CommsIPConnect	Copy (2) of comms.c	/^static uint CommsIPConnect(T_COMMS * psComms)$/;"	f	file:
+CommsIPConnect	comms.c	/^static uint CommsIPConnect(T_COMMS * psComms)$/;"	f	file:
+CommsIPCreate	Copy (2) of comms.c	/^static short CommsIPCreate(void)$/;"	f	file:
+CommsIPCreate	Copy of comms.c	/^static short CommsIPCreate(void)$/;"	f	file:
+CommsIPCreate	comms.c	/^static short CommsIPCreate(T_COMMS * psComms)$/;"	f	file:
+CommsIPSetup	Copy (2) of comms.c	/^static short CommsIPSetup(T_COMMS * psComms)$/;"	f	file:
+CommsIPSetup	Copy of comms.c	/^static short CommsIPSetup(T_COMMS * psComms)$/;"	f	file:
+CommsIPSetup	comms.c	/^static short CommsIPSetup(T_COMMS * psComms)$/;"	f	file:
+CommsParameters	Copy (2) of main.c	/^bool CommsParameters()$/;"	f
+CommsParameters	Copy (3) of main.c	/^bool CommsParameters()$/;"	f
+CommsParameters	Copy of main.c	/^bool CommsParameters()$/;"	f
+CommsPstnWait	Copy (2) of comms.c	/^static uint CommsPstnWait(T_COMMS * psComms)$/;"	f	file:
+CommsPstnWait	Copy of comms.c	/^static uint CommsPstnWait(T_COMMS * psComms)$/;"	f	file:
+CommsPstnWait	comms.c	/^static uint CommsPstnWait(T_COMMS * psComms)$/;"	f	file:
+CommsReInitPSTN	Copy (2) of comms.c	/^void CommsReInitPSTN(void)$/;"	f
+CommsReInitPSTN	Copy of comms.c	/^void CommsReInitPSTN(void)$/;"	f
+CommsReInitPSTN	comms.c	/^void CommsReInitPSTN(void)$/;"	f
+CommsReceive	Copy (2) of comms.c	/^uint CommsReceive( T_COMMS * psComms, bool fFirstChar )$/;"	f
+CommsReceive	Copy of comms.c	/^uint CommsReceive( T_COMMS * psComms, bool fFirstChar )$/;"	f
+CommsReceive	comms.c	/^uint CommsReceive( T_COMMS * psComms, bool fFirstChar )$/;"	f
+CommsSend	Copy (2) of comms.c	/^uint CommsSend( T_COMMS * psComms )$/;"	f
+CommsSend	Copy of comms.c	/^uint CommsSend( T_COMMS * psComms )$/;"	f
+CommsSend	comms.c	/^uint CommsSend( T_COMMS * psComms )$/;"	f
+CommsSerialDataAvailable	Copy (2) of comms.c	/^static uint CommsSerialDataAvailable(int port)$/;"	f	file:
+CommsSerialDataAvailable	Copy of comms.c	/^static uint CommsSerialDataAvailable(int port)$/;"	f	file:
+CommsSerialDataAvailable	comms.c	/^static uint CommsSerialDataAvailable(int port)$/;"	f	file:
+CommsSetSerial	Copy (2) of comms.c	/^uint CommsSetSerial(T_COMMS * psComms)$/;"	f
+CommsSetSerial	Copy of comms.c	/^uint CommsSetSerial(T_COMMS * psComms)$/;"	f
+CommsSetSerial	comms.c	/^uint CommsSetSerial(T_COMMS * psComms)$/;"	f
+CommsSyncSwitch	Copy (2) of comms.c	/^static uint CommsSyncSwitch(void)$/;"	f	file:
+CommsSyncSwitch	Copy of comms.c	/^static uint CommsSyncSwitch(void)$/;"	f	file:
+CommsSyncSwitch	comms.c	/^static uint CommsSyncSwitch(void)$/;"	f	file:
+CommsTranslateError	Copy (2) of comms.c	/^static uint CommsTranslateError(int eError)$/;"	f	file:
+CommsTranslateError	Copy of comms.c	/^static uint CommsTranslateError(int eError)$/;"	f	file:
+CommsTranslateError	comms.c	/^static uint CommsTranslateError(int eError)$/;"	f	file:
+DEVICE_MASK_END	VMAC.h	60;"	d
+DEVICE_MASK_START	VMAC.h	59;"	d
+DEVICE_NOT_PRESENT_DATA	devman.h	158;"	d
+DEVICE_NOT_PRESENT_EVENT	devman.h	117;"	d
+DEVMAN_RSRC	devman.h	155;"	d
+DISABLE_EVENT_ACTION	devman.h	114;"	d
+DM_DEVICE_NOT_AVAILABLE	VMAC.h	121;"	d
+DM_DEVICE_NOT_OWNED	VMAC.h	120;"	d
+DM_EVENT_RANGE_END	devman.h	47;"	d
+DM_EVENT_RANGE_START	devman.h	46;"	d
+DM_FLD_INPUT_EVENT	devman.h	185;"	d
+DM_FLD_RES_NOT_AVL_REASON	devman.h	186;"	d
+DM_ILLEGAL_TRANSFER_ACTION	VMAC.h	123;"	d
+DM_NOT_SECURED_DEVICE	VMAC.h	118;"	d
+DM_SINGLE_USB_NOT_AVAILABLE	VMAC.h	113;"	d
+DO1	adler32.c	15;"	d	file:
+DO1	crc32.c	210;"	d	file:
+DO16	adler32.c	19;"	d	file:
+DO2	adler32.c	16;"	d	file:
+DO4	adler32.c	17;"	d	file:
+DO8	adler32.c	18;"	d	file:
+DO8	crc32.c	211;"	d	file:
+DOBIG32	crc32.c	288;"	d	file:
+DOBIG4	crc32.c	285;"	d	file:
+DOLIT32	crc32.c	251;"	d	file:
+DOLIT4	crc32.c	248;"	d	file:
+DROPBITS	inflate.c	440;"	d	file:
+DYNAMIC_CRC_TABLE	crc32.c	25;"	d	file:
+DefaultTimer	timer.c	/^static TIMER_TYPE DefaultTimer;$/;"	v	file:
+DispClearScreen	display.c	/^void DispClearScreen(void)$/;"	f
+DispGraphics	display.c	/^void DispGraphics(uchar * graphics, uint row, uint col)$/;"	f
+DispInit	display.c	/^void DispInit(void)$/;"	f
+DispInit	irismain.c	/^void DispInit(void){}$/;"	f
+DispSignal	display.c	/^void DispSignal(uint row, uint col)$/;"	f
+DispText	display.c	/^void DispText(char * text, uint row, uint col, bool clearLine, bool largeFont, bool inverse)$/;"	f
+DispText2	Copy (2) of comms.c	166;"	d	file:
+DispText2	Copy of comms.c	154;"	d	file:
+DispText2	comms.c	187;"	d	file:
+DispUpdateBattery	display.c	/^void DispUpdateBattery(uint row, uint col)$/;"	f
+EAN_NORMAL_WIDTH	Prtean13.c	40;"	d	file:
+ENABLE_EVENT_ACTION	devman.h	113;"	d
+ETH1	VMAC.h	45;"	d
+ETH1_MASK	VMAC.h	75;"	d
+ETH_1_AVAILABLE_EVENT	devman.h	63;"	d
+ETH_1_RELEASED_EVENT	devman.h	107;"	d
+ETH_1_REQUEST_EVENT	devman.h	83;"	d
+ETH_1_TRANSFER_ACTION	devman.h	131;"	d
+EVENT_DISABLED	devman.h	178;"	d
+EVENT_NOT_FOUND	devman.h	179;"	d
+EVENT_NOT_HANDLED	VMAC.h	99;"	d
+E_PRINT_STATE	printer.c	/^} E_PRINT_STATE;$/;"	t	typeref:enum:__anon31	file:
+E_PRINT_STATE_BARCODE_EAN128	printer.c	/^	E_PRINT_STATE_BARCODE_EAN128,$/;"	e	enum:__anon31	file:
+E_PRINT_STATE_BARCODE_EAN13	printer.c	/^	E_PRINT_STATE_BARCODE_EAN13,$/;"	e	enum:__anon31	file:
+E_PRINT_STATE_DEFAULT	printer.c	/^	E_PRINT_STATE_DEFAULT = 0,$/;"	e	enum:__anon31	file:
+E_PRINT_STATE_ESCAPE	printer.c	/^	E_PRINT_STATE_ESCAPE,$/;"	e	enum:__anon31	file:
+E_PRINT_STATE_FIRST_0	printer.c	/^	E_PRINT_STATE_FIRST_0,$/;"	e	enum:__anon31	file:
+E_PRINT_STATE_FIRST_9	printer.c	/^	E_PRINT_STATE_FIRST_9,$/;"	e	enum:__anon31	file:
+E_PRINT_STATE_K	printer.c	/^	E_PRINT_STATE_K,$/;"	e	enum:__anon31	file:
+E_PRINT_STATE_SECOND_03	printer.c	/^	E_PRINT_STATE_SECOND_03,$/;"	e	enum:__anon31	file:
+E_PRINT_STATE_SECOND_04	printer.c	/^	E_PRINT_STATE_SECOND_04,$/;"	e	enum:__anon31	file:
+E_PRINT_STATE_SECOND_90	printer.c	/^	E_PRINT_STATE_SECOND_90,$/;"	e	enum:__anon31	file:
+E_PRINT_STATE_SECOND_99	printer.c	/^	E_PRINT_STATE_SECOND_99,$/;"	e	enum:__anon31	file:
+F	sha1.c	119;"	d	file:
+F	sha1.c	121;"	d	file:
+F	sha1.c	146;"	d	file:
+F	sha1.c	148;"	d	file:
+F	sha1.c	173;"	d	file:
+F	sha1.c	175;"	d	file:
+F	sha1.c	200;"	d	file:
+F	sha1.c	94;"	d	file:
+GET_UINT32	sha1.c	25;"	d	file:
+GPRSProgress	comms.c	/^static void GPRSProgress(char * data)$/;"	f	file:
+GetAmount	Copy (2) of main.c	/^uchar GetAmount(char * text, uchar length, ulong * buffer)$/;"	f
+GetAmount	Copy (3) of main.c	/^uchar GetAmount(char * text, uchar length, ulong * buffer)$/;"	f
+GetAmount	Copy of main.c	/^uchar GetAmount(char * text, uchar length, ulong * buffer)$/;"	f
+GetDialResponse	Copy (2) of comms.c	/^int GetDialResponse(T_COMMS * psCommsModem)$/;"	f
+GetDialResponse	Copy of comms.c	/^int GetDialResponse(T_COMMS * psCommsModem)$/;"	f
+GetDialResponse	comms.c	/^int GetDialResponse(T_COMMS * psCommsModem)$/;"	f
+GetInput	Copy (2) of main.c	/^uchar GetInput(char * text, uchar length, void * buffer, E_INP_ENTRY_TYPE entryType)$/;"	f
+GetInput	Copy (3) of main.c	/^uchar GetInput(char * text, uchar length, void * buffer, E_INP_ENTRY_TYPE entryType)$/;"	f
+GetInput	Copy of main.c	/^uchar GetInput(char * text, uchar length, void * buffer, E_INP_ENTRY_TYPE entryType)$/;"	f
+GetNumber	Copy (2) of main.c	/^uchar GetNumber(char * text, uchar length, ulong * buffer)$/;"	f
+GetNumber	Copy (3) of main.c	/^uchar GetNumber(char * text, uchar length, ulong * buffer)$/;"	f
+GetNumber	Copy of main.c	/^uchar GetNumber(char * text, uchar length, ulong * buffer)$/;"	f
+GetParamGprs	Copy (2) of comms.c	/^static short GetParamGprs(short paramId, unsigned char *buffer, short size)$/;"	f	file:
+GetParamGprs	Copy of comms.c	/^static short GetParamGprs(short paramId, unsigned char *buffer, short size)$/;"	f	file:
+GetParamGprs	comms.c	/^static short GetParamGprs(short paramId, unsigned char *buffer, short size)$/;"	f	file:
+GetParameter	Copy (2) of comms.c	/^short GetParameter(short paramId, unsigned char *buffer, short size)$/;"	f
+GetParameter	Copy of comms.c	/^short GetParameter(short paramId, unsigned char *buffer, short size)$/;"	f
+GetParameter	comms.c	/^short GetParameter(short paramId, unsigned char *buffer, short size)$/;"	f
+GetString	Copy (2) of main.c	/^uchar GetString(char * text, uchar length, char * buffer)$/;"	f
+GetString	Copy (3) of main.c	/^uchar GetString(char * text, uchar length, char * buffer)$/;"	f
+GetString	Copy of main.c	/^uchar GetString(char * text, uchar length, char * buffer)$/;"	f
+HEX__	Prtean13.c	50;"	d	file:
+HIGH	devman.h	145;"	d
+HiddenAttribute	input.c	/^static bool HiddenAttribute;$/;"	v	file:
+HiddenString	input.c	/^const char HiddenString[] = "********************";$/;"	v
+HostConnect	Copy (2) of main.c	/^static bool HostConnect()$/;"	f	file:
+HostConnect	Copy (3) of main.c	/^static bool HostConnect()$/;"	f	file:
+HostConnect	Copy of main.c	/^static bool HostConnect()$/;"	f	file:
+ICC_1	VMAC.h	43;"	d
+ICC_1_AVAILABLE_EVENT	devman.h	61;"	d
+ICC_1_MASK	VMAC.h	73;"	d
+ICC_1_RELEASED_EVENT	devman.h	105;"	d
+ICC_1_REQUEST_EVENT	devman.h	81;"	d
+ICC_2	VMAC.h	44;"	d
+ICC_2_AVAILABLE_EVENT	devman.h	62;"	d
+ICC_2_MASK	VMAC.h	74;"	d
+ICC_2_RELEASED_EVENT	devman.h	106;"	d
+ICC_2_REQUEST_EVENT	devman.h	82;"	d
+INITBITS	inflate.c	411;"	d	file:
+INPUT_EVENT_ID	devman.h	156;"	d
+IRIS_AppendToUpload	Copy of iris.c	/^void IRIS_AppendToUpload(char * addition)$/;"	f
+IRIS_AppendToUpload	iris.c	/^void IRIS_AppendToUpload(char * addition)$/;"	f
+IRIS_ClrTemp	Copy of iris.c	/^int IRIS_ClrTemp(char * objectName)$/;"	f
+IRIS_ClrTemp	iris.c	/^int IRIS_ClrTemp(char * objectName)$/;"	f
+IRIS_CommsDisconnect	iriscomms.c	/^void IRIS_CommsDisconnect(T_COMMS * comms, int retVal)$/;"	f
+IRIS_CommsErr	iriscomms.c	/^void IRIS_CommsErr(int retVal)$/;"	f
+IRIS_CommsRecv	iriscomms.c	/^void IRIS_CommsRecv(T_COMMS * comms, int bufLen, int * retVal)$/;"	f
+IRIS_CommsSend	iriscomms.c	/^void IRIS_CommsSend(T_COMMS * comms, int * retVal)$/;"	f
+IRIS_DeallocateStringValue	Copy of iris.c	/^void IRIS_DeallocateStringValue(char * value)$/;"	f
+IRIS_DeallocateStringValue	iris.c	/^void IRIS_DeallocateStringValue(char * value)$/;"	f
+IRIS_DownloadResourceObject	Copy of iris.c	/^bool IRIS_DownloadResourceObject(char * objectName, bool useHost)$/;"	f
+IRIS_DownloadResourceObject	iris.c	/^bool IRIS_DownloadResourceObject(char * objectName)$/;"	f
+IRIS_Eval	Copy of iris.c	/^void IRIS_Eval(char * value, bool partial)$/;"	f
+IRIS_Eval	iris.c	/^void IRIS_Eval(char * value, bool partial)$/;"	f
+IRIS_FullName	Copy of iris.c	/^void IRIS_FullName(char * string, char * fullName)$/;"	f
+IRIS_FullName	iris.c	/^void IRIS_FullName(char * string, char * fullName)$/;"	f
+IRIS_GetCount	Copy of iris.c	/^int IRIS_GetCount(char * fullName)$/;"	f
+IRIS_GetCount	iris.c	/^int IRIS_GetCount(char * fullName)$/;"	f
+IRIS_GetExternalObjectData	Copy of iris.c	/^void IRIS_GetExternalObjectData(char * objectName)$/;"	f
+IRIS_GetExternalObjectData	iris.c	/^void IRIS_GetExternalObjectData(char * objectName)$/;"	f
+IRIS_GetInternalObjectData	Copy of iris.c	/^static char * IRIS_GetInternalObjectData(char * objectName, unsigned int * length)$/;"	f	file:
+IRIS_GetInternalObjectData	iris.c	/^static char * IRIS_GetInternalObjectData(char * objectName, unsigned int * length)$/;"	f	file:
+IRIS_GetObjectData	Copy of iris.c	/^char * IRIS_GetObjectData(char * objectName, unsigned int * length)$/;"	f
+IRIS_GetObjectData	iris.c	/^char * IRIS_GetObjectData(char * objectName, unsigned int * length)$/;"	f
+IRIS_GetStringValue	Copy of iris.c	/^char * IRIS_GetStringValue(char * data, int size, char * name, bool partial)$/;"	f
+IRIS_GetStringValue	iris.c	/^char * IRIS_GetStringValue(char * data, int size, char * name, bool partial)$/;"	f
+IRIS_GetTypeObjectData	Copy of iris.c	/^char * IRIS_GetTypeObjectData(uint count, uint * length, char * type)$/;"	f
+IRIS_GetTypeObjectData	iris.c	/^char * IRIS_GetTypeObjectData(uint count, uint * length, char * type)$/;"	f
+IRIS_ProcessActionObject	Copy of iris.c	/^void IRIS_ProcessActionObject(char * objectData)$/;"	f
+IRIS_ProcessActionObject	iris.c	/^void IRIS_ProcessActionObject(char * objectData)$/;"	f
+IRIS_PutNamedObjectData	iris.c	/^void IRIS_PutNamedObjectData(char * objectData, uint length, char * name)$/;"	f
+IRIS_PutObjectData	Copy of iris.c	/^void IRIS_PutObjectData(char * objectData, uint length)$/;"	f
+IRIS_PutObjectData	iris.c	/^void IRIS_PutObjectData(char * objectData, uint length)$/;"	f
+IRIS_RemoteSession	Copy of iris.c	/^void IRIS_RemoteSession(char * objectName)$/;"	f
+IRIS_RenameObject	Copy of iris.c	/^void IRIS_RenameObject(char * objectData, char * newName)$/;"	f
+IRIS_RenameObject	iris.c	/^void IRIS_RenameObject(char * objectData, char * newName)$/;"	f
+IRIS_ResolveToSingleValue	Copy of iris.c	/^void IRIS_ResolveToSingleValue(char * value, bool partial)$/;"	f
+IRIS_ResolveToSingleValue	iris.c	/^void IRIS_ResolveToSingleValue(char * value, bool partial)$/;"	f
+IRIS_StackFlush	Copy of iris.c	/^void IRIS_StackFlush(void)$/;"	f
+IRIS_StackFlush	iris.c	/^void IRIS_StackFlush(void)$/;"	f
+IRIS_StackGet	Copy of iris.c	/^char * IRIS_StackGet(char offset)$/;"	f
+IRIS_StackGet	iris.c	/^char * IRIS_StackGet(char offset)$/;"	f
+IRIS_StackInit	Copy of iris.c	/^void IRIS_StackInit(int size)$/;"	f
+IRIS_StackInit	iris.c	/^void IRIS_StackInit(int size)$/;"	f
+IRIS_StackInitialised	iris.c	/^bool IRIS_StackInitialised(void)$/;"	f
+IRIS_StackPop	Copy of iris.c	/^void IRIS_StackPop(int count)$/;"	f
+IRIS_StackPop	iris.c	/^void IRIS_StackPop(int count)$/;"	f
+IRIS_StackPush	Copy of iris.c	/^void IRIS_StackPush(char * value)$/;"	f
+IRIS_StackPush	iris.c	/^void IRIS_StackPush(char * value)$/;"	f
+IRIS_StackPushFunc	Copy of iris.c	/^bool IRIS_StackPushFunc(char * function)$/;"	f
+IRIS_StackPushFunc	iris.c	/^bool IRIS_StackPushFunc(char * function)$/;"	f
+IRIS_StoreData	Copy of iris.c	/^void IRIS_StoreData(char * fullName, char * value, bool deleteFlag)$/;"	f
+IRIS_StoreData	iris.c	/^void IRIS_StoreData(char * fullName, char * value, bool deleteFlag)$/;"	f
+IRIS_TemporaryObjectStringValue	Copy of iris.c	/^static char * IRIS_TemporaryObjectStringValue(char * stringName, bool partial)$/;"	f	file:
+IRIS_TemporaryObjectStringValue	iris.c	/^static char * IRIS_TemporaryObjectStringValue(char * stringName, bool partial)$/;"	f	file:
+InpBeep	input.c	/^void InpBeep(uchar count, uint onDuration, uint offDuration)$/;"	f
+InpGetKeyEvent	input.c	/^uchar InpGetKeyEvent(T_KEYBITMAP keyBitmap, T_EVTBITMAP * evtBitmap, T_INP_ENTRY inpEntry, ulong timeout, bool largeFont, bool flush, bool * keyPress)$/;"	f
+InpGetMCRTracks	input.c	/^bool InpGetMCRTracks(	char * ptTrack1, uchar * pbTrack1Length,$/;"	f
+InpGetNumber	input.c	/^ulong InpGetNumber(void)$/;"	f
+InpGetString	input.c	/^char * InpGetString(void)$/;"	f
+InpSetNumber	input.c	/^void InpSetNumber(ulong value, bool override)$/;"	f
+InpSetOverride	input.c	/^void InpSetOverride(bool override)$/;"	f
+InpSetString	input.c	/^void InpSetString(char * value, bool hidden, bool override)$/;"	f
+InpTurnOff	input.c	/^int InpTurnOff(bool serial0)$/;"	f
+InpTurnOn	input.c	/^void InpTurnOn(void)$/;"	f
+K	sha1.c	118;"	d	file:
+K	sha1.c	122;"	d	file:
+K	sha1.c	145;"	d	file:
+K	sha1.c	149;"	d	file:
+K	sha1.c	172;"	d	file:
+K	sha1.c	176;"	d	file:
+K	sha1.c	199;"	d	file:
+K	sha1.c	95;"	d	file:
+LEFT_GUARD	Prtean13.c	134;"	d	file:
+LEFT_GUARD_WIDTH	Prtean13.c	41;"	d	file:
+LOAD	inflate.c	389;"	d	file:
+LOG_PRINTF	input.c	118;"	d	file:
+LOW	devman.h	147;"	d
+LeftGuard	Prtean13.c	/^const uchar LeftGuard[2] =	{B8(11100011),B8(10000000)};\/\/{0xC7, 0x01};$/;"	v
+MAG_READER	VMAC.h	34;"	d
+MAG_READER_AVAILABLE_EVENT	devman.h	52;"	d
+MAG_READER_MASK	VMAC.h	64;"	d
+MAG_READER_RELEASED_EVENT	devman.h	96;"	d
+MAG_READER_REQUEST_EVENT	devman.h	72;"	d
+MAG_READER_TRANSFER_ACTION	devman.h	122;"	d
+MAXBITS	inftrees.c	9;"	d	file:
+MAX_ACTIONS	devman.h	149;"	d
+MAX_APPS	devman.h	151;"	d
+MAX_DATA	Copy (3) of main.c	73;"	d	file:
+MAX_DATA	Copy (4) of main.c	38;"	d	file:
+MAX_DATA	Copy (5) of main.c	38;"	d	file:
+MAX_DATA	irismain.c	63;"	d	file:
+MAX_DATA	main.c	37;"	d	file:
+MAX_EVENTS	devman.h	172;"	d
+MAX_EVENT_DATA_SIZE	devman.h	174;"	d
+MAX_EVENT_SEND_RETRIES	devman.h	176;"	d
+MAX_FIELD_DATA_LEN	devman.h	166;"	d
+MAX_NUMBER_DATA_ELMENTS	devman.h	173;"	d
+MAX_PTR	zutil.c	198;"	d	file:
+MEDIUM	devman.h	146;"	d
+MOD	adler32.c	22;"	d	file:
+MOD	adler32.c	43;"	d	file:
+MY_ZCALLOC	zutil.c	190;"	d	file:
+MY_ZCALLOC	zutil.c	268;"	d	file:
+M_3DES_RSAINJECT	security.c	104;"	d	file:
+M_3INJECT_3DES	security.c	91;"	d	file:
+M_CLRIV	security.c	75;"	d	file:
+M_COPY	security.c	68;"	d	file:
+M_COPY_3DES	security.c	69;"	d	file:
+M_DEC	security.c	82;"	d	file:
+M_DECV	security.c	84;"	d	file:
+M_DECV_3DES	security.c	85;"	d	file:
+M_DEC_3DES	security.c	83;"	d	file:
+M_ENC	security.c	78;"	d	file:
+M_ENCV	security.c	80;"	d	file:
+M_ENCV_3DES	security.c	81;"	d	file:
+M_ENC_3DES	security.c	79;"	d	file:
+M_ERASE	security.c	61;"	d	file:
+M_ERASE_3DES	security.c	62;"	d	file:
+M_INJECT	security.c	89;"	d	file:
+M_INJECT_3DES	security.c	90;"	d	file:
+M_KVC	security.c	65;"	d	file:
+M_KVC_3DES	security.c	66;"	d	file:
+M_MOVE	security.c	70;"	d	file:
+M_MOVE_3DES	security.c	71;"	d	file:
+M_OFB	security.c	86;"	d	file:
+M_OFB_3DES	security.c	87;"	d	file:
+M_OWF	security.c	93;"	d	file:
+M_OWFV_3DES	security.c	95;"	d	file:
+M_OWF_3DES	security.c	94;"	d	file:
+M_OWF_3DES_DATA	security.c	97;"	d	file:
+M_OWF_DATA	security.c	96;"	d	file:
+M_PIN	security.c	106;"	d	file:
+M_PINV	security.c	108;"	d	file:
+M_PINV_3DES	security.c	109;"	d	file:
+M_PIN_3DES	security.c	107;"	d	file:
+M_RANDOM	security.c	63;"	d	file:
+M_RANDOM_3DES	security.c	64;"	d	file:
+M_RSA_3INJECT	security.c	102;"	d	file:
+M_RSA_CRYPT	security.c	100;"	d	file:
+M_RSA_INJECT	security.c	101;"	d	file:
+M_RSA_RSAINJECT	security.c	103;"	d	file:
+M_RSA_WRITE	security.c	99;"	d	file:
+M_SETIV	security.c	76;"	d	file:
+M_WRITE	security.c	59;"	d	file:
+M_WRITE_3DES	security.c	60;"	d	file:
+M_XOR	security.c	72;"	d	file:
+M_XOR_3DES	security.c	73;"	d	file:
+MyPrtConnect	printer.c	/^static E_PRT_ERR MyPrtConnect(void)$/;"	f	file:
+MyPrtPrint	printer.c	/^static E_PRT_ERR MyPrtPrint(uchar * pbData, uint size)$/;"	f	file:
+MyPrtSend	printer.c	/^static E_PRT_ERR MyPrtSend(uchar * pbData, uint wLength)$/;"	f	file:
+NEEDBITS	inflate.c	429;"	d	file:
+NMAX	adler32.c	12;"	d	file:
+NOT_AVAILABLE	devman.h	162;"	d
+NOT_PRESENT	devman.h	164;"	d
+NO_DEVICES_REQUIRED	VMAC.h	91;"	d
+Notify	Copy (2) of comms.c	/^short Notify(short state)$/;"	f
+Notify	Copy of comms.c	/^short Notify(short state)$/;"	f
+Notify	comms.c	/^short Notify(short state)$/;"	f
+NotifyGprs	Copy (2) of comms.c	/^static short NotifyGprs(short state)$/;"	f	file:
+NotifyGprs	Copy of comms.c	/^static short NotifyGprs(short state)$/;"	f	file:
+NotifyGprs	comms.c	/^static short NotifyGprs(short state)$/;"	f	file:
+Number	input.c	/^static ulong Number;$/;"	v	file:
+OFF	inffast.c	25;"	d	file:
+OFF	inffast.c	28;"	d	file:
+Override	input.c	/^static bool Override;$/;"	v	file:
+P	sha1.c	83;"	d	file:
+PULLBYTE	inflate.c	419;"	d	file:
+PUP	inffast.c	26;"	d	file:
+PUP	inffast.c	29;"	d	file:
+PUT_UINT32	sha1.c	33;"	d	file:
+PrintCharLine	Prtean13.c	/^uchar    PrintCharLine[9];$/;"	v
+PrtGetErrorText	printer.c	/^char * PrtGetErrorText(E_PRT_ERR eError)$/;"	f
+PrtPrint	printer.c	/^static E_PRT_ERR PrtPrint(uchar * pbData, uint wLength, E_PRINT ePrintCommand)$/;"	f	file:
+PrtPrintBuffer	printer.c	/^E_PRT_ERR PrtPrintBuffer(uint wLength, uchar * pbData, E_PRINT ePrintCommand)$/;"	f
+PrtPrintFormFeed	printer.c	/^E_PRT_ERR PrtPrintFormFeed()$/;"	f
+PrtPrintGraphics	printer.c	/^E_PRT_ERR PrtPrintGraphics(uint wWidth, uint wHeight, uchar * pbData, bool fCenter, uchar bMultiplier)$/;"	f
+PrtStatus	printer.c	/^E_PRT_ERR PrtStatus(bool fStatusCheck)$/;"	f
+R	sha1.c	76;"	d	file:
+RESP_DEVICE_NOT_PRESENT_EVENT	devman.h	118;"	d
+RESTORE	inflate.c	400;"	d	file:
+RES_COMPLETE_EVENT	VMAC.h	94;"	d
+RES_REJECT_EVENT	VMAC.h	95;"	d
+REV	crc32.c	56;"	d	file:
+REVERSE	inflate.c	454;"	d	file:
+RIGHT_GUARD	Prtean13.c	136;"	d	file:
+RIGHT_GUARD_WIDTH	Prtean13.c	42;"	d	file:
+ReportGetFormattedAmount	Copy (2) of main.c	/^void ReportGetFormattedAmount(char * ptAmount, long dwAmount, char * ptLabel, char * ptCurrencySymbol, bool fNoFiller, uchar noDecimalPlaces)$/;"	f
+ReportGetFormattedAmount	Copy (3) of main.c	/^void ReportGetFormattedAmount(char * ptAmount, long dwAmount, char * ptLabel, char * ptCurrencySymbol, bool fNoFiller, uchar noDecimalPlaces)$/;"	f
+ReportGetFormattedAmount	Copy of main.c	/^void ReportGetFormattedAmount(char * ptAmount, long dwAmount, char * ptLabel, char * ptCurrencySymbol, bool fNoFiller, uchar noDecimalPlaces)$/;"	f
+RightGuard	Prtean13.c	/^const uchar RightGuard[2] =	{B8(11100011),B8(10000000)};\/\/{0xC7, 0x01};$/;"	v
+RotateEan13	Prtean13.c	/^static void RotateEan13(uchar n, uchar * PrintCharLine)$/;"	f	file:
+S	sha1.c	74;"	d	file:
+SECURITY_AVAILABLE	VMAC.h	114;"	d
+SECURITY_DEVICE	VMAC.h	119;"	d
+SECURITY_NOT_AVAILABLE	VMAC.h	122;"	d
+SHIFT	Prtean128.c	152;"	d	file:
+SINGLE_USB	VMAC.h	110;"	d
+SINGLE_USB_AVAILABLE_EVENT	VMAC.h	105;"	d
+SINGLE_USB_RELEASED_EVENT	VMAC.h	107;"	d
+SINGLE_USB_REQUEST_EVENT	VMAC.h	106;"	d
+START_A	Prtean128.c	154;"	d	file:
+START_B	Prtean128.c	155;"	d	file:
+START_C	Prtean128.c	156;"	d	file:
+STDIN	irismain.c	34;"	d	file:
+STOP	Prtean128.c	162;"	d	file:
+STOP2	Prtean128.c	163;"	d	file:
+SVC_CRC_CRC16_M	irismath.c	/^static unsigned short SVC_CRC_CRC16_M(const unsigned char * message, int length, unsigned short crc)$/;"	f	file:
+Security3DESWriteRSA	security.c	/^bool Security3DESWriteRSA(char * appName, uchar location, char * appName2, uchar to, int blockLen, uchar * block)$/;"	f
+SecurityAppName	security.c	/^static bool SecurityAppName(char * appName, int location, uchar keySize, bool claim)$/;"	f	file:
+SecurityClearRSA	security.c	/^bool SecurityClearRSA(char * appName, uchar location)$/;"	f
+SecurityCopyKey	security.c	/^bool SecurityCopyKey(char * appName, uchar location, uchar keySize, uchar to)$/;"	f
+SecurityCrypt	security.c	/^bool SecurityCrypt(char * appName, uchar location, uchar keySize, int eDataSize, uchar * eData, bool decrypt, bool ofb)$/;"	f
+SecurityCryptRSA	security.c	/^bool SecurityCryptRSA(char * appName, uchar location, int eDataSize, uchar * eData)$/;"	f
+SecurityCryptWithVariant	security.c	/^bool SecurityCryptWithVariant(char * appName, uchar location, uchar keySize, int eDataSize, uchar * eData, uchar * variant, bool decrypt)$/;"	f
+SecurityEraseKey	security.c	/^bool SecurityEraseKey(char * appName, uchar location, uchar keySize)$/;"	f
+SecurityGenerateKey	security.c	/^bool SecurityGenerateKey(char * appName, uchar location, uchar keySize)$/;"	f
+SecurityInit	security.c	/^void SecurityInit(void)$/;"	f
+SecurityInjectKey	security.c	/^bool SecurityInjectKey(char * appName, uchar location, uchar keySize, char * appName2, uchar to, uchar eKeySize, uchar * eKey, uchar * variant)$/;"	f
+SecurityKVCKey	security.c	/^bool SecurityKVCKey(char * appName, uchar location, uchar keySize, uchar * kvc)$/;"	f
+SecurityMAB	security.c	/^bool SecurityMAB(char * appName, uchar location, uchar keySize, int eDataSize, uchar * eData, uchar * variant, uchar * mab)$/;"	f
+SecurityMoveKey	security.c	/^bool SecurityMoveKey(char * appName, uchar location, uchar keySize, uchar to)$/;"	f
+SecurityOWFKey	security.c	/^bool SecurityOWFKey(char * appName, uchar location, uchar keySize, uchar to, uchar ppasn, bool variant)$/;"	f
+SecurityOWFKeyWithData	security.c	/^bool SecurityOWFKeyWithData(char * appName, uchar location, uchar keySize, uchar to, uchar * variant)$/;"	f
+SecurityPINBlock	security.c	/^bool SecurityPINBlock(char * appName, uchar location, uchar keySize, char * pan, uchar * ePinBlock)$/;"	f
+SecurityPINBlockWithVariant	security.c	/^bool SecurityPINBlockWithVariant(char * appName, uchar location, uchar keySize, char * pan, char * stan, char * amount, uchar * ePinBlock)$/;"	f
+SecurityRSAInjectKey	security.c	/^bool SecurityRSAInjectKey(char * appName, uchar location, char * appName2, uchar to, uchar eKeySize, int eDataSize, uchar * eData)$/;"	f
+SecurityRSAInjectRSA	security.c	/^bool SecurityRSAInjectRSA(char * appName, uchar location, char * appName2, uchar to, int eDataSize, uchar * eData)$/;"	f
+SecuritySetIV	security.c	/^bool SecuritySetIV(uchar * iv)$/;"	f
+SecurityWriteKey	security.c	/^bool SecurityWriteKey(char * appName, uchar location, uchar keySize, uchar * key)$/;"	f
+SecurityWriteRSA	security.c	/^bool SecurityWriteRSA(char * appName, uchar location, int blockLen, uchar * block)$/;"	f
+SecurityXorKey	security.c	/^bool SecurityXorKey(char * appName, uchar location, uchar keySize, uchar with, uchar to)$/;"	f
+String	input.c	/^static char String[MAX_COL*3+1];$/;"	v	file:
+TASK_ID	devman.h	157;"	d
+TBLS	crc32.c	62;"	d	file:
+TBLS	crc32.c	64;"	d	file:
+TEMPLATE_DEVMAN_RSRC	devman.h	154;"	d
+TYPE_A	Prtean13.c	115;"	d	file:
+TYPE_B	Prtean13.c	116;"	d	file:
+TYPE_C	Prtean13.c	117;"	d	file:
+T_ERROR_DESC	Copy (2) of comms.c	/^} T_ERROR_DESC;$/;"	t	typeref:struct:__anon2	file:
+T_ERROR_DESC	Copy of comms.c	/^} T_ERROR_DESC;$/;"	t	typeref:struct:__anon14	file:
+T_ERROR_DESC	comms.c	/^} T_ERROR_DESC;$/;"	t	typeref:struct:__anon18	file:
+T_ERROR_TABLE	Copy (2) of comms.c	/^} T_ERROR_TABLE;$/;"	t	typeref:struct:__anon1	file:
+T_ERROR_TABLE	Copy of comms.c	/^} T_ERROR_TABLE;$/;"	t	typeref:struct:__anon13	file:
+T_ERROR_TABLE	comms.c	/^} T_ERROR_TABLE;$/;"	t	typeref:struct:__anon17	file:
+T_FIELD_FORMAT	as2805.c	/^} T_FIELD_FORMAT;$/;"	t	typeref:struct:__anon16	file:
+T_MAP	irismain.c	/^} T_MAP;$/;"	t	typeref:struct:__anon24	file:
+T_STACK	Copy of iris.c	/^} T_STACK;$/;"	t	typeref:struct:__anon15	file:
+T_STACK	iris.c	/^} T_STACK;$/;"	t	typeref:struct:__anon21	file:
+TimerArm	timer.c	/^bool TimerArm(TIMER_TYPE * timer, ulong timeout)$/;"	f
+TimerExpired	timer.c	/^bool TimerExpired(TIMER_TYPE * timer)$/;"	f
+TranslateBaudRate	Copy (2) of comms.c	/^uchar TranslateBaudRate(uchar bBaudRate)$/;"	f
+TranslateBaudRate	Copy of comms.c	/^uchar TranslateBaudRate(uchar bBaudRate)$/;"	f
+TranslateBaudRate	comms.c	/^uchar TranslateBaudRate(uchar bBaudRate)$/;"	f
+UPDATE	inflate.c	363;"	d	file:
+UPDATE	inflate.c	366;"	d	file:
+USBD_1	VMAC.h	48;"	d
+USBD_1_AVAILABLE_EVENT	devman.h	66;"	d
+USBD_1_MASK	VMAC.h	85;"	d
+USBD_1_RELEASED_EVENT	devman.h	110;"	d
+USBD_1_REQUEST_EVENT	devman.h	86;"	d
+USBD_1_TRANSFER_ACTION	devman.h	134;"	d
+UtilBinToBCD	utilbintobcd.c	/^void UtilBinToBCD(uchar data, uchar * bcd, uchar length)$/;"	f
+UtilHexToString	utilhextostring.c	/^char * UtilHexToString(uchar * hex, int length, char * string)$/;"	f
+UtilStrDup	utilstrdup.c	/^char * UtilStrDup(char ** dest, char * source)$/;"	f
+UtilStringToHex	utilstringtohex.c	/^int UtilStringToHex(char * string, int length, uchar * hex)$/;"	f
+UtilStringToNumber	utilstringtonumber.c	/^long UtilStringToNumber(char * string)$/;"	f
+VMACDeactivate	input.c	/^void VMACDeactivate(void)$/;"	f
+VMACHotKey	input.c	/^void VMACHotKey(char * appName, int event)$/;"	f
+VMACInactive	input.c	/^void VMACInactive(void)$/;"	f
+VMACLoop	input.c	/^int VMACLoop(void)$/;"	f
+WAIT_REQUEST_MESSAGE_SENT	devman.h	180;"	d
+WLAN1	VMAC.h	46;"	d
+WLAN1_MASK	VMAC.h	83;"	d
+WLAN_1_AVAILABLE_EVENT	devman.h	64;"	d
+WLAN_1_RELEASED_EVENT	devman.h	108;"	d
+WLAN_1_REQUEST_EVENT	devman.h	84;"	d
+WLAN_1_TRANSFER_ACTION	devman.h	132;"	d
+WriteATCmd	Copy (2) of comms.c	/^int WriteATCmd(uint wHandle, char * ATString, int OK, char * ATResponse)$/;"	f
+WriteATCmd	Copy of comms.c	/^int WriteATCmd(uint wHandle, char * ATString, int OK, char * ATResponse)$/;"	f
+WriteATCmd	comms.c	/^int WriteATCmd(uint wHandle, char * ATString, int OK, char * ATResponse)$/;"	f
+ZLIB_INTERNAL	adler32.c	8;"	d	file:
+_DEVMAN_H	devman.h	39;"	d
+_VMAC_H	VMAC.h	30;"	d
+__3des_rsa_store	iriscrypt.c	/^void __3des_rsa_store(void)$/;"	f
+____getSubString	Copy of iris.c	/^static void ____getSubString(char * rsimple, char * simpler)$/;"	f	file:
+____getSubString	iris.c	/^static void ____getSubString(char * rsimple, char * simpler)$/;"	f	file:
+____printDump	iris_io.c	/^static char * ____printDump(char * dump, char * data, int graphics)$/;"	f	file:
+____remove_object	iris.c	/^static ____remove_object(char * objectName)$/;"	f	file:
+____ser_disconnect	irisser.c	/^int ____ser_disconnect(int myPort)$/;"	f
+____storeData	Copy of iris.c	/^static bool ____storeData(char * string, char * value, char * group)$/;"	f	file:
+____storeData	iris.c	/^static bool ____storeData(char * string, char * value, char * group)$/;"	f	file:
+____time	iristime.c	/^void ____time(char * value, int * which, char * output, int * j)$/;"	f
+____toNonArray	Copy of iris.c	/^static void ____toNonArray(char * rsimple)$/;"	f	file:
+____toNonArray	iris.c	/^static void ____toNonArray(char * rsimple)$/;"	f	file:
+__add_print_data	iris_io.c	/^static void __add_print_data(char ** dump, char * data, int size)$/;"	f	file:
+__adj_odd_parity	iriscrypt.c	/^void __adj_odd_parity(void)$/;"	f
+__amount	irismath.c	/^void __amount(void)$/;"	f
+__as2805_bcd_length	iris2805.c	/^void __as2805_bcd_length(void)$/;"	f
+__as2805_break	iris2805.c	/^void __as2805_break(void)$/;"	f
+__as2805_break_custom	iris2805.c	/^void __as2805_break_custom(void)$/;"	f
+__as2805_err	iris2805.c	/^void __as2805_err(void)$/;"	f
+__as2805_get	iris2805.c	/^void __as2805_get(void)$/;"	f
+__as2805_make	iris2805.c	/^void __as2805_make(void)$/;"	f
+__as2805_make_custom	iris2805.c	/^void __as2805_make_custom(void)$/;"	f
+__as2805_ofb	iris2805.c	/^void __as2805_ofb(void)$/;"	f
+__as2805_ofb_param	iris2805.c	/^void __as2805_ofb_param(void)$/;"	f
+__backlight	iris_io.c	/^void __backlight(void)$/;"	f
+__battery_status	irisutil.c	/^void __battery_status(void)$/;"	f
+__checksum_xor	irismath.c	/^void __checksum_xor(void)$/;"	f
+__clr_tmp	Copy of irisutil.c	/^void __clr_tmp(void)$/;"	f
+__clr_tmp	irisutil.c	/^void __clr_tmp(void)$/;"	f
+__crc_16	irismath.c	/^void __crc_16(void)$/;"	f
+__crypt	iriscrypt.c	/^void __crypt(void)$/;"	f
+__csv	irismath.c	/^void __csv(void)$/;"	f
+__curr_event	Copy of irisutil.c	/^void __curr_event(void)$/;"	f
+__curr_event	irisutil.c	/^void __curr_event(void)$/;"	f
+__curr_event_value	Copy of irisutil.c	/^void __curr_event_value(void)$/;"	f
+__curr_event_value	irisutil.c	/^void __curr_event_value(void)$/;"	f
+__curr_group	Copy of irisutil.c	/^void __curr_group(void)$/;"	f
+__curr_group	irisutil.c	/^void __curr_group(void)$/;"	f
+__curr_object	Copy of irisutil.c	/^void __curr_object(void)$/;"	f
+__curr_object	irisutil.c	/^void __curr_object(void)$/;"	f
+__curr_version	Copy of irisutil.c	/^void __curr_version(void)$/;"	f
+__curr_version	irisutil.c	/^void __curr_version(void)$/;"	f
+__derive_key	iriscrypt.c	/^void __derive_key(void)$/;"	f
+__des_erase	iriscrypt.c	/^void __des_erase(void)$/;"	f
+__des_random	iriscrypt.c	/^void __des_random(void)$/;"	f
+__des_store	iriscrypt.c	/^void __des_store(void)$/;"	f
+__des_transfer	iriscrypt.c	/^void __des_transfer(void)$/;"	f
+__des_xor	iriscrypt.c	/^void __des_xor(void)$/;"	f
+__dformat1	iriscrypt.c	/^void __dformat1(void)$/;"	f
+__dock_status	irisutil.c	/^void __dock_status(void)$/;"	f
+__download_obj	Copy of irisutil.c	/^void __download_obj(void)$/;"	f
+__download_obj	irisutil.c	/^void __download_obj(void)$/;"	f
+__download_req	Copy of irisutil.c	/^void __download_req(void)$/;"	f
+__download_req	irisutil.c	/^void __download_req(void)$/;"	f
+__dw_decode	irismath.c	/^void __dw_decode(void)$/;"	f
+__dw_encode	irismath.c	/^void __dw_encode(void)$/;"	f
+__env_get	irisutil.c	/^void __env_get(void)$/;"	f
+__env_put	irisutil.c	/^void __env_put(void)$/;"	f
+__errorbeep	iris_io.c	/^void __errorbeep(void)$/;"	f
+__faulty_group	irisutil.c	/^void __faulty_group(void)$/;"	f
+__faulty_object	irisutil.c	/^void __faulty_object(void)$/;"	f
+__fmt	irismath.c	/^void __fmt(void)$/;"	f
+__force_next_object	irisutil.c	/^void __force_next_object(void)$/;"	f
+__input	iris_io.c	/^void __input(void)$/;"	f
+__ip_connect	Copy of iristcp.c	/^void __ip_connect(void)$/;"	f
+__ip_connect	iristcp.c	/^void __ip_connect(void)$/;"	f
+__iv_clr	iriscrypt.c	/^void __iv_clr(void)$/;"	f
+__iv_set	iriscrypt.c	/^void __iv_set(void)$/;"	f
+__key	iris_io.c	/^void __key(void)$/;"	f
+__kvc	iriscrypt.c	/^void __kvc(void)$/;"	f
+__leap_adj	iristime.c	/^void __leap_adj(void)$/;"	f
+__len	irismath.c	/^void __len(void)$/;"	f
+__locate	Copy of irisutil.c	/^void __locate(void)$/;"	f
+__locate	irisutil.c	/^void __locate(void)$/;"	f
+__lowPower	iris_io.c	/^void __lowPower(void)$/;"	f
+__luhn	irismath.c	/^void __luhn(void)$/;"	f
+__mac	iriscrypt.c	/^void __mac(void)$/;"	f
+__manufacturer	iriscfg.c	/^void __manufacturer(void)$/;"	f
+__map_table	Copy of irisutil.c	/^void __map_table(void)$/;"	f
+__map_table	irisutil.c	/^void __map_table(void)$/;"	f
+__math	irismath.c	/^void __math(void)$/;"	f
+__mktime	iristime.c	/^void __mktime(void)$/;"	f
+__model	iriscfg.c	/^void __model(void)$/;"	f
+__new_event_value	irisutil.c	/^void __new_event_value(void)$/;"	f
+__new_object	Copy of irisutil.c	/^void __new_object(void)$/;"	f
+__new_object	irisutil.c	/^void __new_object(void)$/;"	f
+__next_object	Copy of irisutil.c	/^void __next_object(void)$/;"	f
+__next_object	irisutil.c	/^void __next_object(void)$/;"	f
+__now	iristime.c	/^void __now(void)$/;"	f
+__objects_check	irisutil.c	/^void __objects_check(void)$/;"	f
+__owf	iriscrypt.c	/^void __owf(void)$/;"	f
+__owf_with_data	iriscrypt.c	/^void __owf_with_data(void)$/;"	f
+__pad	irismath.c	/^void __pad(void)$/;"	f
+__pinblock	iriscrypt.c	/^void __pinblock(void)$/;"	f
+__ping	iristcp.c	/^void __ping(void)$/;"	f
+__ppid	iriscfg.c	/^void __ppid(void)$/;"	f
+__ppid_remove	iriscfg.c	/^void __ppid_remove(void)$/;"	f
+__ppid_update	iriscfg.c	/^void __ppid_update(void)$/;"	f
+__prev_object	Copy of irisutil.c	/^void __prev_object(void)$/;"	f
+__prev_object	irisutil.c	/^void __prev_object(void)$/;"	f
+__print	iris_io.c	/^void __print(void)$/;"	f
+__print_cont	iris_io.c	/^void __print_cont(void)$/;"	f
+__print_err	iris_io.c	/^void __print_err(void)$/;"	f
+__print_raw	iris_io.c	/^void __print_raw(void)$/;"	f
+__print_raw_cont	iris_io.c	/^void __print_raw_cont(void)$/;"	f
+__println	iris_io.c	/^void __println(void)$/;"	f
+__pstn_clr_err	irispstn.c	/^void __pstn_clr_err(void)$/;"	f
+__pstn_connect	irispstn.c	/^void __pstn_connect(void)$/;"	f
+__pstn_disconnect	irispstn.c	/^void __pstn_disconnect(void)$/;"	f
+__pstn_err	irispstn.c	/^void __pstn_err(void)$/;"	f
+__pstn_init	irispstn.c	/^void __pstn_init(void)$/;"	f
+__pstn_recv	irispstn.c	/^void __pstn_recv(void)$/;"	f
+__pstn_send	irispstn.c	/^void __pstn_send(void)$/;"	f
+__pstn_wait	irispstn.c	/^void __pstn_wait(void)$/;"	f
+__rand	irismath.c	/^void __rand(void)$/;"	f
+__rearm	Copy of irisutil.c	/^void __rearm(void)$/;"	f
+__rearm	irisutil.c	/^void __rearm(void)$/;"	f
+__reboot	iris_io.c	/^void __reboot(void)$/;"	f
+__remote	Copy of irisutil.c	/^void __remote(void)$/;"	f
+__remote	irisutil.c	/^void __remote(void)$/;"	f
+__rsa_clear	iriscrypt.c	/^void __rsa_clear(void)$/;"	f
+__rsa_crypt	iriscrypt.c	/^void __rsa_crypt(void)$/;"	f
+__rsa_derive_3des	iriscrypt.c	/^void __rsa_derive_3des(void)$/;"	f
+__rsa_derive_rsa	iriscrypt.c	/^void __rsa_derive_rsa(void)$/;"	f
+__rsa_store	iriscrypt.c	/^void __rsa_store(void)$/;"	f
+__sec_init	iriscfg.c	/^void __sec_init(void)$/;"	f
+__ser_connect	irisser.c	/^void __ser_connect(void)$/;"	f
+__ser_data	irisser.c	/^void __ser_data(void)$/;"	f
+__ser_disconnect	irisser.c	/^void __ser_disconnect()$/;"	f
+__ser_err	irisser.c	/^void __ser_err()$/;"	f
+__ser_init	irisser.c	/^void __ser_init(void)$/;"	f
+__ser_reconnect	irisser.c	/^int __ser_reconnect(int myPort)$/;"	f
+__ser_recv	irisser.c	/^void __ser_recv(void)$/;"	f
+__ser_send	irisser.c	/^void __ser_send(void)$/;"	f
+__ser_set	irisser.c	/^void __ser_set(void)$/;"	f
+__serial_no	iriscfg.c	/^void __serial_no(void)$/;"	f
+__sha1	irismath.c	/^void __sha1(void)$/;"	f
+__shutdown	iris_io.c	/^void __shutdown(void)$/;"	f
+__sleep	iristime.c	/^void __sleep(void)$/;"	f
+__store_objects	Copy of irisutil.c	/^void __store_objects(void)$/;"	f
+__store_objects	irisutil.c	/^void __store_objects(void)$/;"	f
+__strip	irismath.c	/^void __strip(void)$/;"	f
+__substring	irismath.c	/^void __substring(void)$/;"	f
+__tcp_clr_err	iristcp.c	/^void __tcp_clr_err(void)$/;"	f
+__tcp_connect	Copy of iristcp.c	/^void __tcp_connect(void)$/;"	f
+__tcp_connect	iristcp.c	/^void __tcp_connect(void)$/;"	f
+__tcp_disconnect	Copy of iristcp.c	/^void __tcp_disconnect(void)$/;"	f
+__tcp_disconnect	iristcp.c	/^void __tcp_disconnect(void)$/;"	f
+__tcp_disconnect_check	Copy of iristcp.c	/^void __tcp_disconnect_check(void)$/;"	f
+__tcp_disconnect_check	iristcp.c	/^void __tcp_disconnect_check(void)$/;"	f
+__tcp_disconnect_completely	iristcp.c	/^void __tcp_disconnect_completely(void)$/;"	f
+__tcp_disconnect_do	Copy of iristcp.c	/^void __tcp_disconnect_do(void)$/;"	f
+__tcp_disconnect_do	iristcp.c	/^void __tcp_disconnect_do(void)$/;"	f
+__tcp_disconnect_extend	Copy of iristcp.c	/^void __tcp_disconnect_extend(void)$/;"	f
+__tcp_disconnect_extend	iristcp.c	/^void __tcp_disconnect_extend(void)$/;"	f
+__tcp_disconnect_ip_only	iristcp.c	/^void __tcp_disconnect_ip_only(void)$/;"	f
+__tcp_disconnect_now	iristcp.c	/^void __tcp_disconnect_now(void)$/;"	f
+__tcp_err	Copy of iristcp.c	/^void __tcp_err(void)$/;"	f
+__tcp_err	iristcp.c	/^void __tcp_err(void)$/;"	f
+__tcp_gprs_sts	iristcp.c	/^void __tcp_gprs_sts(void)$/;"	f
+__tcp_init	Copy of iristcp.c	/^void __tcp_init(void)$/;"	f
+__tcp_init	iristcp.c	/^void __tcp_init(void)$/;"	f
+__tcp_recv	Copy of iristcp.c	/^void __tcp_recv(void)$/;"	f
+__tcp_recv	iristcp.c	/^void __tcp_recv(void)$/;"	f
+__tcp_send	Copy of iristcp.c	/^void __tcp_send(void)$/;"	f
+__tcp_send	iristcp.c	/^void __tcp_send(void)$/;"	f
+__tcp_state	Copy of iristcp.c	/^void __tcp_state(void)$/;"	f
+__text_table	Copy of irisutil.c	/^void __text_table(void)$/;"	f
+__text_table	irisutil.c	/^void __text_table(void)$/;"	f
+__time	iristime.c	/^void __time(void)$/;"	f
+__time_set	iristime.c	/^void __time_set(void)$/;"	f
+__timer_start	iristime.c	/^void __timer_start(void)$/;"	f
+__timer_stop	iristime.c	/^void __timer_stop(void)$/;"	f
+__to_ascii_hex	irismath.c	/^void __to_ascii_hex(void)$/;"	f
+__to_hex	irismath.c	/^void __to_hex(void)$/;"	f
+__to_safe_hex	irismath.c	/^void __to_safe_hex(void)$/;"	f
+__track1	iris_io.c	/^void __track1(void)$/;"	f
+__track2	iris_io.c	/^void __track2(void)$/;"	f
+__track_clear	iris_io.c	/^void __track_clear(void)$/;"	f
+__upload_msg	Copy of irisutil.c	/^void __upload_msg(void)$/;"	f
+__upload_msg	irisutil.c	/^void __upload_msg(void)$/;"	f
+__upload_obj	Copy of irisutil.c	/^void __upload_obj(void)$/;"	f
+__upload_obj	irisutil.c	/^void __upload_obj(void)$/;"	f
+__vmac_app	irisutil.c	/^void __vmac_app(void)$/;"	f
+__xml	irismath.c	/^void __xml(void)$/;"	f
+__xml_attr	irismath.c	/^void __xml_attr(void)$/;"	f
+__xml_get	irismath.c	/^static char * __xml_get(char * what, char * message, int msgStart, int * msgEnd, int * bodyStart, int * bodyEnd)$/;"	f	file:
+__xml_get_attribute	irismath.c	/^static void __xml_get_attribute(char * message, char * attribute, int pop)$/;"	f	file:
+__xml_restore_context	irismath.c	/^void __xml_restore_context(void)$/;"	f
+__xml_save_context	irismath.c	/^void __xml_save_context(void)$/;"	f
+_adjustForVarBCD	as2805.c	/^static void _adjustForVarBCD(char * temp)$/;"	f	file:
+_bcdToNumber	as2805.c	/^static ulong _bcdToNumber(uchar * bcd, uint * index, uint size, uchar format)$/;"	f	file:
+_bcdToString	as2805.c	/^static char * _bcdToString(uchar * bcd, uint * index, uint size, uchar format, char * string)$/;"	f	file:
+_delete_	iris.c	/^static int _delete_(FILE * fp, int count, char * ptr, char * objectData, uint objectLength)$/;"	f	file:
+_getVariant	security.c	/^static int _getVariant(uchar * data, uchar keySize, uchar * variant)$/;"	f	file:
+_halloc	zutil.c	271;"	d	file:
+_hfree	zutil.c	272;"	d	file:
+_insert	iris.c	/^static int _insert(FILE * fp, char * data, int count, char * ptr, char * objectData, uint objectLength)$/;"	f	file:
+_iv	security.c	/^	uchar _iv[8];$/;"	v
+_ser_param	irisser.c	/^static void _ser_param(T_COMMS * myComms, char * baud, char * dataBits, char * parity, char * stopBits)$/;"	f	file:
+aORbFirst	Prtean128.c	/^static int aORbFirst(uchar * data)$/;"	f	file:
+abBarcode	printer.c	/^uchar abBarcode[100];$/;"	v
+action	Copy (3) of main.c	/^	char action[200];$/;"	m	struct:__anon4	file:
+action	Copy (4) of main.c	/^	char * action;$/;"	m	struct:__anon6	file:
+action	Copy (5) of main.c	/^	char * action;$/;"	m	struct:__anon10	file:
+action	irismain.c	/^	char * action;$/;"	m	struct:__anon24	file:
+action	main.c	/^	char * action;$/;"	m	struct:__anon28	file:
+active	input.c	/^	int active = -1;$/;"	v
+addField	as2805.c	/^static uint addField = 0;$/;"	v	file:
+adler32	adler32.c	/^uLong ZEXPORT adler32(uLong adler, const Bytef *buf, uInt len)$/;"	f
+animationOK	irismain.c	/^bool animationOK;$/;"	v
+apn	Copy (2) of comms.c	/^	unsigned char apn[MAX_APN_LENGTH] = "TRANSACTPLUS";	\/\/ Optus St. George default$/;"	v
+apn	Copy of comms.c	/^	unsigned char apn[MAX_APN_LENGTH] = "TRANSACTPLUS";	\/\/ Optus St. George default$/;"	v
+apn	comms.c	/^	unsigned char apn[MAX_APN_LENGTH] = "STGEFTPOS";	\/\/ Telstra St. George default$/;"	v
+appObj	Copy (2) of comms.c	/^static ApplicationObj appObj = {GetParameter, Notify};$/;"	v	file:
+appObj	Copy of comms.c	/^static ApplicationObj appObj = {GetParameter, Notify};$/;"	v	file:
+appObj	comms.c	/^static ApplicationObj appObj = {GetParameter, Notify};$/;"	v	file:
+appObjGprs	Copy (2) of comms.c	/^static ApplicationObj appObjGprs = {GetParamGprs, NotifyGprs};$/;"	v	file:
+appObjGprs	Copy of comms.c	/^static ApplicationObj appObjGprs = {GetParamGprs, NotifyGprs};$/;"	v	file:
+appObjGprs	comms.c	/^static ApplicationObj appObjGprs = {GetParamGprs, NotifyGprs};$/;"	v	file:
+app_verify_cb	comms.c	/^int app_verify_cb(int ok, X509_STORE_CTX * ctx)$/;"	f
+append_to_upload	Copy of irisutil.c	/^static void append_to_upload(char * addition)$/;"	f	file:
+arrayOfArraysFlag	Copy of iris.c	/^static bool arrayOfArraysFlag = false;$/;"	v	file:
+arrayOfArraysFlag	iris.c	/^static bool arrayOfArraysFlag = false;$/;"	v	file:
+attrEnd	irismath.c	/^static int attrEnd;$/;"	v	file:
+attrStart	irismath.c	/^static int attrStart;$/;"	v	file:
+bBarcodeIndex	printer.c	/^uchar bBarcodeIndex;$/;"	v
+bEscapeIndex	printer.c	/^uchar bEscapeIndex;$/;"	v
+bGraphicsMultiplier	printer.c	/^uchar bGraphicsMultiplier;$/;"	v
+bKeyCode	input.c	/^	uchar bKeyCode;$/;"	m	struct:__anon19	file:
+banner	iris_io.c	/^static const char banner[] = "**** GRAPHICS START ****";$/;"	v	file:
+banner2	iris_io.c	/^static const char banner2[] = "**** GRAPHICS END   ****";$/;"	v	file:
+baudRateGprs	Copy (2) of comms.c	/^	static char baudRateGprs = Rt_115200; \/\/ for GSM always Rt_9600$/;"	v	file:
+baudRateGprs	Copy of comms.c	/^	static char baudRateGprs = Rt_115200; \/\/ for GSM always Rt_9600$/;"	v	file:
+baudRateGprs	comms.c	/^	static char baudRateGprs = Rt_115200; \/\/ for GSM always Rt_9600$/;"	v	file:
+bcdLength	as2805.c	/^static bool bcdLength = false;$/;"	v	file:
+big_counter	malloc.c	/^int big_counter = 0;$/;"	v
+block	security.c	/^	uchar block[8*256];$/;"	v
+bootLoader	Copy (2) of main.c	/^void bootLoader()$/;"	f
+bootLoader	Copy (3) of main.c	/^void bootLoader()$/;"	f
+bootLoader	Copy of main.c	/^void bootLoader()$/;"	f
+bufLen	Copy of iristcp.c	/^static int bufLen = 300;$/;"	v	file:
+bufLen	irispstn.c	/^	static int bufLen = 300;$/;"	v	file:
+bufLen	irisser.c	/^static int bufLen = 300;$/;"	v	file:
+bufLen	iristcp.c	/^static int bufLen = 300;$/;"	v	file:
+buffer	as2805.c	/^static uchar * buffer = NULL;$/;"	v	file:
+callbackMode	irismain.c	/^bool callbackMode = false;$/;"	v
+comms	Copy (2) of main.c	/^T_COMMS comms;$/;"	v
+comms	Copy (3) of main.c	/^T_COMMS comms;$/;"	v
+comms	Copy (4) of main.c	/^T_COMMS comms;$/;"	v
+comms	Copy (5) of main.c	/^T_COMMS comms;$/;"	v
+comms	Copy of iristcp.c	/^static T_COMMS comms;$/;"	v	file:
+comms	Copy of main.c	/^T_COMMS comms;$/;"	v
+comms	irispstn.c	/^	static T_COMMS comms;$/;"	v	file:
+comms	irisser.c	/^static T_COMMS comms[2];$/;"	v	file:
+comms	iristcp.c	/^static T_COMMS comms;$/;"	v	file:
+comms	main.c	/^T_COMMS comms;$/;"	v
+commsGPRS	Copy (2) of comms.c	/^int commsGPRS(T_COMMS * psComms)$/;"	f
+commsGPRS	Copy of comms.c	/^int commsGPRS(T_COMMS * psComms)$/;"	f
+commsGPRS	comms.c	/^int commsGPRS(T_COMMS * psComms)$/;"	f
+conHandle	Copy (2) of main.c	/^int conHandle = -1;$/;"	v
+conHandle	Copy (3) of main.c	/^int conHandle = -1;$/;"	v
+conHandle	Copy (4) of main.c	/^int conHandle = -1;$/;"	v
+conHandle	Copy (5) of main.c	/^int conHandle = -1;$/;"	v
+conHandle	Copy of main.c	/^int conHandle = -1;$/;"	v
+conHandle	irismain.c	/^int conHandle = -1;$/;"	v
+conHandle	main.c	/^int conHandle = -1;$/;"	v
+countTrailer	Copy of iris.c	/^const char countTrailer[] = "\/COUNT";$/;"	v
+countTrailer	iris.c	/^const char countTrailer[] = "\/COUNT";$/;"	v
+crc32	crc32.c	/^unsigned long ZEXPORT crc32(unsigned long crc, const unsigned char FAR *buf, unsigned len)$/;"	f
+crc32_big	crc32.c	/^local unsigned long crc32_big(unsigned long crc, const unsigned char FAR *buf, unsigned len)$/;"	f
+crc32_little	crc32.c	/^local unsigned long crc32_little(unsigned long crc, const unsigned char FAR *buf, unsigned len)$/;"	f
+crc_table	crc32.c	/^local unsigned long FAR crc_table[TBLS][256];$/;"	v
+crc_table	irismath.c	/^static const unsigned short crc_table[256] = {$/;"	v	file:
+crc_table_empty	crc32.c	/^local volatile int crc_table_empty = 1;$/;"	v
+cryptoHandle	security.c	/^int cryptoHandle = -2;$/;"	v
+currGateway	iristcp.c	/^static char currGateway[50];$/;"	v	file:
+currHandle	Copy of iristcp.c	/^static unsigned int currHandle;$/;"	v	file:
+currHandle	iristcp.c	/^static unsigned int currHandle;$/;"	v	file:
+currIPAddress	Copy of iristcp.c	/^static char currIPAddress[50];$/;"	v	file:
+currIPAddress	iristcp.c	/^static char currIPAddress[50];$/;"	v	file:
+currOwnIPAddress	Copy of iristcp.c	/^static char currOwnIPAddress[50];$/;"	v	file:
+currOwnIPAddress	iristcp.c	/^static char currOwnIPAddress[50];$/;"	v	file:
+currPDNS	iristcp.c	/^static char currPDNS[50];$/;"	v	file:
+currPortNumber	Copy of iristcp.c	/^static unsigned int currPortNumber;$/;"	v	file:
+currPortNumber	iristcp.c	/^static unsigned int currPortNumber;$/;"	v	file:
+currSDNS	iristcp.c	/^static char currSDNS[50];$/;"	v	file:
+currentEvent	irismain.c	/^char * currentEvent = NULL;$/;"	v
+currentEventValue	irismain.c	/^char * currentEventValue = NULL;$/;"	v
+currentGraphicsData	Copy of irisutil.c	/^char * currentGraphicsData = NULL;$/;"	v
+currentGraphicsData	irisutil.c	/^char * currentGraphicsData = NULL;$/;"	v
+currentGraphicsImageValue	Copy of irisutil.c	/^char * currentGraphicsImageValue = NULL;$/;"	v
+currentGraphicsImageValue	irisutil.c	/^char * currentGraphicsImageValue = NULL;$/;"	v
+currentGraphicsLength	Copy of irisutil.c	/^uint currentGraphicsLength;$/;"	v
+currentGraphicsLength	irisutil.c	/^uint currentGraphicsLength;$/;"	v
+currentGraphicsName	Copy of irisutil.c	/^char * currentGraphicsName = NULL;$/;"	v
+currentGraphicsName	irisutil.c	/^char * currentGraphicsName = NULL;$/;"	v
+currentGraphicsValid	Copy of irisutil.c	/^bool currentGraphicsValid = false;$/;"	v
+currentGraphicsValid	irisutil.c	/^bool currentGraphicsValid = false;$/;"	v
+currentObject	Copy (3) of main.c	/^char currentObject[17];$/;"	v
+currentObject	Copy (4) of main.c	/^char * currentObject = NULL;$/;"	v
+currentObject	Copy (5) of main.c	/^char * currentObject = NULL;$/;"	v
+currentObject	irismain.c	/^char * currentObject = NULL;$/;"	v
+currentObject	main.c	/^char * currentObject = NULL;$/;"	v
+currentObjectData	Copy (3) of main.c	/^char * currentObjectData;$/;"	v
+currentObjectData	Copy (4) of main.c	/^char * currentObjectData = NULL;$/;"	v
+currentObjectData	Copy (5) of main.c	/^char * currentObjectData = NULL;$/;"	v
+currentObjectData	irismain.c	/^char * currentObjectData = NULL;$/;"	v
+currentObjectData	main.c	/^char * currentObjectData = NULL;$/;"	v
+currentObjectEvent	Copy (3) of main.c	/^char * currentObjectEvent;$/;"	v
+currentObjectEvent	Copy (4) of main.c	/^char * currentObjectEvent = NULL;$/;"	v
+currentObjectEvent	Copy (5) of main.c	/^char * currentObjectEvent = NULL;$/;"	v
+currentObjectEvent	main.c	/^char * currentObjectEvent = NULL;$/;"	v
+currentObjectEventValue	Copy (3) of main.c	/^char currentObjectEventValue[11];$/;"	v
+currentObjectEventValue	Copy (4) of main.c	/^char * currentObjectEventValue = NULL;$/;"	v
+currentObjectEventValue	Copy (5) of main.c	/^char * currentObjectEventValue = NULL;$/;"	v
+currentObjectEventValue	main.c	/^char * currentObjectEventValue = NULL;$/;"	v
+currentObjectGroup	Copy (4) of main.c	/^char * currentObjectGroup = NULL;$/;"	v
+currentObjectGroup	Copy (5) of main.c	/^char * currentObjectGroup = NULL;$/;"	v
+currentObjectGroup	irismain.c	/^char * currentObjectGroup = NULL;$/;"	v
+currentObjectGroup	main.c	/^char * currentObjectGroup = NULL;$/;"	v
+currentObjectLength	Copy (3) of main.c	/^unsigned int currentObjectLength;$/;"	v
+currentObjectLength	Copy (4) of main.c	/^uint currentObjectLength;$/;"	v
+currentObjectLength	Copy (5) of main.c	/^uint currentObjectLength;$/;"	v
+currentObjectLength	irismain.c	/^uint currentObjectLength;$/;"	v
+currentObjectLength	main.c	/^uint currentObjectLength;$/;"	v
+currentObjectType	Copy (3) of main.c	/^char currentObjectType[11];$/;"	v
+currentObjectType	Copy (4) of main.c	/^char * currentObjectType = NULL;$/;"	v
+currentObjectType	Copy (5) of main.c	/^char * currentObjectType = NULL;$/;"	v
+currentObjectType	main.c	/^char * currentObjectType = NULL;$/;"	v
+currentObjectVersion	Copy (3) of main.c	/^char currentObjectVersion[7];$/;"	v
+currentObjectVersion	Copy (4) of main.c	/^char * currentObjectVersion = NULL;$/;"	v
+currentObjectVersion	Copy (5) of main.c	/^char * currentObjectVersion = NULL;$/;"	v
+currentObjectVersion	irismain.c	/^char * currentObjectVersion = NULL;$/;"	v
+currentObjectVersion	main.c	/^char * currentObjectVersion = NULL;$/;"	v
+currentTableData	Copy of irisutil.c	/^char * currentTableData = NULL;$/;"	v
+currentTableData	irisutil.c	/^char * currentTableData = NULL;$/;"	v
+currentTableLength	Copy of irisutil.c	/^uint currentTableLength;$/;"	v
+currentTableLength	irisutil.c	/^uint currentTableLength;$/;"	v
+currentTableName	Copy of irisutil.c	/^char * currentTableName = NULL;$/;"	v
+currentTableName	irisutil.c	/^char * currentTableName = NULL;$/;"	v
+currentTablePromptValue	Copy of irisutil.c	/^char * currentTablePromptValue = NULL;$/;"	v
+currentTablePromptValue	irisutil.c	/^char * currentTablePromptValue = NULL;$/;"	v
+currentTableValid	Copy of irisutil.c	/^bool currentTableValid = false;$/;"	v
+currentTableValid	irisutil.c	/^bool currentTableValid = false;$/;"	v
+data	Copy (3) of main.c	/^} data[MAX_DATA];$/;"	v	typeref:struct:__anon3
+data	Copy (4) of main.c	/^} data[MAX_DATA];$/;"	v	typeref:struct:__anon5
+data	Copy (5) of main.c	/^} data[MAX_DATA];$/;"	v	typeref:struct:__anon9
+data	irismain.c	/^} data[MAX_DATA];$/;"	v	typeref:struct:__anon23
+data	main.c	/^} data[MAX_DATA];$/;"	v	typeref:struct:__anon27
+deallocateObjectValue	Copy (3) of main.c	/^static void deallocateObjectValue(char * value)$/;"	f	file:
+debug	irismain.c	/^int debug = 0;$/;"	v
+decompress	Copy of irisutil.c	/^static unsigned char * decompress(unsigned char * input, unsigned long outSize, unsigned long size)$/;"	f	file:
+decompress	irisutil.c	/^static unsigned char * decompress(unsigned char * input, unsigned long outSize, unsigned long size)$/;"	f	file:
+dir	Copy of iris.c	/^int dir = 0;$/;"	v
+dir	iris.c	/^int dir = 0;$/;"	v
+dir_get_first	Copy of iris.c	/^int dir_get_first(char * filename)$/;"	f
+dir_get_first	iris.c	/^int dir_get_first(char * filename)$/;"	f
+dir_get_next	Copy of iris.c	/^int dir_get_next(char * filename)$/;"	f
+dir_get_next	iris.c	/^int dir_get_next(char * filename)$/;"	f
+displayTimeout	Copy (4) of main.c	/^ulong displayTimeout;$/;"	v
+displayTimeout	Copy (5) of main.c	/^ulong displayTimeout;$/;"	v
+displayTimeout	irismain.c	/^ulong displayTimeout;$/;"	v
+displayTimeout	main.c	/^ulong displayTimeout;$/;"	v
+displayTimeoutMultiplier	Copy (4) of main.c	/^int displayTimeoutMultiplier;$/;"	v
+displayTimeoutMultiplier	Copy (5) of main.c	/^int displayTimeoutMultiplier;$/;"	v
+displayTimeoutMultiplier	irismain.c	/^int displayTimeoutMultiplier;$/;"	v
+displayTimeoutMultiplier	main.c	/^int displayTimeoutMultiplier;$/;"	v
+displayTimeoutMultiplierFull	Copy (4) of main.c	/^int displayTimeoutMultiplierFull;$/;"	v
+displayTimeoutMultiplierFull	Copy (5) of main.c	/^int displayTimeoutMultiplierFull;$/;"	v
+displayTimeoutMultiplierFull	irismain.c	/^int displayTimeoutMultiplierFull;$/;"	v
+displayTimeoutMultiplierFull	main.c	/^int displayTimeoutMultiplierFull;$/;"	v
+doPrint	Copy (3) of main.c	/^static void doPrint(char * data)$/;"	f	file:
+downstream	Copy (2) of main.c	/^static uchar downstream[10000];		\/\/ Must eventually use a the file system to store this information - Check and see how best to deal with storage eventually$/;"	v	file:
+downstream	Copy (3) of main.c	/^static uchar downstream[10000];		\/\/ Must eventually use a the file system to store this information - Check and see how best to deal with storage eventually$/;"	v	file:
+downstream	Copy of main.c	/^static uchar downstream[10000];		\/\/ Must eventually use a the file system to store this information - Check and see how best to deal with storage eventually$/;"	v	file:
+dummy	zutil.c	/^struct internal_state      {int dummy;}; \/* for buggy compilers *\/$/;"	m	struct:internal_state	file:
+dwGraphicsIndex	printer.c	/^ulong dwGraphicsIndex;$/;"	v
+dwGraphicsSize	printer.c	/^ulong dwGraphicsSize;$/;"	v
+eState	printer.c	/^E_PRINT_STATE eState = E_PRINT_STATE_DEFAULT;$/;"	v
+ean128CharValue	Prtean128.c	/^const long ean128CharValue[108] =$/;"	v
+errno	zutil.c	/^    int errno = 0;$/;"	v
+errorObjectGroup	irismain.c	/^char * errorObjectGroup = NULL;$/;"	v
+escapeGuardTimeGprs	Copy (2) of comms.c	/^	static long escapeGuardTimeGprs = 1500;$/;"	v	file:
+escapeGuardTimeGprs	Copy of comms.c	/^	static long escapeGuardTimeGprs = 1500;$/;"	v	file:
+escapeGuardTimeGprs	comms.c	/^	static long escapeGuardTimeGprs = 1500;$/;"	v	file:
+event	Copy (3) of main.c	/^	char event[11];$/;"	m	struct:__anon4	file:
+event	Copy (4) of main.c	/^	char * event;$/;"	m	struct:__anon7	file:
+event	Copy (4) of main.c	/^	char * event;$/;"	m	struct:__anon8	file:
+event	Copy (5) of main.c	/^	char * event;$/;"	m	struct:__anon11	file:
+event	Copy (5) of main.c	/^	char * event;$/;"	m	struct:__anon12	file:
+event	irismain.c	/^	char * event;$/;"	m	struct:__anon25	file:
+event	irismain.c	/^	char * event;$/;"	m	struct:__anon26	file:
+event	main.c	/^	char * event;$/;"	m	struct:__anon29	file:
+event	main.c	/^	char * event;$/;"	m	struct:__anon30	file:
+event_string	Copy (4) of main.c	/^} event_string[] = $/;"	v	typeref:struct:__anon7	file:
+event_string	Copy (5) of main.c	/^} event_string[] = $/;"	v	typeref:struct:__anon11	file:
+event_string	irismain.c	/^} event_string[] = $/;"	v	typeref:struct:__anon25	file:
+event_string	main.c	/^} event_string[] = $/;"	v	typeref:struct:__anon29	file:
+evtBitmap	Copy (3) of main.c	/^	T_EVTBITMAP evtBitmap;$/;"	m	struct:__anon4	file:
+evtBitmap	Copy (4) of main.c	/^	T_EVTBITMAP evtBitmap;$/;"	m	struct:__anon6	file:
+evtBitmap	Copy (4) of main.c	/^	T_EVTBITMAP evtBitmap;$/;"	m	struct:__anon7	file:
+evtBitmap	Copy (5) of main.c	/^	T_EVTBITMAP evtBitmap;$/;"	m	struct:__anon10	file:
+evtBitmap	Copy (5) of main.c	/^	T_EVTBITMAP evtBitmap;$/;"	m	struct:__anon11	file:
+evtBitmap	irismain.c	/^	T_EVTBITMAP evtBitmap;$/;"	m	struct:__anon24	file:
+evtBitmap	irismain.c	/^	T_EVTBITMAP evtBitmap;$/;"	m	struct:__anon25	file:
+evtBitmap	main.c	/^	T_EVTBITMAP evtBitmap;$/;"	m	struct:__anon28	file:
+evtBitmap	main.c	/^	T_EVTBITMAP evtBitmap;$/;"	m	struct:__anon29	file:
+executeCallbackObjects	irismain.c	/^void executeCallbackObjects(char * callbackObject)$/;"	f
+fEFB	Copy (2) of comms.c	/^	bool fEFB;$/;"	m	struct:__anon2	file:
+fEFB	Copy of comms.c	/^	bool fEFB;$/;"	m	struct:__anon14	file:
+fEFB	comms.c	/^	bool fEFB;$/;"	m	struct:__anon18	file:
+fGraphicsStart	printer.c	/^bool fGraphicsStart = false;$/;"	v
+fRetry	Copy (2) of comms.c	/^	bool fRetry;$/;"	m	struct:__anon2	file:
+fRetry	Copy of comms.c	/^	bool fRetry;$/;"	m	struct:__anon14	file:
+fRetry	comms.c	/^	bool fRetry;$/;"	m	struct:__anon18	file:
+fieldType	as2805.c	/^static const T_FIELD_FORMAT fieldType[] =$/;"	v	file:
+fieldsIndex	as2805.c	/^static uint fieldsIndex;$/;"	v	file:
+fieldsStart	as2805.c	/^static uint fieldsStart;$/;"	v	file:
+fileName	iriscfg.c	/^static const char * fileName = "s2.dat";$/;"	v	file:
+fileName	security.c	/^static const char * fileName = "s1.dat";$/;"	v	file:
+fileName2	security.c	/^	static const char * fileName2 = "keys.dat";$/;"	v	file:
+fillCodeAorB	Prtean128.c	/^static char fillCodeAorB(uchar data)$/;"	f	file:
+fillCodeC	Prtean128.c	/^static void fillCodeC(char * out, uchar * data, int size)$/;"	f	file:
+firstInit	input.c	/^	int firstInit = -1;$/;"	v
+fixedtables	inflate.c	/^local void fixedtables(struct inflate_state FAR *state)$/;"	f
+forceNextObject	irismain.c	/^char * forceNextObject = NULL;$/;"	v
+format	as2805.c	/^	uchar format;$/;"	m	struct:__anon16	file:
+formatGprs	Copy (2) of comms.c	/^	static char formatGprs = Fmt_A8N1|Fmt_DTR|Fmt_RTS; \/\/ for Gprs it must be always Fmt_A8N1$/;"	v	file:
+formatGprs	Copy of comms.c	/^	static char formatGprs = Fmt_A8N1|Fmt_DTR|Fmt_RTS; \/\/ for Gprs it must be always Fmt_A8N1$/;"	v	file:
+formatGprs	comms.c	/^	static char formatGprs = Fmt_A8N1|Fmt_DTR|Fmt_RTS; \/\/ for Gprs it must be always Fmt_A8N1$/;"	v	file:
+fp	security.c	/^	static FILE * fp;$/;"	v	file:
+fpKeys	security.c	/^	static FILE * fpKeys;$/;"	v	file:
+fromError	Copy (2) of comms.c	/^	int fromError;$/;"	m	struct:__anon1	file:
+fromError	Copy of comms.c	/^	int fromError;$/;"	m	struct:__anon13	file:
+fromError	comms.c	/^	int fromError;$/;"	m	struct:__anon17	file:
+func	Copy of iris.c	/^	uchar func;$/;"	m	struct:__anon15	file:
+func	iris.c	/^	uchar func;$/;"	m	struct:__anon21	file:
+getData	Copy (3) of main.c	/^static int getData(char * name, char ** value, bool allocate, bool tryObjectIfNotData, bool houseKeep)$/;"	f	file:
+getDate	Copy (3) of main.c	/^static void getDate(char * output)$/;"	f	file:
+getFunctionText	Copy (3) of main.c	/^static char * getFunctionText(char * functionElement)$/;"	f	file:
+getGraphics	Copy (3) of main.c	/^static int getGraphics(char * name)$/;"	f	file:
+getLastKeyDesc	irismain.c	/^char * getLastKeyDesc(unsigned char key, T_KEYBITMAP * keyBitmap)$/;"	f
+getNextObject	Copy (3) of main.c	/^unsigned int getNextObject(unsigned int * index)$/;"	f
+getNextObject	Copy of irisutil.c	/^static uint getNextObject(char * objects, uint * index, uint objectsLength)$/;"	f	file:
+getNextObject	irisutil.c	/^static uint getNextObject(char * objects, uint * index, uint objectsLength)$/;"	f	file:
+getObject	Copy (3) of main.c	/^static char * getObject(char * objectName, unsigned int * length)$/;"	f	file:
+getObjectAgain	irismain.c	/^int getObjectAgain = 0;$/;"	v
+getObjectValue	Copy (3) of main.c	/^static char * getObjectValue(char * data, int size, char * name)$/;"	f	file:
+getPartialData	Copy (3) of main.c	/^static char * getPartialData(char * array, char * string)$/;"	f	file:
+getTime	Copy (3) of main.c	/^static void getTime(char * output)$/;"	f	file:
+get_crc_table	crc32.c	/^const unsigned long FAR * ZEXPORT get_crc_table()$/;"	f
+hSession	security.c	/^	static CK_SESSION_HANDLE hSession = CK_INVALID_HANDLE;$/;"	v	file:
+handle	iriscfg.c	/^static FILE_HANDLE handle = (FILE_HANDLE) -1;$/;"	v	file:
+handle	security.c	/^	static int handle = -1;$/;"	v	file:
+hangUpStringGprs	Copy (2) of comms.c	/^	static unsigned char hangUpStringGprs[MAX_HANGUP_STR_LEN] = "ATH";$/;"	v	file:
+hangUpStringGprs	Copy of comms.c	/^	static unsigned char hangUpStringGprs[MAX_HANGUP_STR_LEN] = "ATH";$/;"	v	file:
+hangUpStringGprs	comms.c	/^	static unsigned char hangUpStringGprs[MAX_HANGUP_STR_LEN] = "ATH";$/;"	v	file:
+heap	printer.c	/^static uchar heap[20000];$/;"	v	file:
+highPAN	input.c	/^		char highPAN[20];$/;"	m	struct:__anon20	file:
+hotKey	input.c	/^	int hotKey = -1;$/;"	v
+hotKeyApp	input.c	/^	char hotKeyApp[30];$/;"	v
+hotKeyEvent	input.c	/^	int hotKeyEvent;$/;"	v
+idleScreen	Copy (2) of main.c	/^void idleScreen()$/;"	f
+idleScreen	Copy (3) of main.c	/^int idleScreen()$/;"	f
+idleScreen	Copy of main.c	/^void idleScreen()$/;"	f
+incStan	Copy (3) of main.c	/^static ulong incStan()$/;"	f	file:
+indexTrailer	Copy of iris.c	/^const char indexTrailer[] = "\/INDEX";$/;"	v
+indexTrailer	iris.c	/^const char indexTrailer[] = "\/INDEX";$/;"	v
+inflate	inflate.c	/^int ZEXPORT inflate(z_streamp strm, int flush)$/;"	f
+inflateCopy	inflate.c	/^int ZEXPORT inflateCopy(z_streamp dest, z_streamp source)$/;"	f
+inflateEnd	inflate.c	/^int ZEXPORT inflateEnd(z_streamp strm)$/;"	f
+inflateGetHeader	inflate.c	/^int ZEXPORT inflateGetHeader(z_streamp strm, gz_headerp head)$/;"	f
+inflateInit2_	inflate.c	/^int ZEXPORT inflateInit2_(z_streamp strm, int windowBits, const char *version, int stream_size)$/;"	f
+inflateInit_	inflate.c	/^int ZEXPORT inflateInit_(z_streamp strm, const char *version, int stream_size)$/;"	f
+inflatePrime	inflate.c	/^int ZEXPORT inflatePrime(z_streamp strm, int bits, int value)$/;"	f
+inflateReset	inflate.c	/^int ZEXPORT inflateReset(z_streamp strm)$/;"	f
+inflateSetDictionary	inflate.c	/^int ZEXPORT inflateSetDictionary(z_streamp strm, const Bytef *dictionary, uInt dictLength)$/;"	f
+inflateSync	inflate.c	/^int ZEXPORT inflateSync(z_streamp strm)$/;"	f
+inflateSyncPoint	inflate.c	/^int ZEXPORT inflateSyncPoint(z_streamp strm)$/;"	f
+inflate_copyright	inftrees.c	/^const char inflate_copyright[] =$/;"	v
+inflate_fast	inffast.c	/^void inflate_fast(z_streamp strm, unsigned start \/* inflate()'s starting value for strm->avail_out *\/)$/;"	f
+inflate_table	inftrees.c	/^int inflate_table(codetype type, unsigned short FAR *lens, unsigned codes, code FAR * FAR *table, unsigned FAR *bits, unsigned short FAR *work)$/;"	f
+initStringGprs	Copy (2) of comms.c	/^	static unsigned char initStringGprs[MAX_INIT_STR_LEN] = "ATQ0&D1";$/;"	v	file:
+initStringGprs	Copy of comms.c	/^	static unsigned char initStringGprs[MAX_INIT_STR_LEN] = "ATQ0&D1";$/;"	v	file:
+initStringGprs	comms.c	/^	static unsigned char initStringGprs[MAX_INIT_STR_LEN] = "ATQ0&D1";$/;"	v	file:
+initUCL	Copy (2) of comms.c	/^static int initUCL(void)$/;"	f	file:
+initUCL	comms.c	/^static int initUCL(void)$/;"	f	file:
+internal_state	zutil.c	/^struct internal_state      {int dummy;}; \/* for buggy compilers *\/$/;"	s	file:
+iphandle	Copy (2) of comms.c	/^int iphandle = -1;$/;"	v
+iphandle	Copy of comms.c	/^int iphandle = -1;$/;"	v
+iphandle	comms.c	/^int iphandle = -1;$/;"	v
+ipparams	comms.c	/^static IPParams ipparams = {"", "", "", "", ""};$/;"	v	file:
+irisCfgInit	iriscfg.c	/^static void irisCfgInit(void)$/;"	f	file:
+irisFunc	irisfunc.c	/^const T_IRIS_FUNC irisFunc[C_NO_OF_IRIS_FUNCTIONS] =$/;"	v
+irisGroup	Copy of iris.c	/^char irisGroup[] = "iRIS";$/;"	v
+irisGroup	iris.c	/^char irisGroup[] = "iRIS";$/;"	v
+iris_big_heap	malloc.c	/^T_BIG_HEAP iris_big_heap[C_MAX_BIG_BLOCKS];$/;"	v
+iris_big_heap_used	malloc.c	/^int iris_big_heap_used[C_MAX_BIG_BLOCKS];$/;"	v
+iris_ktk1	irismain.c	/^static uchar iris_ktk1[17] = "\\x43\\x2B\\x37\\xD4\\x64\\xD7\\xBF\\x5C\\x5D\\xD2\\x5D\\xC5\\xC2\\x1D\\x9B\\xB8";$/;"	v	file:
+iris_ktk2	iriscrypt.c	/^uchar iris_ktk2[17] = "\\xDF\\x45\\xC7\\x34\\x8F\\x51\\x76\\x6D\\x9D\\x20\\xE5\\x2C\\x0D\\x67\\x40\\xA7";$/;"	v
+iris_ktk3	security.c	/^uchar iris_ktk3[17] = "\\x00\\xFA\\x14\\x4D\\x82\\xB1\\x5A\\x47\\xE1\\xB7\\xB1\\x53\\xA0\\xFF\\x55\\x6C";$/;"	v
+iris_med_heap	malloc.c	/^T_MED_HEAP iris_med_heap[C_MAX_MED_BLOCKS];$/;"	v
+iris_med_heap_head	malloc.c	/^T_MED_HEAP * iris_med_heap_head;$/;"	v
+iris_realloc	realloc.c	/^static void * iris_realloc(void * ptr, unsigned int size, void * start_range, void * end_range, unsigned int block_size)$/;"	f	file:
+iris_tiny_heap	malloc.c	/^T_TINY_HEAP iris_tiny_heap[C_MAX_TINY_BLOCKS];$/;"	v
+iris_tiny_heap_head	malloc.c	/^T_TINY_HEAP * iris_tiny_heap_head;$/;"	v
+isblank	irismath.c	/^static bool isblank(char data)$/;"	f	file:
+iv_ofb	iris2805.c	/^static uchar iv_ofb[8] = "\\x01\\x23\\x45\\x67\\x89\\xAB\\xCD\\xEF";$/;"	v	file:
+key	Copy (3) of main.c	/^	uchar key;$/;"	m	struct:__anon4	file:
+key	Copy (4) of main.c	/^	uchar key;$/;"	m	struct:__anon8	file:
+key	Copy (5) of main.c	/^	uchar key;$/;"	m	struct:__anon12	file:
+key	irismain.c	/^	uchar key;$/;"	m	struct:__anon26	file:
+key	main.c	/^	uchar key;$/;"	m	struct:__anon30	file:
+keyBitmap	Copy (4) of main.c	/^	T_KEYBITMAP keyBitmap;$/;"	m	struct:__anon6	file:
+keyBitmap	Copy (4) of main.c	/^	T_KEYBITMAP keyBitmap;$/;"	m	struct:__anon8	file:
+keyBitmap	Copy (5) of main.c	/^	T_KEYBITMAP keyBitmap;$/;"	m	struct:__anon10	file:
+keyBitmap	Copy (5) of main.c	/^	T_KEYBITMAP keyBitmap;$/;"	m	struct:__anon12	file:
+keyBitmap	irismain.c	/^	T_KEYBITMAP keyBitmap;$/;"	m	struct:__anon24	file:
+keyBitmap	irismain.c	/^	T_KEYBITMAP keyBitmap;$/;"	m	struct:__anon26	file:
+keyBitmap	main.c	/^	T_KEYBITMAP keyBitmap;$/;"	m	struct:__anon28	file:
+keyBitmap	main.c	/^	T_KEYBITMAP keyBitmap;$/;"	m	struct:__anon30	file:
+key_string	Copy (4) of main.c	/^} key_string[] =$/;"	v	typeref:struct:__anon8	file:
+key_string	Copy (5) of main.c	/^} key_string[] =$/;"	v	typeref:struct:__anon12	file:
+key_string	irismain.c	/^} key_string[] =$/;"	v	typeref:struct:__anon26	file:
+key_string	main.c	/^} key_string[] =$/;"	v	typeref:struct:__anon30	file:
+lastFaultyFileName	irisutil.c	/^char lastFaultyFileName[100];$/;"	v
+lastFaultyGroup	irisutil.c	/^char lastFaultyGroup[50];$/;"	v
+lastKey	irismain.c	/^unsigned char lastKey;$/;"	v
+lastPSTNBaud	Copy (2) of comms.c	/^	uchar lastPSTNBaud = 0xFF;$/;"	v
+lastPSTNBaud	Copy of comms.c	/^	uchar lastPSTNBaud = 0xFF;$/;"	v
+lastPSTNBaud	comms.c	/^	uchar lastPSTNBaud = 0xFF;$/;"	v
+lastPSTNFastConnect	Copy (2) of comms.c	/^	bool lastPSTNFastConnect = 0xFF;$/;"	v
+lastPSTNFastConnect	Copy of comms.c	/^	bool lastPSTNFastConnect = 0xFF;$/;"	v
+lastPSTNFastConnect	comms.c	/^	bool lastPSTNFastConnect = 0xFF;$/;"	v
+lastPSTNSync	Copy (2) of comms.c	/^	bool lastPSTNSync = 0xFF;$/;"	v
+lastPSTNSync	Copy of comms.c	/^	bool lastPSTNSync = 0xFF;$/;"	v
+lastPSTNSync	comms.c	/^	bool lastPSTNSync = 0xFF;$/;"	v
+lcWaitTimeGprs	Copy (2) of comms.c	/^	static short lcWaitTimeGprs = 1000;$/;"	v	file:
+lcWaitTimeGprs	Copy of comms.c	/^	static short lcWaitTimeGprs = 2000;$/;"	v	file:
+lcWaitTimeGprs	comms.c	/^	static short lcWaitTimeGprs = 1000;$/;"	v	file:
+leftOver	as2805.c	/^static bool leftOver = false;$/;"	v	file:
+leftOverValue	as2805.c	/^static int leftOverValue = 0;$/;"	v	file:
+level	Copy of iris.c	/^	uchar level;$/;"	m	struct:__anon15	file:
+level	iris.c	/^	uchar level;$/;"	m	struct:__anon21	file:
+local	crc32.c	31;"	d	file:
+logicalName	input.c	/^		char logicalName[17];$/;"	m	struct:__anon20	file:
+lowPAN	input.c	/^		char lowPAN[20];$/;"	m	struct:__anon20	file:
+main	Copy (2) of main.c	/^main()$/;"	f
+main	Copy (3) of main.c	/^main()$/;"	f
+main	Copy of main.c	/^main()$/;"	f
+main	sha1.c	/^int main( int argc, char *argv[] )$/;"	f
+make_crc_table	crc32.c	/^local void make_crc_table()$/;"	f
+makefixed	inflate.c	/^void makefixed()$/;"	f
+map	Copy (3) of main.c	/^} map[20];$/;"	v	typeref:struct:__anon4
+map	Copy (4) of main.c	/^} map[30];$/;"	v	typeref:struct:__anon6
+map	Copy (5) of main.c	/^} map[30];$/;"	v	typeref:struct:__anon10
+map	irismain.c	/^T_MAP map[30];$/;"	v
+map	main.c	/^} map[30];$/;"	v	typeref:struct:__anon28
+mapIndex	Copy (4) of main.c	/^int mapIndex = 0;$/;"	v
+mapIndex	Copy (5) of main.c	/^int mapIndex = 0;$/;"	v
+mapIndex	irismain.c	/^int mapIndex = 0;$/;"	v
+mapIndex	main.c	/^int mapIndex = 0;$/;"	v
+maxField	as2805.c	/^static uint maxField = 53;$/;"	v	file:
+maxRedirectPAN	input.c	/^	int maxRedirectPAN = 0;$/;"	v
+max_big_counter	malloc.c	/^int max_big_counter = 0;$/;"	v
+max_med_counter	malloc.c	/^int max_med_counter = 0;$/;"	v
+max_temp_data	Copy of iris.c	/^static int max_temp_data = 0;$/;"	v	file:
+max_temp_data	iris.c	/^static int max_temp_data = 0;$/;"	v	file:
+max_tiny_counter	malloc.c	/^int max_tiny_counter = 0;$/;"	v
+mcrHandle	input.c	/^int mcrHandle = 0;$/;"	v
+med_counter	malloc.c	/^int med_counter = 0;$/;"	v
+minBatteryStrengthGprs	Copy (2) of comms.c	/^	static short minBatteryStrengthGprs = 25;$/;"	v	file:
+minBatteryStrengthGprs	Copy of comms.c	/^	static short minBatteryStrengthGprs = 25;$/;"	v	file:
+minBatteryStrengthGprs	comms.c	/^	static short minBatteryStrengthGprs = 5;$/;"	v	file:
+minSignalStrengthGprs	Copy (2) of comms.c	/^	static short minSignalStrengthGprs = 4;$/;"	v	file:
+minSignalStrengthGprs	Copy of comms.c	/^	static short minSignalStrengthGprs = 4;$/;"	v	file:
+minSignalStrengthGprs	comms.c	/^	static short minSignalStrengthGprs = 4;$/;"	v	file:
+model	Copy (2) of comms.c	/^char model[13];$/;"	v
+model	Copy of comms.c	/^char model[13];$/;"	v
+model	comms.c	/^char model[13];$/;"	v
+modelNoGprs	Copy (2) of comms.c	/^	static unsigned char modelNoGprs[MAX_MODEL_SIZE] =  "GPRS_SIEMENS";$/;"	v	file:
+modelNoGprs	Copy of comms.c	/^	static unsigned char modelNoGprs[MAX_MODEL_SIZE] =  "GPRS_SIEMENS";$/;"	v	file:
+modelNoGprs	comms.c	/^	static unsigned char modelNoGprs[MAX_MODEL_SIZE] =  "GPRS_SIEMENS";$/;"	v	file:
+modem_open	Copy (2) of comms.c	/^bool modem_open = false;$/;"	v
+modem_open	Copy of comms.c	/^bool modem_open = false;$/;"	v
+modem_open	comms.c	/^bool modem_open = false;$/;"	v
+monthDays	time.c	/^static const int monthDays[2][12] = {{31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365},$/;"	v	file:
+msg	sha1.c	/^static char *msg[] = $/;"	v	file:
+msgCont_cont	irismath.c	/^static int msgCont_cont;$/;"	v	file:
+msgCont_keep	irismath.c	/^static int msgCont_keep;$/;"	v	file:
+msgEnd_cont	irismath.c	/^static int msgEnd_cont;$/;"	v	file:
+msgEnd_keep	irismath.c	/^static int msgEnd_keep;$/;"	v	file:
+msgStart_cont	irismath.c	/^static int msgStart_cont;$/;"	v	file:
+msgStart_keep	irismath.c	/^static int msgStart_keep;$/;"	v	file:
+myTime	Copy of iristcp.c	/^static time_t myTime;$/;"	v	file:
+myTime	iristcp.c	/^static time_t myTime;$/;"	v	file:
+myTime	time.c	/^static struct tm myTime;$/;"	v	typeref:struct:tm	file:
+my_calloc	alloc.c	/^void * my_calloc(unsigned int size)$/;"	f
+my_calloc	calloc.c	/^void * my_calloc(unsigned int size)$/;"	f
+my_free	malloc.c	/^void my_free(void * block)$/;"	f
+my_gmtime	time.c	/^struct tm * my_gmtime(time_t * someTime)$/;"	f
+my_malloc	alloc.c	/^void * my_malloc(unsigned int size)$/;"	f
+my_malloc	malloc.c	/^void * my_malloc(unsigned int size)$/;"	f
+my_mktime	time.c	/^time_t my_mktime(struct tm * someTime)$/;"	f
+my_realloc	alloc.c	/^void * my_realloc(void * ptr, unsigned int size)$/;"	f
+my_realloc	realloc.c	/^void * my_realloc(void * ptr, unsigned int size)$/;"	f
+my_time	time.c	/^time_t my_time(time_t * now)$/;"	f
+name	Copy (3) of main.c	/^	char name[50];$/;"	m	struct:__anon3	file:
+name	Copy (4) of main.c	/^	char name[50];$/;"	m	struct:__anon5	file:
+name	Copy (5) of main.c	/^	char name[50];$/;"	m	struct:__anon9	file:
+name	irismain.c	/^	char name[50];$/;"	m	struct:__anon23	file:
+name	main.c	/^	char name[50];$/;"	m	struct:__anon27	file:
+newEventValue	irismain.c	/^char * newEventValue = NULL;$/;"	v
+newObject	Copy (3) of main.c	/^char newObject[17];$/;"	v
+new_ptr	zutil.c	/^    voidpf new_ptr;$/;"	m	struct:ptr_table_s	file:
+nextObject	Copy (4) of main.c	/^char * nextObject = NULL;$/;"	v
+nextObject	Copy (5) of main.c	/^char * nextObject = NULL;$/;"	v
+nextObject	irismain.c	/^char * nextObject = NULL;$/;"	v
+nextObject	main.c	/^char * nextObject = NULL;$/;"	v
+next_ptr	zutil.c	/^local int next_ptr = 0;$/;"	v
+numDigits	Prtean128.c	/^static int numDigits(uchar * data)$/;"	f	file:
+numberEntry	input.c	/^bool numberEntry = false;$/;"	v
+nwWaitTimeGprs	Copy (2) of comms.c	/^	static short nwWaitTimeGprs = 2000;$/;"	v	file:
+nwWaitTimeGprs	Copy of comms.c	/^	static short nwWaitTimeGprs = 4000;$/;"	v	file:
+nwWaitTimeGprs	comms.c	/^	static short nwWaitTimeGprs = 2000;$/;"	v	file:
+object	Copy (3) of main.c	/^	char * object;$/;"	m	struct:__anon4	file:
+object	Copy (4) of main.c	/^	char * object;$/;"	m	struct:__anon6	file:
+object	Copy (5) of main.c	/^	char * object;$/;"	m	struct:__anon10	file:
+object	irismain.c	/^	char * object;$/;"	m	struct:__anon24	file:
+object	main.c	/^	char * object;$/;"	m	struct:__anon28	file:
+old_ticks	irismain.c	/^int old_ticks = 0;$/;"	v
+org_ptr	zutil.c	/^    voidpf org_ptr;$/;"	m	struct:ptr_table_s	file:
+override	Copy (3) of main.c	/^bool override = true;$/;"	v
+ownIpAddress	Copy (2) of main.c	/^static char ownIpAddress[16];$/;"	v	file:
+ownIpAddress	Copy (3) of main.c	/^static char ownIpAddress[16];$/;"	v	file:
+ownIpAddress	Copy of main.c	/^static char ownIpAddress[16];$/;"	v	file:
+packetProtocol	Copy (2) of comms.c	/^	static unsigned char packetProtocol[MAX_PACKET_PROTOCOL_SIZE] = "IP";$/;"	v	file:
+packetProtocol	Copy of comms.c	/^	static unsigned char packetProtocol[MAX_PACKET_PROTOCOL_SIZE] = "IP";$/;"	v	file:
+packetProtocol	comms.c	/^	static unsigned char packetProtocol[MAX_PACKET_PROTOCOL_SIZE] = "IP";$/;"	v	file:
+parameterGprs	Copy (2) of comms.c	/^	static char parameterGprs = 0x00;$/;"	v	file:
+parameterGprs	Copy of comms.c	/^	static char parameterGprs = 0x00;$/;"	v	file:
+parameterGprs	comms.c	/^	static char parameterGprs = 0x00;$/;"	v	file:
+partNo	comms.c	/^char partNo[13];$/;"	v
+peerIpAddress	Copy (2) of main.c	/^static char peerIpAddress[16];$/;"	v	file:
+peerIpAddress	Copy (3) of main.c	/^static char peerIpAddress[16];$/;"	v	file:
+peerIpAddress	Copy of main.c	/^static char peerIpAddress[16];$/;"	v	file:
+phoneNoGprs	Copy (2) of comms.c	/^	static unsigned char phoneNoGprs[MAX_PHNO_LENGTH] = "*99**PPP*1#";$/;"	v	file:
+phoneNoGprs	Copy of comms.c	/^	static unsigned char phoneNoGprs[MAX_PHNO_LENGTH] = "*99**PPP*1#";$/;"	v	file:
+phoneNoGprs	comms.c	/^	static unsigned char phoneNoGprs[MAX_PHNO_LENGTH] = "*99**PPP*1#";$/;"	v	file:
+pinBlock	Copy (3) of main.c	/^static char * pinBlock(char * track2, char * pan, char * amount)$/;"	f	file:
+prevObject	Copy (4) of main.c	/^char * prevObject = NULL;$/;"	v
+prevObject	Copy (5) of main.c	/^char * prevObject = NULL;$/;"	v
+prevObject	irismain.c	/^char * prevObject = NULL;$/;"	v
+prevObject	main.c	/^char * prevObject = NULL;$/;"	v
+print_raw	iris_io.c	/^static void print_raw(char * data)$/;"	f	file:
+processAction	Copy (3) of main.c	/^static bool processAction(char * action, uchar key, bool string)$/;"	f	file:
+processDisplay	Copy (3) of main.c	/^static void processDisplay(char * objectName)$/;"	f	file:
+processDisplay2	Copy (3) of main.c	/^static void processDisplay2()$/;"	f	file:
+processDisplayObject	Copy (4) of main.c	/^static void processDisplayObject()$/;"	f	file:
+processDisplayObject	Copy (5) of main.c	/^static void processDisplayObject()$/;"	f	file:
+processDisplayObject	irismain.c	/^static void processDisplayObject()$/;"	f	file:
+processDisplayObject	main.c	/^static void processDisplayObject()$/;"	f	file:
+processDisplayObject2	Copy (4) of main.c	/^static void processDisplayObject2(void)$/;"	f	file:
+processDisplayObject2	Copy (5) of main.c	/^static void processDisplayObject2(void)$/;"	f	file:
+processDisplayObject2	irismain.c	/^static void processDisplayObject2(void)$/;"	f	file:
+processDisplayObject2	main.c	/^static void processDisplayObject2(void)$/;"	f	file:
+processEvent	Copy (3) of main.c	/^static bool processEvent(T_EVTBITMAP setEvtBitmap, T_KEYBITMAP keyBitmap, T_INP_ENTRY inpEntry, ulong timeout, bool ignoreTimeout, bool largeFont)$/;"	f	file:
+processEvent	Copy (4) of main.c	/^static bool processEvent(T_EVTBITMAP setEvtBitmap, T_KEYBITMAP keepKeyBitmap, T_INP_ENTRY inpEntry, ulong timeout, bool ignoreTimeout, bool largeFont,$/;"	f	file:
+processEvent	Copy (5) of main.c	/^static bool processEvent(T_EVTBITMAP setEvtBitmap, T_KEYBITMAP keepKeyBitmap, T_INP_ENTRY inpEntry, ulong timeout, bool ignoreTimeout, bool largeFont,$/;"	f	file:
+processEvent	irismain.c	/^static bool processEvent(T_EVTBITMAP setEvtBitmap, T_KEYBITMAP keepKeyBitmap, T_INP_ENTRY inpEntry, ulong timeout, bool ignoreTimeout, bool largeFont, bool * flush)$/;"	f	file:
+processEvent	main.c	/^static bool processEvent(T_EVTBITMAP setEvtBitmap, T_KEYBITMAP keepKeyBitmap, T_INP_ENTRY inpEntry, ulong timeout, bool ignoreTimeout, bool largeFont,$/;"	f	file:
+processEvent2	irismain.c	/^static bool processEvent2(T_EVTBITMAP evtBitmap, uchar key, T_KEYBITMAP keyBitmap, char * event)$/;"	f	file:
+processFile	Copy (3) of main.c	/^static void processFile(char * fileName, unsigned int length)$/;"	f	file:
+processObjectLoop	irismain.c	/^static void processObjectLoop()$/;"	f	file:
+processPath	Copy (4) of main.c	/^static void processPath(char * events, T_KEYBITMAP * keyBitmap, T_EVTBITMAP * keepEvtBitmap)$/;"	f	file:
+processPath	Copy (5) of main.c	/^static void processPath(char * events, T_KEYBITMAP * keyBitmap, T_EVTBITMAP * keepEvtBitmap)$/;"	f	file:
+processPath	irismain.c	/^static void processPath(char * events, T_KEYBITMAP * keyBitmap, T_EVTBITMAP * keepEvtBitmap)$/;"	f	file:
+processPath	main.c	/^static void processPath(char * events, T_KEYBITMAP * keyBitmap, T_EVTBITMAP * keepEvtBitmap)$/;"	f	file:
+processResponse	Copy (3) of main.c	/^static void processResponse()$/;"	f	file:
+processSingleAction	Copy (3) of main.c	/^static bool processSingleAction(char * action, uchar key, bool string)$/;"	f	file:
+progress	Copy (2) of comms.c	/^	static char progress[22] = "";$/;"	v	file:
+progress	Copy of comms.c	/^	static char progress[22] = "";$/;"	v	file:
+progress	comms.c	/^	static char progress[22] = "";$/;"	v	file:
+protocolGprs	Copy (2) of comms.c	/^	static char protocolGprs = P_char_mode;$/;"	v	file:
+protocolGprs	Copy of comms.c	/^	static char protocolGprs = P_char_mode;$/;"	v	file:
+protocolGprs	comms.c	/^	static char protocolGprs = P_char_mode;$/;"	v	file:
+prtHandle	printer.c	/^int prtHandle = -1;$/;"	v
+psCommsPreDial	Copy (2) of comms.c	/^	T_COMMS * psCommsPreDial = NULL;$/;"	v
+psCommsPreDial	Copy of comms.c	/^	T_COMMS * psCommsPreDial = NULL;$/;"	v
+psCommsPreDial	comms.c	/^	T_COMMS * psCommsPreDial = NULL;$/;"	v
+ptDesc	Copy (2) of comms.c	/^	char * ptDesc;$/;"	m	struct:__anon2	file:
+ptDesc	Copy of comms.c	/^	char * ptDesc;$/;"	m	struct:__anon14	file:
+ptDesc	comms.c	/^	char * ptDesc;$/;"	m	struct:__anon18	file:
+ptrFactory	Copy (2) of comms.c	/^static UclFactory * ptrFactory = NULL;$/;"	v	file:
+ptrFactory	Copy of comms.c	/^static UclFactory * ptrFactory = NULL;$/;"	v	file:
+ptrFactory	comms.c	/^static UclFactory * ptrFactory = NULL;$/;"	v	file:
+ptrUcl	Copy (2) of comms.c	/^static tUclPtr ptrUcl = NULL;$/;"	v	file:
+ptrUcl	Copy of comms.c	/^static tUclPtr ptrUcl = NULL;$/;"	v	file:
+ptrUcl	comms.c	/^static tUclPtr ptrUcl = NULL;$/;"	v	file:
+ptr_table	zutil.c	/^} ptr_table;$/;"	t	typeref:struct:ptr_table_s	file:
+ptr_table_s	zutil.c	/^typedef struct ptr_table_s {$/;"	s	file:
+redirectPAN	input.c	/^	typeRedirectPAN * redirectPAN = NULL;$/;"	v
+remote	Copy (2) of main.c	/^bool remote(char * upload)$/;"	f
+remote	Copy (3) of main.c	/^bool remote(char * upload, char * fileName)$/;"	f
+remote	Copy of main.c	/^bool remote(char * upload)$/;"	f
+replace	iris_io.c	/^	char * replace;$/;"	m	struct:__anon22	file:
+resolveObject	Copy (3) of main.c	/^static char * resolveObject(char * object, bool string)$/;"	f	file:
+retVal	Copy of iristcp.c	/^static int retVal;$/;"	v	file:
+retVal	irispstn.c	/^	static int retVal = ERR_COMMS_NONE;$/;"	v	file:
+retVal	irisser.c	/^static int retVal = ERR_COMMS_NONE;$/;"	v	file:
+retVal	iristcp.c	/^static int retVal;$/;"	v	file:
+risLogo	Copy (2) of main.c	/^uchar risLogo[] =$/;"	v
+risLogo	Copy (3) of main.c	/^uchar risLogo[] =$/;"	v
+risLogo	Copy of main.c	/^uchar risLogo[] =$/;"	v
+rsablock	security.c	/^	uchar rsablock[256*6];$/;"	v
+sCodeSets	Prtean13.c	/^const uchar sCodeSets[10][6] = {$/;"	v
+sErrorTable	Copy (2) of comms.c	/^const T_ERROR_TABLE sErrorTable[] = $/;"	v
+sErrorTable	Copy of comms.c	/^const T_ERROR_TABLE sErrorTable[] = $/;"	v
+sErrorTable	comms.c	/^const T_ERROR_TABLE sErrorTable[] = $/;"	v
+sFontEAN13Table	Prtean13.c	/^static const uchar sFontEAN13Table[] =$/;"	v	file:
+sKey	input.c	/^} sKey[] = $/;"	v	typeref:struct:__anon19
+sale	Copy (2) of main.c	/^void sale()$/;"	f
+sale	Copy (3) of main.c	/^void sale()$/;"	f
+sale	Copy of main.c	/^void sale()$/;"	f
+sales	Copy (2) of main.c	/^bool sales = false;$/;"	v
+sales	Copy of main.c	/^bool sales = false;$/;"	v
+sdlcparmaddressGprs	Copy (2) of comms.c	/^	static char sdlcparmaddressGprs = 0x30;$/;"	v	file:
+sdlcparmaddressGprs	Copy of comms.c	/^	static char sdlcparmaddressGprs = 0x30;$/;"	v	file:
+sdlcparmaddressGprs	comms.c	/^	static char sdlcparmaddressGprs = 0x30;$/;"	v	file:
+sdlcparmoptionGprs	Copy (2) of comms.c	/^	static char sdlcparmoptionGprs = P_sdlc_sec;$/;"	v	file:
+sdlcparmoptionGprs	Copy of comms.c	/^	static char sdlcparmoptionGprs = P_sdlc_sec;$/;"	v	file:
+sdlcparmoptionGprs	comms.c	/^	static char sdlcparmoptionGprs = P_sdlc_sec;$/;"	v	file:
+search	iris_io.c	/^	char * search;$/;"	m	struct:__anon22	file:
+ser_line0	input.c	/^int ser_line0;$/;"	v
+ser_line1	input.c	/^int ser_line1;$/;"	v
+serialNumber	Copy (3) of main.c	/^char serialNumber[12];$/;"	v
+sha1_finish	sha1.c	/^void sha1_finish( sha1_context *ctx, uint8 digest[20] )$/;"	f
+sha1_padding	sha1.c	/^static uint8 sha1_padding[64] =$/;"	v	file:
+sha1_process	sha1.c	/^void sha1_process( sha1_context *ctx, uint8 data[64] )$/;"	f
+sha1_starts	sha1.c	/^void sha1_starts( sha1_context *ctx )$/;"	f
+sha1_update	sha1.c	/^void sha1_update( sha1_context *ctx, uint8 *input, uint32 length )$/;"	f
+size	as2805.c	/^	int size;$/;"	m	struct:__anon16	file:
+socket_host	Copy of comms.c	/^struct sockaddr_in socket_host;$/;"	v	typeref:struct:sockaddr_in
+special	iris_io.c	/^} special[5] = {	{"**** COMMA ****", ","}, {"**** WIGGLY ****", "{"}, {"**** YLGGIW ****", "}"}, {"**** BRACKET ****", "["}, {"**** TEKCARB ****", "]"}	};$/;"	v	typeref:struct:__anon22	file:
+sslerrno	comms.c	/^	int sslerrno;$/;"	v
+stack	Copy of iris.c	/^static T_STACK * stack;$/;"	v	file:
+stack	iris.c	/^static T_STACK * stack = NULL;$/;"	v	file:
+stackIndex	Copy of iris.c	/^int stackIndex = -1;$/;"	v
+stackIndex	iris.c	/^int stackIndex = -1;$/;"	v
+stackLevel	Copy of iris.c	/^uchar stackLevel = 0;$/;"	v
+stackLevel	iris.c	/^uchar stackLevel = 0;$/;"	v
+startUpStringGprs	Copy (2) of comms.c	/^	static unsigned char startUpStringGprs[MAX_STARTUP_STR_LEN] =  "ATE0V0";$/;"	v	file:
+startUpStringGprs	Copy of comms.c	/^	static unsigned char startUpStringGprs[MAX_STARTUP_STR_LEN] =  "ATE0V0";$/;"	v	file:
+startUpStringGprs	comms.c	/^	static unsigned char startUpStringGprs[MAX_STARTUP_STR_LEN] =  "ATE0V0";$/;"	v	file:
+syncsearch	inflate.c	/^local unsigned syncsearch(unsigned FAR *have, unsigned char FAR *buf, unsigned len)$/;"	f
+tKeyBitmap	input.c	/^	T_KEYBITMAP	tKeyBitmap;$/;"	m	struct:__anon19	file:
+tUclPtr	Copy (2) of comms.c	/^typedef Ucl * tUclPtr;$/;"	t	file:
+tUclPtr	Copy of comms.c	/^typedef Ucl * tUclPtr;$/;"	t	file:
+tUclPtr	comms.c	/^typedef Ucl * tUclPtr;$/;"	t	file:
+table	zutil.c	/^local ptr_table table[MAX_PTR];$/;"	v
+tcpPort	Copy (2) of main.c	/^static ulong tcpPort;$/;"	v	file:
+tcpPort	Copy (3) of main.c	/^static ulong tcpPort;$/;"	v	file:
+tcpPort	Copy of main.c	/^static ulong tcpPort;$/;"	v	file:
+tempData	Copy of iris.c	/^static T_TEMPDATA tempData[C_MAX_TEMP_DATA];$/;"	v	file:
+tempData	iris.c	/^static T_TEMPDATA tempData[C_MAX_TEMP_DATA];$/;"	v	file:
+terminalTypeGprs	Copy (2) of comms.c	/^	static unsigned char terminalTypeGprs[MAX_TERM_TYPE_SIZE] = "Vx670";$/;"	v	file:
+terminalTypeGprs	Copy of comms.c	/^	static unsigned char terminalTypeGprs[MAX_TERM_TYPE_SIZE] = "Vx670";$/;"	v	file:
+terminalTypeGprs	comms.c	/^	static unsigned char terminalTypeGprs[MAX_TERM_TYPE_SIZE] = "Vx670";$/;"	v	file:
+testMain	Copy (4) of main.c	/^testMain()$/;"	f
+testMain	Copy (5) of main.c	/^testMain()$/;"	f
+testMain	irismain.c	/^testMain()$/;"	f
+testMain	main.c	/^testMain()$/;"	f
+ticks	iristime.c	/^static unsigned long ticks;$/;"	v	file:
+timeFromString	time.c	/^struct tm * timeFromString(char * string)$/;"	f
+timeSet	time.c	/^void timeSet(struct tm * newTime)$/;"	f
+timer	Copy (2) of comms.c	/^static CommTimer * timer = NULL;$/;"	v	file:
+timer	Copy of comms.c	/^static CommTimer * timer = NULL;$/;"	v	file:
+timer	comms.c	/^static CommTimer * timer = NULL;$/;"	v	file:
+timerID	input.c	/^	int timerID = -1;$/;"	v
+tiny_counter	malloc.c	/^int tiny_counter = 0;$/;"	v
+track1	Copy (3) of main.c	/^char track1[90];$/;"	v
+track1	Copy (4) of main.c	/^char track1[90];$/;"	v
+track1	Copy (5) of main.c	/^char track1[90];$/;"	v
+track1	iris_io.c	/^static char track1[90];$/;"	v	file:
+track1	irismain.c	/^char track1[90];$/;"	v
+track1	main.c	/^char track1[90];$/;"	v
+track1Len	Copy (3) of main.c	/^uchar track1Len;$/;"	v
+track1Len	Copy (4) of main.c	/^uchar track1Len;$/;"	v
+track1Len	Copy (5) of main.c	/^uchar track1Len;$/;"	v
+track1Len	iris_io.c	/^static uchar track1Len;$/;"	v	file:
+track1Len	irismain.c	/^uchar track1Len;$/;"	v
+track1Len	main.c	/^uchar track1Len;$/;"	v
+track2	Copy (3) of main.c	/^char track2[50];$/;"	v
+track2	Copy (4) of main.c	/^char track2[50];$/;"	v
+track2	Copy (5) of main.c	/^char track2[50];$/;"	v
+track2	iris_io.c	/^static char track2[50];$/;"	v	file:
+track2	irismain.c	/^char track2[50];$/;"	v
+track2	main.c	/^char track2[50];$/;"	v
+track2Len	Copy (3) of main.c	/^uchar track2Len;$/;"	v
+track2Len	Copy (4) of main.c	/^uchar track2Len;$/;"	v
+track2Len	Copy (5) of main.c	/^uchar track2Len;$/;"	v
+track2Len	iris_io.c	/^static uchar track2Len;$/;"	v	file:
+track2Len	irismain.c	/^uchar track2Len;$/;"	v
+track2Len	main.c	/^uchar track2Len;$/;"	v
+trueResult	iriscrypt.c	/^static const char * trueResult = "TRUE";$/;"	v	file:
+typeRedirectPAN	input.c	/^	} typeRedirectPAN;$/;"	t	typeref:struct:__anon20	file:
+u4	crc32.c	/^           typedef unsigned short u4;$/;"	t	file:
+u4	crc32.c	/^         typedef unsigned long u4;$/;"	t	file:
+u4	crc32.c	/^       typedef unsigned int u4;$/;"	t	file:
+uart_open	Copy (2) of comms.c	/^bool uart_open[2] = {false, false};$/;"	v
+uart_open	Copy of comms.c	/^bool uart_open[2] = {false, false};$/;"	v
+uart_open	comms.c	/^bool uart_open[2] = {false, false};$/;"	v
+updatewindow	inflate.c	/^local int updatewindow(z_streamp strm, unsigned out)$/;"	f
+upload	Copy of iris.c	/^static char * upload = NULL;$/;"	v	file:
+upload	iris.c	/^static char * upload = NULL;$/;"	v	file:
+uploadOffline	Copy (3) of main.c	/^static char uploadOffline[500];$/;"	v	file:
+val	sha1.c	/^static char *val[] =$/;"	v	file:
+value	Copy (3) of main.c	/^	char value[100];$/;"	m	struct:__anon3	file:
+value	Copy (4) of main.c	/^	char value[100];$/;"	m	struct:__anon5	file:
+value	Copy (5) of main.c	/^	char value[100];$/;"	m	struct:__anon9	file:
+value	Copy of iris.c	/^	char * value;$/;"	m	struct:__anon15	file:
+value	iris.c	/^	char * value;$/;"	m	struct:__anon21	file:
+value	irismain.c	/^	char value[100];$/;"	m	struct:__anon23	file:
+value	main.c	/^	char value[100];$/;"	m	struct:__anon27	file:
+verbose	zutil.c	119;"	d	file:
+vmacRefresh	irismain.c	/^bool vmacRefresh;$/;"	v
+wCommsSyncError	Copy (2) of comms.c	/^	uint wCommsSyncError;$/;"	v
+wCommsSyncError	Copy of comms.c	/^	uint wCommsSyncError;$/;"	v
+wCommsSyncError	comms.c	/^	uint wCommsSyncError;$/;"	v
+wError	Copy (2) of comms.c	/^	uint wError;$/;"	m	struct:__anon2	file:
+wError	Copy of comms.c	/^	uint wError;$/;"	m	struct:__anon14	file:
+wError	comms.c	/^	uint wError;$/;"	m	struct:__anon18	file:
+wGraphicsHeight	printer.c	/^uint wGraphicsHeight;$/;"	v
+wGraphicsWidth	printer.c	/^uint wGraphicsWidth;$/;"	v
+wSerialPortHandle	Copy (2) of comms.c	/^static uint wSerialPortHandle[2] = {0xFFFF, 0xFFFF};$/;"	v	file:
+wSerialPortHandle	Copy of comms.c	/^static uint wSerialPortHandle[2] = {0xFFFF, 0xFFFF};$/;"	v	file:
+wSerialPortHandle	comms.c	/^static uint wSerialPortHandle[2] = {0xFFFF, 0xFFFF};$/;"	v	file:
+wToError	Copy (2) of comms.c	/^	uint wToError;$/;"	m	struct:__anon1	file:
+wToError	Copy of comms.c	/^	uint wToError;$/;"	m	struct:__anon13	file:
+wToError	comms.c	/^	uint wToError;$/;"	m	struct:__anon17	file:
+waitSize	printer.c	/^uint waitSize = 0;$/;"	v
+wait_10003	input.c	/^	int wait_10003 = -1;$/;"	v
+write_at	irismain.c	/^write_at(char * tempBuf, int length, int q, int w) {}$/;"	f
+write_table	crc32.c	/^local void write_table(out, table)$/;"	f
+zError	zutil.c	/^const char * ZEXPORT zError(int err)$/;"	f
+z_errmsg	zutil.c	/^const char * const z_errmsg[10] = {$/;"	v
+z_error	zutil.c	/^void z_error (m)$/;"	f
+z_verbose	zutil.c	/^int z_verbose = verbose;$/;"	v
+zcalloc	zutil.c	/^voidpf zcalloc (voidpf opaque, unsigned items, unsigned size)$/;"	f
+zcfree	zutil.c	/^void  zcfree (voidpf opaque, voidpf ptr)$/;"	f
+zlibCompileFlags	zutil.c	/^uLong ZEXPORT zlibCompileFlags()$/;"	f
+zlibVersion	zutil.c	/^const char * ZEXPORT zlibVersion()$/;"	f
+zmemcmp	zutil.c	/^int zmemcmp(s1, s2, len)$/;"	f
+zmemcpy	zutil.c	/^void zmemcpy(dest, source, len)$/;"	f
+zmemzero	zutil.c	/^void zmemzero(dest, len)$/;"	f

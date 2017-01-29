@@ -1,0 +1,95 @@
+################################################
+# Makefile
+#
+#
+
+SHELL=/bin/sh
+
+.SUFFIXES:
+.SUFFIXES: .c .o
+
+CFLAGS=	-v -map -xref -I"$(VUCL)/Include" -I"$(VTCPIP)/Include" -I"$(VTCPIP)/VerixInclude"  -I"$(VVMAC)/Include" -Isource -Isource/include/ -I../include/ -armcc,"--diag_suppress 188" -D__UNSIGNED
+#CFLAGS=	-g -k -v -map -xref -I"$(VUCL)/Include" -I"$(VTCPIP)/Include" -I"$(VTCPIP)/VerixInclude" -Isource -Isource/include/ -I../include/ -armcc,"--diag_suppress 188" 
+#CFLAGS=	-g -k -v -map -xref -I"$(VUCL)/Include" -I"$(VTCPIP)/Include" -I"$(VTCPIP)/VerixInclude" -Isource -Isource/include/ -I../include/ -armcc,"--diag_suppress 188"
+
+SRCPATH=source/
+
+BIN=	./bin/
+
+OTHERLIBS=	"$(VUCL)"\\Output\\RV\\Files\\Static\\Release\\UCL.a \
+		"$(VTCPIP)"\\Output\\RV\\Files\\Static\\Release\\vtcpip.a 
+
+
+SRC=		$(SRCPATH)irismain.c \
+		$(SRCPATH)display.c \
+		$(SRCPATH)input.c \
+		$(SRCPATH)timer.c \
+		$(SRCPATH)comms.c \
+		$(SRCPATH)printer.c \
+		$(SRCPATH)Prtean13.c \
+		$(SRCPATH)Prtean128.c \
+		$(SRCPATH)time.c \
+		$(SRCPATH)utilbintobcd.c \
+		$(SRCPATH)utilhextostring.c \
+		$(SRCPATH)utilstringtohex.c \
+		$(SRCPATH)utilstringtonumber.c \
+		$(SRCPATH)utilstrdup.c \
+		$(SRCPATH)security.c \
+		$(SRCPATH)as2805.c \
+		$(SRCPATH)sha1.c \
+		$(SRCPATH)iris.c \
+		$(SRCPATH)iris2805.c \
+		$(SRCPATH)iris_io.c \
+		$(SRCPATH)iriscfg.c \
+		$(SRCPATH)iriscrypt.c \
+		$(SRCPATH)irisfunc.c \
+		$(SRCPATH)irismath.c \
+		$(SRCPATH)irispstn.c \
+		$(SRCPATH)irisser.c \
+		$(SRCPATH)iristime.c \
+		$(SRCPATH)irisutil.c \
+		$(SRCPATH)iristcp.c \
+		$(SRCPATH)iriscomms.c \
+		$(SRCPATH)inflate.c \
+		$(SRCPATH)inftrees.c \
+		$(SRCPATH)inffast.c \
+		$(SRCPATH)crc32.c \
+		$(SRCPATH)adler32.c \
+		$(SRCPATH)zutil.c \
+		$(SRCPATH)malloc.c \
+		$(SRCPATH)calloc.c \
+		$(SRCPATH)realloc.c
+
+SCRIPT=	$(SRCPATH)irissec.vs_
+
+OBJECTS=	$(SRCPATH)internal.table \
+		$(SRCPATH)internal.keys.table
+
+OBJ=	$(SRC:.c=.o)
+OBJSCRIPT=	$(SCRIPT:.vs_=.vso)
+
+all:	auris.out
+
+test.out: test.o
+	vrxcc $(CFLAGS) test.o -o $@
+	vrxhdr -v1.1 -s90000 -h980000 $@
+	FileSignature ./$(@:.out=.fst) -nogui
+	cp $@ bin/auris.out
+	FileSignature ./auris.fst -nogui
+
+auris.out: $(OBJ) $(OBJSCRIPT)
+	vrxcc $(CFLAGS) $(OBJ) $(OTHERLIBS) -o $@
+	vrxhdr -v1.1 -s90000 -h980000 $@
+	cp /cygdrive/c/VxAps/VRXSDK/Bin/dbmon.out bin/
+	cp $@ bin/
+	FileSignature ./$(@:.out=.fst) -nogui
+
+.c.o:   $(OBJECTS)
+	vrxcc -c $(CFLAGS) $< -o $@
+
+$(OBJSCRIPT): $(SCRIPT)
+	vssconv $<
+	cp $@ bin/
+
+clean:
+	-rm -f *.o $(SRCPATH)*.o $(SRCPATH)*.vso $(SRCPATH)*.log *.a *.LIB *.axf *.map *.out bin/*.P7S bin/*.out bin/*.vso

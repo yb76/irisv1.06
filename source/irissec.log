@@ -1,0 +1,17 @@
+VeriShield Security Script Tool version 4.0 - PSVSSv40 - 11/10/2004
+    Copyright (c) 2001-2004, VeriFone, Inc.
+
+
+source/irissec.vs_ - 0 error(s).
+
+Tool Identifier (Max Op Code Version Used): PSVSSv1
+Tool Version: 4.0
+Script Identifier: 07h
+Script Name: IRISSEC
+Number of Macros: 148 (94h)
+Macro Code Size: 1773 (6EDh) bytes
+Total number of blocks: 255 (FFh) of which 255 (FFh) can be
+  loaded using the default key loading functions.
+Number of pre-loaded blocks: 0 (0h)
+
+Execution ended normally.

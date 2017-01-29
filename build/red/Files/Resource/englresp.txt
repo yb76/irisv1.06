@@ -1,0 +1,111 @@
+0 APPROVED             
+1 DECLINED             
+2 REFER TO ISSUER      
+3 INVALID MERCHANT     
+4 PICK-UP CARD         
+5 DO NOT HONOUR        
+6 ERROR                
+7 PICK-UP CARD,SPL COND
+8 APPROVE WTH SIGNATURE
+9 REQUEST IN PROGRESS  
+10APPVD FOR PARTIAL AMT
+11APPROVED (VIP)       
+12INVALID TRANSACTION  
+13INVALID AMOUNT       
+14ERROR - INVALID CARD 
+15NO SUCH ISSUER       
+16APPROVED, UPDATE TK 3
+17CUSTOMER CANCELLATION
+18CUSTOMER DISPUTE     
+19RE-ENTER TRANSACTION 
+20INVALID RESPONSE     
+21NO TRANSACTIONS      
+22Suspected Malfunction
+23Unaccepted Trans Fee 
+24File Upd not Suported
+25ERROR-TERM. INACTIVE 
+26Dup Rec,Old Rec Rplcd
+27Field Edit Error     
+28File Locked out      
+29File Update Error    
+30ERROR - INVLD FORMAT 
+31ERROR - NS           
+32Completed Partially  
+33Expired Card         
+34Suspected Fraud      
+35Contact Acquirer     
+36Restricted Card      
+37Call Acq. Security   
+38PIN tries Exceeded   
+39No Credit Account    
+40Func. not Supported  
+41PLEASE CALL - LC     
+42No Universal Account 
+43PLEASE CALL - CC     
+44No Investment Account
+45ISO error #45        
+46ISO error #46        
+47ISO error #47        
+48ISO error #48        
+49ISO error #49        
+50ISO error #50        
+51DECLINED             
+52No Chequeing Account 
+53No Savings Account   
+54EXPIRED CARD         
+55Incorrect PIN        
+56No Card Record       
+57Txn not Permtd-card  
+58INVALID TRANSACTION  
+59Suspected Fraud      
+60Contact Acquirer     
+61Exceeds Amount Limit 
+62Restricted Card      
+63Security Violation   
+64Org Amount Incorrect 
+65Freq. Limit Exceed   
+66Call Acq's Security  
+67Hard Capture         
+68Resp Recvd too Late  
+69Insufficient Point   
+70ISO error #70        
+71ISO error #71        
+72ISO error #72        
+73ISO error #73        
+74ISO error #74        
+75PIN Tries Exceeded   
+76ERROR - DESCRIPTOR   
+77RECONCILE ERROR      
+78OLD ROC NOT FOUND    
+79BATCH ALREADY OPEN   
+80BAD BATCH NUMBER     
+81Private error #81    
+82Private error #82    
+83Private error #83    
+84Private error #84    
+85BATCH NOT FOUND      
+86Private error #86    
+87Private error #87    
+88HAVE CM CALL AMEX    
+89BAD TERMINAL ID      
+90CUTOFF IN PROCESS    
+91ERROR - HOST UNAVAL  
+92TRANS CANT BE ROUTED 
+93TXN CANT BE COMPLETED
+94DUPLCATE TRANSMISSION
+95RECONCILE ERROR SETTL
+96SYSTEM MALFUNCTION   
+97ADV OF SETTLE MISMATC
+98MAC ERROR            
+99Resvd. for Nat. use  
+N1PROMPT FOR - ODOMETER
+N2PROMPT FOR - CUST REF
+N3PROMPT FOR ODO & REF 
+N4SYSTEM ERROR         
+N5SYSTEM ERROR         
+N6SYSTEM ERROR         
+N7SYSTEM ERROR         
+N8AUT REQ FROM HELPDESK
+NFPROMPT FOR ODO & REF 
+NPPRODUCT RESTRICTIONS 
+NSSITE RESTRICTIONS    

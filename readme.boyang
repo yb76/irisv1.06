@@ -1,0 +1,8 @@
+
+1. OS update
+2. VTCPIP/UCL lib update
+3. key loading files: internal.*
+4. bug fix
+   to compare two numbers "00":
+   UtilStringToNumber()
+5. bug fix iristime.c

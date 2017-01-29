@@ -1,0 +1,361 @@
+/////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////// KEY INJECTION INITIAL SCREEN //////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
+/*
+{"KEYS_INIT",			"{"
+							"TYPE:DISPLAY,"
+							"NAME:KEYS_INIT,"
+							"GROUP:iRIS,"
+							"VERSION:1.0,"
+							"PATH:"
+							"["
+								"[,INIT,{/__ERRMSG/RETURN:KEYS_INIT},],"
+								"[,[TIME,3000],{:[()SER_CONNECT,,10,100,115200,8,N,1,4096],:()SEC_INIT},KEYS_WAIT]]]"
+							"]"
+						"}"
+},
+*/
+
+
+/*
+
+{"KEYS_INIT2",			"{"
+							"TYPE:DISPLAY,"
+							"NAME:KEYS_INIT2,"
+							"GROUP:iPAY,"
+							"VERSION:1.0,"
+							"NEW_OBJECT:"
+							"["
+								"[NAME,CONFIG]"
+							"],"
+							"ANIMATION:"
+							"["
+								"[LARGE,__LOCAL,203,2,C],"
+								"[LARGE,THIS,()PPID,4,C],"
+							"],"
+
+							"PATH:"
+							"["
+								"[KEY,KEY_OK,{:()REBOOT},]"
+							"]"
+						"}"
+},
+*/
+
+{"KEYS_INIT",			"{"
+							"TYPE:DISPLAY,"
+							"NAME:KEYS_INIT,"
+							"GROUP:iRIS,"
+							"VERSION:1.0,"
+							"PATH:"
+							"["
+								"[,INIT,{:()SEC_INIT},],"
+								"[,INIT,{:[()DES_RANDOM,/iRIS/SESS,16]},],"
+								"[,INIT,{:[()DES_STORE,/iRIS/MASTER,16,02040810020408100204081002040810]},],"
+								"[,INIT,{:[()DES_STORE,/iRIS/SK,16,08080808080808080808080808080808]},],"
+								"[,INIT,{:[()PPID_UPDATE,1102091308951338]},KEYS_INIT2],"
+							"]"
+						"}"
+},
+
+{"KEYS_INIT2",			"{"
+							"TYPE:DISPLAY,"
+							"NAME:KEYS_INIT2,"
+							"GROUP:iPAY,"
+							"VERSION:1.0,"
+
+							"NEW_OBJECT:"
+							"["
+								"[NAME,CONFIG],"
+								"[SKmanPKtcuMOD,"	"4FE0B6A94256B06065AB32AAA5F4FA3D"
+													"A029C4E3B36D64971294E1413598580D"
+													"7D91F6EEB1A5EB197E26E0210EECD804"
+													"FFD9DC842A591B85D87D0E8E52F73F14"
+													"F707C52D1072FD9A67BA770E29A2B413"
+													"D1D190496512AD1BA505E1FEAC99671C"
+													"CEAFC3C9287517E849253D3BEFD9D2DF"
+													"8865789B81A271E87E09DF1D623844D4],"
+
+								"[SKmanPKtcuEXP,"	"4F47740CBBF77E0660278EE0D07C3815"
+													"68A598206FE2A20160DDC6F0260DBE44"
+													"35DD6A5DAE108406EDC76BB5117CED07"
+													"D7BBE5A53C81CBCB43FED5881615ED79"
+													"90D33EFEE33D96BEE0DACB9B04C6F850"
+													"964D9DDE6B6CB2AFD17BD7EDB6B078D5"
+													"35462BCE79FC5791F074AB81570054E7"
+													"EE7E2727BDBF623B24176D8095AC0560],"
+
+								"[SKtcu,"			"78"
+													"78"
+													"96EF09176123ECCDFD3ED3658E46C7A8"
+													"53C2CA9EFFFADF56F644F3A055299002"
+													"CF7AB29A15070D9023F4156B0D1F9E94"
+													"45823DC632F6741E87D339F2D069384A"
+													"594C9F91275F39DD402D89DE22A4C0ED"
+													"6589E849E465353B46165A90308DB481"
+													"6B7C3E514C088A313B8C881F99C403A7"
+													"F9F17AA1C867C7BB"
+
+													"649F5B64EB6D4889537F37990984851A"
+													"E281DC69FFFC94E4A42DF7C038C66001"
+													"DFA721BC0E04B3B56D4D639CB36A69B8"
+													"2E56D3D9774EF8145A8CD14B84CA957E"
+													"5A5FF00734D7BE78AB7E655745FB9073"
+													"155196883FEA91ADB9BADEA127BD1AF2"
+													"BA013C27F1DCC4F888028E95E14ABB38"
+													"02C50A0611FB3E7B"
+
+													"000000000000]"
+
+							"],"
+
+							"PATH:"
+							"["
+								"[,INIT,,KEYS_INIT3]"
+							"]"
+						"}"
+},
+
+{"KEYS_INIT3",			"{"
+							"TYPE:DISPLAY,"
+							"NAME:KEYS_INIT3,"
+							"GROUP:iRIS,"
+							"VERSION:1.0,"
+							"PATH:"
+							"["
+								"[,INIT,{:()IV_CLR,//CONFIG/SKtcu:[()ENC,/iRIS/SESS,,/CONFIG/SKtcu]},KEYS_DONE]"
+							"]"
+						"}"
+},
+
+
+
+//////////////////////////// WAITING FOR KEY INJECTION COMMANDS ////////////////////////////
+///////////////////////////////////////// PHASE - 1  ///////////////////////////////////////
+// 																			"{:[()RSA_DERIVE_3DES,/iRIS/PK_SESS,,/iRIS/SESS,/KEYSCSV/F1],:[()SER_SEND,06,]},"
+//																			"{~MYSESS:[()RSA_CRYPT,/iRIS/PK_SESS,/KEYSCSV/F1],:[()DES_STORE,/iRIS/SESS,16,~MYSESS|32-|],~MYSESS>:,:[()SER_SEND,06,]},"
+//																			"{:[()DES_STORE,/iRIS/SESS,16,/KEYSCSV/F1|32-|],:[()SER_SEND,06,]},"
+
+{"KEYS_WAIT",			"{"
+							"TYPE:DISPLAY,"
+							"NAME:KEYS_WAIT,"
+							"GROUP:iRIS,"
+							"VERSION:1.1,"
+							"ANIMATION:"
+							"["
+								"[LARGE,__LOCAL,6,2,C],"
+								"[,__LOCAL,200,5,C],"
+								"[,__LOCAL,201,6,C]"	
+							"],"
+							"PATH:"
+							"["
+								"[,INIT,{//KEYSCSV>:},],"
+								"[,SER_DATA,{/KEYS/DATA:[()SER_RECV,3,100,]},KEYS],"
+								"[KEY,KEY_CLR,,KEYS_INIT],"
+								"[KEY,CANCEL,{:()REBOOT},]"
+							"]"
+						"}"
+},
+
+{"KEYS",				"{"
+							"TYPE:DISPLAY,"
+							"NAME:KEYS,"
+							"GROUP:iRIS,"
+							"VERSION:1.1,"
+							"PATH:"
+							"["
+								"[,INIT,,["
+											"[~DATA,,{:[()CSV,KEYSCSV,\\h~DATA,0D,0A,09]},"
+												"["
+													"[/KEYSCSV/F0,S,{~MY_SHA1:[()SHA1,/KEYSCSV/F1]},"
+																	"["
+																		"[~MY_SHA1,/KEYSCSV/F2,"
+																			"{:[()RSA_STORE,/iRIS/PK_SESS,/KEYSCSV/F1],:[()SER_SEND,06,]},"
+																			"KEYS_WAIT"
+																		"]"
+																	"]"
+													"],"
+
+													"[/KEYSCSV/F0,R,{~MY_SHA1:[()SHA1,/KEYSCSV/F1]},"
+																	"["
+																		"[~MY_SHA1,/KEYSCSV/F2,"
+ 																			"{:[()RSA_DERIVE_3DES,/iRIS/PK_SESS,,/iRIS/SESS,/KEYSCSV/F1],:[()RSA_CLEAR,/iRIS/PK_SESS],:[()SER_SEND,06,]},"
+																			"KEYS_WAIT"
+																		"]"
+																	"]"
+													"],"
+
+													"[/KEYSCSV/F0,M,{~MY_SHA1:[()SHA1,/KEYSCSV/F1]},"
+																	"["
+																		"[~MY_SHA1,/KEYSCSV/F2,"
+																			"{:[()DERIVE_3DES,/iRIS/SESS,,/iRIS/MASTER,,/KEYSCSV/F1],~KVC:[()KVC,/iRIS/MASTER,]},"
+																			"["
+																				"[/KEYSCSV/F1>|33-38|,~KVC,{:[()SER_SEND,06,]},KEYS_WAIT]"
+																			"]"
+																		"]"
+																	"]"
+													"],"
+
+													"[/KEYSCSV/F0,C,{~MY_SHA1:[()SHA1,/KEYSCSV/F1]},"
+																	"["
+																		"[~MY_SHA1,/KEYSCSV/F2,"
+																			"{:[()DERIVE_3DES,/iRIS/SESS,,/iRIS/SK,,/KEYSCSV/F1],~KVC:[()KVC,/iRIS/SK,]},"
+																			"["
+																				"[/KEYSCSV/F1>|33-38|,~KVC,{:[()SER_SEND,[06,\\a()SERIAL_NO],]},KEYS_WAIT]"
+																			"]"
+																		"]"
+																	"]"
+													"],"
+
+													"[/KEYSCSV/F0,T,{~MY_SHA1:[()SHA1,/KEYSCSV/F1]},"
+																	"["
+																		"[~MY_SHA1,/KEYSCSV/F2,"
+																			"{:[()DERIVE_3DES,/iRIS/SESS,SGB,/KEYS_SGB/KTK,,/KEYSCSV/F1],:[()DERIVE_3DES,/iRIS/SESS,SGB,/KEYS_SGB/KTKE,,/KEYSCSV/F1],~KVC:[()KVC,/KEYS_SGB/KTK,]},"
+																			"["
+																				"[/KEYSCSV/F1>|33-38|,~KVC,{:[()SER_SEND,06,]},KEYS_WAIT]"
+																			"]"
+																		"]"
+																	"]"
+													"],"
+
+													"[/KEYSCSV/F0,P,{~MY_SHA1:[()SHA1,/KEYSCSV/F1]},"
+																	"["
+																		"[~MY_SHA1,/KEYSCSV/F2,"
+																			"{:[()PPID_UPDATE,\\h/KEYSCSV/F1],:[()SER_SEND,06,]},"
+																			"KEYS_WAIT_BANK"
+																		"]"
+																	"]"
+													"],"
+
+
+													"[,,{:[()SER_SEND,15,],/__ERRMSG/L2F:FORMAT ERROR},__ERRMSG]"
+												"]"
+											"],"
+											"KEYS_WAIT"
+										"]"
+								"]"
+							"]"
+						"}"
+},
+
+
+
+
+
+
+
+
+
+
+//
+// Injecting in this order: PKsession, Master, SK, KTK, PPID
+// If changing to a different bank....Change from KTK onwards
+//
+
+//
+// ****************** Need to add an rsa wrap function at the end 
+// Copy this:
+//	:[()DES_GEN,~SESS,16],:[()SER_SEND,[06,()RSA_WRAP_3DES,/iRIS/PK_SESS,,/iRIS/SESS],]
+// immediately after RSA_STORE line and remove sending 06 on that line and generating 0202..0202 sesion key
+//
+// For "PC" testing on PC, leave as is and inject a session key of 020202....020202 at key injection PC.
+// "{:[()RSA_STORE,/iRIS/PK_SESS,~KEY],:[()SER_SEND,06,],:[()DES_STORE,/iRIS/SESS,16,02020202020202020202020202020202]},"
+//
+
+
+
+//////////////////////////// WAITING FOR KEY INJECTION COMMANDS ////////////////////////////
+///////////////////////////////////////// PHASE - 2  ///////////////////////////////////////
+{"KEYS_WAIT_BANK",		"{"
+							"TYPE:DISPLAY,"
+							"NAME:KEYS_WAIT_BANK,"
+							"GROUP:iRIS,"
+							"VERSION:1.0,"
+							"ANIMATION:"
+							"["
+								"[LARGE,__LOCAL,6,2,C],"
+								"[,__LOCAL,200,5,C],"
+								"[,__LOCAL,202,6,C]"	
+							"],"
+							"PATH:"
+							"["
+								"[,INIT,{//KEYSCSV>:},],"
+								"[,SER_DATA,{/KEYS_BANK/DATA:[()SER_RECV,3,100,]},KEYS_BANK],"
+								"[KEY,CANCEL,{:()REBOOT},]"
+							"]"
+						"}"
+},
+
+
+{"KEYS_BANK",			"{"
+							"TYPE:DISPLAY,"
+							"NAME:KEYS_BANK,"
+							"GROUP:iPAY,"
+							"VERSION:1.0,"
+							"PATH:"
+							"["
+								"[,INIT,,["
+											"[~DATA,,{:[()CSV,KEYSCSV,\\h~DATA,0D,0A,09]},"
+												"["
+													"[/KEYSCSV/F0,1,{~MY_SHA1:[()SHA1,/KEYSCSV/F1]},"
+																	"["
+																		"[~MY_SHA1,/KEYSCSV/F2,"
+																			"{//CONFIG/SKmanPKtcuMOD:/KEYSCSV/F1,:[()SER_SEND,06,]},"
+																			"KEYS_WAIT_BANK"
+																		"]"
+																	"]"
+													"],"
+
+													"[/KEYSCSV/F0,2,{~MY_SHA1:[()SHA1,/KEYSCSV/F1]},"
+																	"["
+																		"[~MY_SHA1,/KEYSCSV/F2,"
+																			"{//CONFIG/SKmanPKtcuEXP:/KEYSCSV/F1,:[()SER_SEND,06,]},"
+																			"KEYS_WAIT_BANK"
+																		"]"
+																	"]"
+													"],"
+
+													"[/KEYSCSV/F0,3,{~MY_SHA1:[()SHA1,/KEYSCSV/F1]},"
+																	"["
+																		"[~MY_SHA1,/KEYSCSV/F2,"
+																			"{//CONFIG/SKtcu:/KEYSCSV/F1,:[()SER_SEND,06,]},"
+																			"KEYS_DONE"
+																		"]"
+																	"]"
+													"],"
+
+													"[,,{:[()SER_SEND,15,],/__ERRMSG/L2F:FORMAT ERROR},__ERRMSG]"
+												"]"
+											"],"
+											"KEYS_WAIT"
+										"]"
+								"]"
+							"]"
+						"}"
+},
+
+
+/////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////// FEEDBACK SCREEN //////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////// SUCCESS DISPLAY ////////////////////////////////////
+{"KEYS_DONE",			"{"
+							"TYPE:DISPLAY,"
+							"NAME:KEYS_DONE,"
+							"GROUP:iPAY,"
+							"VERSION:1.0,"
+							"ANIMATION:"
+							"["
+								"[LARGE,__LOCAL,203,2,C],"
+								"[LARGE,THIS,()PPID,4,C],"
+							"],"
+
+							"PATH:"
+							"["
+								"[KEY,KEY_OK,{//KEYSCSV>:,:()REBOOT},],"
+								"[KEY,[KEY_CLR,CANCEL],{:()PPID_REMOVE},KEYS_WAIT]"
+							"]"
+						"}"
+},
+

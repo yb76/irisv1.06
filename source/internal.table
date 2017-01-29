@@ -1,0 +1,390 @@
+static const struct
+{
+	char * name;
+	const char * object;
+} internalObjects[] =
+{
+
+#include "internal.keys.table"
+
+	{"iRIS",				"{"
+								"TYPE:PROFILE,"
+								"NAME:iRIS,"
+								"GROUP:iRIS,"
+								"VERSION:1.05,"
+								"PK_SESS:5,"
+								"SESS:2,"
+								"MASTER:4,"
+								"KEK:6,"
+								"PPASN:50,"
+								"SK:51,"
+								"MKs:101,"
+								"MKr:103,"
+								"KTK:253,"
+		
+								"HIP:54.252.88.89,"
+								"PORT:44558,"
+
+								"OIP:0.0.0.0,"
+
+								"SER_PORT:0,"
+								"SER_BAUD:115200,"
+								"SER_DATA:8,"
+								"SER_PARITY:N,"
+								"SER_STOP:1,"
+								
+								"BUFLEN:10000,"
+								"TIMEOUT:10,"
+								"ITIMEOUT:7000,"
+
+								"PATH:[[,,,GET_PROFILES]]"
+							"}"
+	},
+
+	{"__LOCAL",				"{TYPE:TEXT TABLE,"
+							"NAME:__LOCAL,"
+							"VERSION:1.0,"
+							"PROMPT:"
+							"["
+								"[1,Own IP Address:],"
+								"[2,Host IP Address:],"
+								"[3,Host TCP Port:],"
+								"[4,Gateway:],"
+								"[5,Phone Number:],"
+								"[6,i-RIS],"
+								"[7,INITIALISATION],"
+								"[8,REQUIRED],"
+								"[9,Press OK to start],"
+								"[12,PLEASE SELECT],"
+								"[13,CONNECTION TYPE],"
+								"[14, IP       SERIAL DIAL],"
+								"[15,Gateway:],"
+								"[30,Pri DNS:],"
+								"[31,Sec DNS:],"
+#ifdef __VX670
+								"[32,APN:],"
+#endif
+								"[35,PORT NUMBER:],"
+								"[36,BAUD RATE:],"
+								"[37,DATA BITS:],"
+								"[38,PARITY:],"
+								"[39,STOP BITS:],"
+
+								"[40,BUFFER SIZE:],"
+								"[41,TIMEOUT (sec):],"
+								"[42,ITIMEOUT(msec):],"
+
+								"[17,STARTING],"
+								"[18,NOW],"
+								"[19,** PLEASE WAIT **],"
+
+								"[200,KEY INJECTION],"
+								"[201,PHASE 1],"
+								"[202,PHASE 2],"
+								"[203,KEYS INJECTED OK],"
+
+								"[300,BATTERY LOW],"
+								"[301,PLEASE RECHARGE],"
+
+								"[500,ENTER FASTCODE],"
+								"[501,ENTER QUANTITY],"
+								"[502,ENTER AMOUNT],"
+								"[503,ENTER USER ID],"
+								"[504,ENTER PASSWORD],"
+								"[505,ENTER REFERENCE],"
+							"]}"},
+
+
+	{"__BOOT",				"{"	"TYPE:DISPLAY,"
+								"NAME:__BOOT,"
+								"GROUP:iRIS,"
+								"VERSION:1.0,"
+								"ANIMATION:[[,THIS,[()TIME,DD/MM/YYYY   hh:mm:ss,()NOW],1,1,,,1,N],"
+										   "[LARGE,__LOCAL,6,2,C],"
+										   "[,__LOCAL,[[/IRIS_CFG/COMMS_TYPE,,,17],7],5,C],"
+										   "[,__LOCAL,[[/IRIS_CFG/COMMS_TYPE,,,18],8],6,C],"
+										   "[,__LOCAL,[[/IRIS_CFG/COMMS_TYPE,,,19],9],8,C]],"
+
+								"PATH:"	"["
+											"[,INIT,,[[/IRIS_CFG/OIP,NULL,{//IRIS_CFG/OIP:/iRIS/OIP},],[/IRIS_CFG/HIP,NULL,{//IRIS_CFG/HIP:/iRIS/HIP},],[/IRIS_CFG/PORT,NULL,{//IRIS_CFG/PORT:/iRIS/PORT},]]],"
+											"[,INIT,,[[/IRIS_CFG/SER_PORT,NULL,{//IRIS_CFG/SER_PORT:/iRIS/SER_PORT},],[/IRIS_CFG/SER_BAUD,NULL,{//IRIS_CFG/SER_BAUD:/iRIS/SER_BAUD},]]],"
+											"[,INIT,,[[/IRIS_CFG/SER_DATA,NULL,{//IRIS_CFG/SER_DATA:/iRIS/SER_DATA},],[/IRIS_CFG/SER_PARITY,NULL,{//IRIS_CFG/SER_PARITY:/iRIS/SER_PARITY},],[/IRIS_CFG/SER_STOP,NULL,{//IRIS_CFG/SER_STOP:/iRIS/SER_STOP},]]],"
+											"[,INIT,,[[/IRIS_CFG/BUFLEN,NULL,{//IRIS_CFG/BUFLEN:/iRIS/BUFLEN},],[/IRIS_CFG/TIMEOUT,NULL,{//IRIS_CFG/TIMEOUT:/iRIS/TIMEOUT},],[/IRIS_CFG/ITIMEOUT,NULL,{//IRIS_CFG/ITIMEOUT:/iRIS/ITIMEOUT},]]],"
+											"[,INIT,,[[/CONFIG/NAME,NULL,,KEYS_INIT],[()PPID,NULL,,KEYS_INIT]]],"
+											"[,INIT,,[[/CONFIG/SKtcu,,{:[()IV_CLR,()3DES_RSA_STORE,/iRIS/SESS,iPAY,/iPAY/SKtcu,/CONFIG/SKtcu]},]]],"
+#ifdef __VX670
+											"[,[TIME,500],,[[/IRIS_CFG/COMMS_TYPE,,,SELF_TEST]]],"
+#else
+											"[,[TIME,500],,[[/IRIS_CFG/COMMS_TYPE,IP,{:[()IP_CONNECT,/IRIS_CFG/OIP,/IRIS_CFG/GW,/IRIS_CFG/PDNS,/IRIS_CFG/SDNS,15]},],[/IRIS_CFG/COMMS_TYPE,,,SELF_TEST]]],"
+#endif
+											"[KEY,KEY_OK,{/__COMMS/RETURN:__BOOT},__COMMS]]"
+										"]"
+							"}"
+	},
+
+	{"__COMMS",				"{TYPE:DISPLAY,"
+							"NAME:__COMMS,"
+							"GROUP:iRIS,"
+							"ANIMATION:["	"[LARGE,__LOCAL,6,1,C],"
+											"[,__LOCAL,12,4,C],"
+											"[,__LOCAL,13,5,C],"
+											"[,__LOCAL,14,B,1]],"
+
+							"PATH:["		"[KEY,KEY_SK1,,__COMMS_OIP],"
+											"[KEY,KEY_SK3,,__COMMS_SER_PORT],"
+#ifndef __VX670
+											"[KEY,KEY_SK4,,__COMMS_DIAL],"
+#endif
+											"[KEY,[KEY_CLR,CANCEL],,~RETURN],"
+											"[,[TIME,30000],,~RETURN]]}"
+	},
+
+
+	{"__COMMS_OIP",			"{TYPE:DISPLAY,"
+							"NAME:__COMMS_OIP,"
+							"GROUP:iRIS,"
+#ifdef __VX670
+							"ANIMATION:["	"[LARGE,__LOCAL,32,2,1],"
+#else
+							"ANIMATION:["	"[LARGE,__LOCAL,1,2,1],"
+#endif
+											"[STRING,/IRIS_CFG/OIP,,6,1]],"
+
+							"PATH:["		"[KEY,KEY_CLR,,__COMMS],"
+											"[KEY,CANCEL,,/__COMMS/RETURN],"
+#ifdef __VX670
+											"[KEY,KEY_OK,{//IRIS_CFG/OIP:()INPUT},__COMMS_HIP],"
+#else
+											"[KEY,KEY_OK,{//IRIS_CFG/OIP:()INPUT},[[/IRIS_CFG/OIP,0.0.0.0,,__COMMS_HIP],__COMMS_GW]],"
+#endif
+											"[,[TIME,30000],,/__COMMS/RETURN]]}"
+	},
+
+
+	{"__COMMS_GW",			"{TYPE:DISPLAY,"
+							"NAME:__COMMS_GW,"
+							"GROUP:iRIS,"
+							"ANIMATION:["	"[LARGE,__LOCAL,15,2,1],"
+											"[STRING,/IRIS_CFG/GW,,6,1]],"
+
+							"PATH:["		"[KEY,KEY_CLR,,__COMMS_OIP],"
+											"[KEY,CANCEL,,/__COMMS/RETURN],"
+											"[KEY,KEY_OK,{//IRIS_CFG/GW:()INPUT},__COMMS_PDNS],"
+											"[,[TIME,30000],,/__COMMS/RETURN]]}"
+	},
+
+
+	{"__COMMS_PDNS",		"{TYPE:DISPLAY,"
+							"NAME:__COMMS_PDNS,"
+							"GROUP:iRIS,"
+							"ANIMATION:["	"[LARGE,__LOCAL,30,2,1],"
+											"[STRING,/IRIS_CFG/PDNS,,6,1]],"
+
+							"PATH:["		"[KEY,KEY_CLR,,__COMMS_GW],"
+											"[KEY,CANCEL,,/__COMMS/RETURN],"
+											"[KEY,KEY_OK,{//IRIS_CFG/PDNS:()INPUT},__COMMS_SDNS],"
+											"[,[TIME,30000],,/__COMMS/RETURN]]}"
+	},
+
+
+	{"__COMMS_SDNS",		"{TYPE:DISPLAY,"
+							"NAME:__COMMS_SDNS,"
+							"GROUP:iRIS,"
+							"ANIMATION:["	"[LARGE,__LOCAL,31,2,1],"
+											"[STRING,/IRIS_CFG/SDNS,,6,1]],"
+
+							"PATH:["		"[KEY,KEY_CLR,,__COMMS_PDNS],"
+											"[KEY,CANCEL,,/__COMMS/RETURN],"
+											"[KEY,KEY_OK,{//IRIS_CFG/SDNS:()INPUT},__COMMS_HIP],"
+											"[,[TIME,30000],,/__COMMS/RETURN]]}"
+	},
+
+
+	{"__COMMS_HIP",			"{TYPE:DISPLAY,"
+							"NAME:__COMMS_HIP,"
+							"GROUP:iRIS,"
+							"ANIMATION:["	"[LARGE,__LOCAL,2,2,1],"
+											"[STRING,/IRIS_CFG/HIP,,6,1,40]],"
+
+							"PATH:["		"[KEY,KEY_CLR,,[[/IRIS_CFG/OIP,0.0.0.0,,__COMMS_OIP],__COMMS_GW]],"
+											"[KEY,CANCEL,,/__COMMS/RETURN],"
+											"[KEY,KEY_OK,{//IRIS_CFG/HIP:()INPUT},__COMMS_PORT],"
+											"[,[TIME,30000],,/__COMMS/RETURN]]}"
+	},
+
+
+	{"__COMMS_PORT",		"{TYPE:DISPLAY,"
+							"NAME:__COMMS_PORT,"
+							"GROUP:iRIS,"
+							"ANIMATION:["	"[LARGE,__LOCAL,3,2,1],"
+											"[NUMBER,/IRIS_CFG/PORT,,6,1,5,1]],"
+
+							"PATH:["		"[KEY,KEY_CLR,,__COMMS_HIP],"
+											"[KEY,CANCEL,,/__COMMS/RETURN],"
+											"[KEY,KEY_OK,{//IRIS_CFG/PORT:()INPUT,//IRIS_CFG/COMMS_TYPE:IP},__COMMS_BUFLEN],"
+											"[,[TIME,30000],,/__COMMS/RETURN]]}"
+	},
+
+
+
+
+	{"__COMMS_SER_PORT",	"{TYPE:DISPLAY,"
+							"NAME:__COMMS_SER_PORT,"
+							"GROUP:iRIS,"
+							"ANIMATION:["	"[LARGE,__LOCAL,35,2,1],"
+											"[NUMBER,/IRIS_CFG/SER_PORT,,6,1,1,1]],"
+
+							"PATH:["		"[KEY,KEY_CLR,,__COMMS],"
+											"[KEY,CANCEL,,/__COMMS/RETURN],"
+											"[KEY,KEY_OK,{//IRIS_CFG/SER_PORT:()INPUT},__COMMS_SER_BAUD],"
+											"[,[TIME,30000],,/__COMMS/RETURN]]}"
+	},
+
+	{"__COMMS_SER_BAUD",	"{TYPE:DISPLAY,"
+							"NAME:__COMMS_SER_BAUD,"
+							"GROUP:iRIS,"
+							"ANIMATION:["	"[LARGE,__LOCAL,36,2,1],"
+											"[NUMBER,/IRIS_CFG/SER_BAUD,,6,1,6,4]],"
+
+							"PATH:["		"[KEY,KEY_CLR,,__COMMS_SER_PORT],"
+											"[KEY,CANCEL,,/__COMMS/RETURN],"
+											"[KEY,KEY_OK,{//IRIS_CFG/SER_BAUD:()INPUT},__COMMS_SER_DATA],"
+											"[,[TIME,30000],,/__COMMS/RETURN]]}"
+	},
+
+	{"__COMMS_SER_DATA",	"{TYPE:DISPLAY,"
+							"NAME:__COMMS_SER_DATA,"
+							"GROUP:iRIS,"
+							"ANIMATION:["	"[LARGE,__LOCAL,37,2,1],"
+											"[NUMBER,/IRIS_CFG/SER_DATA,,6,1,1,1]],"
+
+							"PATH:["		"[KEY,KEY_CLR,,__COMMS_SER_BAUD],"
+											"[KEY,CANCEL,,/__COMMS/RETURN],"
+											"[KEY,KEY_OK,{//IRIS_CFG/SER_DATA:()INPUT},__COMMS_SER_PARITY],"
+											"[,[TIME,30000],,/__COMMS/RETURN]]}"
+	},
+
+	{"__COMMS_SER_PARITY",	"{TYPE:DISPLAY,"
+							"NAME:__COMMS_SER_PARITY,"
+							"GROUP:iRIS,"
+							"ANIMATION:["	"[LARGE,__LOCAL,38,2,1],"
+											"[STRING,/IRIS_CFG/SER_PARITY,,6,1,1,1]],"
+
+							"PATH:["		"[KEY,KEY_CLR,,__COMMS_SER_DATA],"
+											"[KEY,CANCEL,,/__COMMS/RETURN],"
+											"[KEY,KEY_OK,{//IRIS_CFG/SER_PARITY:()INPUT},__COMMS_SER_STOP],"
+											"[,[TIME,30000],,/__COMMS/RETURN]]}"
+	},
+
+	{"__COMMS_SER_STOP",	"{TYPE:DISPLAY,"
+							"NAME:__COMMS_SER_STOP,"
+							"GROUP:iRIS,"
+							"ANIMATION:["	"[LARGE,__LOCAL,39,2,1],"
+											"[NUMBER,/IRIS_CFG/SER_STOP,,6,1,1,1]],"
+
+							"PATH:["		"[KEY,KEY_CLR,,__COMMS_SER_PARITY],"
+											"[KEY,CANCEL,,/__COMMS/RETURN],"
+											"[KEY,KEY_OK,{//IRIS_CFG/SER_STOP:()INPUT,//IRIS_CFG/COMMS_TYPE:SERIAL},__COMMS_BUFLEN],"
+											"[,[TIME,30000],,/__COMMS/RETURN]]}"
+	},
+
+
+#ifndef __VX670
+	{"__COMMS_DIAL",		"{TYPE:DISPLAY,"
+							"NAME:__COMMS_DIAL,"
+							"GROUP:iRIS,"
+							"ANIMATION:["	"[LARGE,__LOCAL,5,2,1],"
+											"[STRING,/IRIS_CFG/PHONENO,,6,1]],"
+
+							"PATH:["		"[KEY,KEY_CLR,,__COMMS],"
+											"[KEY,CANCEL,,/__COMMS/RETURN],"
+											"[KEY,KEY_OK,{//IRIS_CFG/PHONENO:()INPUT,//IRIS_CFG/COMMS_TYPE:DIAL},__COMMS_BUFLEN],"
+											"[,[TIME,30000],,/__COMMS/RETURN]]}"
+	},
+#endif
+
+	{"__COMMS_BUFLEN",		"{TYPE:DISPLAY,"
+							"NAME:__COMMS_BUFLEN,"
+							"GROUP:iRIS,"
+							"ANIMATION:["	"[LARGE,__LOCAL,40,2,1],"
+											"[STRING,/IRIS_CFG/BUFLEN,,6,1,6,1]],"
+
+							"PATH:["		"[KEY,KEY_CLR,,[[/IRIS_CFG/COMMS_TYPE,IP,,__COMMS_PORT],[/IRIS_CFG/COMMS_TYPE,SERIAL,,__COMMS_SER_STOP],__COMMS_DIAL]],"
+											"[KEY,CANCEL,,/__COMMS/RETURN],"
+											"[KEY,KEY_OK,{//IRIS_CFG/BUFLEN:()INPUT},[[/IRIS_CFG/BUFLEN,<8000,{//IRIS_CFG/BUFLEN:8000},],__COMMS_TIMEOUT]],"
+											"[,[TIME,30000],,/__COMMS/RETURN]]}"
+	},
+
+	{"__COMMS_TIMEOUT",		"{TYPE:DISPLAY,"
+							"NAME:__COMMS_TIMEOUT,"
+							"GROUP:iRIS,"
+							"ANIMATION:["	"[LARGE,__LOCAL,41,2,1],"
+											"[NUMBER,/IRIS_CFG/TIMEOUT,,6,1,6,1]],"
+
+							"PATH:["		"[KEY,KEY_CLR,,__COMMS_BUFLEN],"
+											"[KEY,CANCEL,,/__COMMS/RETURN],"
+											"[KEY,KEY_OK,{//IRIS_CFG/TIMEOUT:()INPUT},[[/IRIS_CFG/TIMEOUT,<1,{//IRIS_CFG/TIMEOUT:1},],__COMMS_ITIMEOUT]],"
+											"[,[TIME,30000],,/__COMMS/RETURN]]}"
+	},
+
+	{"__COMMS_ITIMEOUT",	"{TYPE:DISPLAY,"
+							"NAME:__COMMS_ITIMEOUT,"
+							"GROUP:iRIS,"
+							"ANIMATION:["	"[LARGE,__LOCAL,42,2,1],"
+											"[NUMBER,/IRIS_CFG/ITIMEOUT,,6,1,6,1]],"
+
+							"PATH:["		"[KEY,KEY_CLR,,__COMMS_TIMEOUT],"
+											"[KEY,CANCEL,,/__COMMS/RETURN],"
+											"[KEY,KEY_OK,{//IRIS_CFG/ITIMEOUT:()INPUT},/__COMMS/RETURN],"
+											"[,[TIME,30000],,/__COMMS/RETURN]]}"
+	},
+
+
+
+	{"__ERRMSG",			"{TYPE:DISPLAY,"
+							"NAME:__ERRMSG,"
+							"ANIMATION:[[,THIS,~L1,1,C],"
+									   "[,THIS,~L2,2,C],"
+									   "[,THIS,~L3,3,C],"
+									   "[,THIS,~L4,4,C],"
+									   "[,THIS,~L5,5,C],"
+									   "[,THIS,~L6,6,C],"
+									   "[,THIS,~L7,7,C],"
+									   "[LARGE,THIS,~L1F,1,C],"
+									   "[LARGE,THIS,~L2F,2,C],"
+									   "[LARGE,THIS,~L3F,3,C],"
+									   "[LARGE,THIS,~L4F,4,C]],"
+							"PATH:[[,INIT,{:()ERRORBEEP},],"
+								  "[KEY,KEY_FUNC,{/__COMMS/RETURN:~RETURN},__COMMS],"
+								  "[KEY,[KEY_OK,KEY_CLR,CANCEL],,~RETURN],"
+								  "[,LAST,{:[()CLR_TMP,]},]]}"
+	},
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+//
+// OBJECT:			__IRIS_SESSION
+//
+// DESCRIPTION:		- If TCP port number configured, connects via TCP/IP from OIP to HIP:PORT with:
+//						- Length header: yes
+//						- 15 second timeout
+//						- 700 msec interchar timeout
+//						- 3000 byte download buffer size.
+//					- If IP connection ok, TCP/IP sends the data: ID object followed by {TYPE:AUTH,PROOF:XXXXXXXXXXXXXXXX,KVC:YYYYYY} object where X's = Random IV used for OFB encrypted by MKr, Y's KVC of current KEK.
+//					- Wait for host to respond with packet either PSTN or TCP/IP:
+//						- If {TYPE:AUTH,RESULT:YES GRANTED} then all other folowing objects are OFB'd entirely, then stored with authentication.
+//						- If {TYPE:AUTH,RESULT:NEW SESSION} then 3 string:value pairs within the AUTH object MAY follow in this order. Some can be skipped though:
+//							- KEK:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX means 3DES INJECT X's into terminal KEK slot using Master Key.
+//							- PPASN:XXXXXXXXXXXXXXXX means DES INJECT X's into terminal using Master Key.
+//							- Immediately after KEK and/or PPASN strings or the absence of them, OWF KEK. KEK and PPASN are absent if this is only a session key change.
+//							- MKr:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX when X's are encrypted under KEK variant 24C0 but after KEK is OWF'd. MKr is used by the terminal when transmitting objects to host.
+//							- MKs:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX when X's are encrypted under KEK variant 48C0 but after KEK is OWF'd. MKr is used by the terminal when receving objects from host.
+//							- Immediately afterwards, re-do the session again. Ignore any other objects that MAY follow. Nione should though.
+//					- If after storage of objects, we notice this is a file upgrade, then perform it. If there are still more files to come, come back here and do this. File download object format as follows:
+//						- The file group are processed only when all 40 file groups are downloaded. A terminal reboot follows.
+//					- If after storage of objects we notice a display object, then we examine the signature string labelled SIGN along with 40 ascii hex byte value. The display object is authenticated
+//					  performing a SHA1 of the entire object but replacing the SIGN value with 40 zeros first then OFB encrypting the result and comparing it with the stored value. This should also occur
+//					  every time the terminal reboots for all display objects (except internal ones as they are already authenticated with the thin client program).
+//
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+	{NULL,					NULL}
+};

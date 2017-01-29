@@ -1,0 +1,10 @@
+Change the configuration :
+1. Open "RED.dld" file in Download folder.
+2. Change terminal IP in this variable : UCL.LOCALIP.
+3. Host terminal and merchant ID in this variable : HOST.TERMINAL.
+4. Host IP (Primary & Secondary if any) : UCL.PRI-HOSTIP & UCL.SEC-HOSTIP.
+5. SYS mode password : *smpw & *pw.
+
+
+Download :
+Run "d.bat". It's using COM1. Adjust it to your need (parameter -p1).
